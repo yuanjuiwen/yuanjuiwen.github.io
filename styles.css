@@ -16,12 +16,15 @@ body {
   font-weight: 300;
   background: #ffffff;
   color: #111827;
-  padding-top: 4.6rem;
+  padding-top: 72px;
 }
 
 .navbar {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.28));
   color: var(--nav-text);
+  height: 72px;
+  margin: 0;
+  padding: 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -39,11 +42,15 @@ body {
   inset: 0;
   background: linear-gradient(120deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.14) 35%, rgba(255, 255, 255, 0.05) 100%);
   pointer-events: none;
+  z-index: 0;
 }
 
 .navbar-inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  padding: 1.2rem 3.5rem;
+  height: 100%;
+  padding: 0 3.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
