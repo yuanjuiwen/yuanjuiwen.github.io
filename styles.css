@@ -194,17 +194,107 @@ body.page-about main {
   margin-top: 2rem;
 }
 
+.section-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 3rem 0 3rem;
+  margin-top: 3rem;
+}
+
+.section-heading {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.playground-section {
+  scroll-margin-top: 92px;
+}
+
+.playground-section .projects-grid {
+  --playground-left-col: 1.15fr;
+  --playground-right-col: 0.85fr;
+  --playground-gap: 2.5rem;
+  grid-template-columns: minmax(0, var(--playground-left-col)) minmax(0, var(--playground-right-col));
+  gap: var(--playground-gap);
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 3rem;
+  margin-top: 4rem;
+  align-items: start;
 }
 
 .project-card {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: none;
   border-radius: 24px;
   padding: 1.05rem;
+  cursor: none;
+  position: relative;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  pointer-events: none;
+  transform: translateZ(0) scale(1);
+  transform-origin: center;
+  will-change: transform;
+  transition: transform 720ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 720ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project-card * {
+  cursor: none;
+}
+
+.project-card:hover::before,
+.project-card:focus-within::before {
+  transform: translateZ(0) scale(1.02);
+  border-color: #cbd5e1;
+}
+
+.project-card:focus-within {
+  outline: 2px solid rgba(0, 0, 0, 0.18);
+  outline-offset: 4px;
+}
+
+.view-more-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2000;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: rgba(218, 218, 218, 0.88);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.3);
+  transition: opacity 220ms ease, transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+}
+
+.view-more-cursor.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.view-more-cursor span {
+  user-select: none;
 }
 
 .project-image {
@@ -214,6 +304,25 @@ body.page-about main {
   background: #f3f4f6;
   margin-bottom: 0.9rem;
   overflow: hidden;
+  transform: translateZ(0);
+  transform-origin: center;
+  will-change: transform;
+  transition: transform 720ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project-card:hover .project-image,
+.project-card:focus-within .project-image {
+  transform: scale(1.04);
+}
+
+.project-card--photo-e .project-image {
+  height: 360px;
+  
+}
+
+.project-card--game-design {
+  
+  max-width: 700px;
 }
 
 .project-media {
@@ -263,5 +372,19 @@ body.page-about main {
 @media (max-width: 700px) {
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card {
+    transition: none;
+  }
+
+  .project-card::before {
+    transition: none;
+  }
+
+  .view-more-cursor {
+    transition: none;
   }
 }
