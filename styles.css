@@ -10,21 +10,32 @@
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
   font-weight: 300;
   background: #ffffff;
   color: #111827;
-  padding-top: 72px;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+}
+
+body:has(.navbar) {
+  padding-top: calc(72px + env(safe-area-inset-top, 0px));
 }
 
 .navbar {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.28));
   color: var(--nav-text);
-  height: 72px;
+  height: calc(72px + env(safe-area-inset-top, 0px));
   margin: 0;
-  padding: 0;
+  padding: env(safe-area-inset-top, 0px) 0 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -49,8 +60,8 @@ body {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 100%;
-  padding: 0 3.5rem;
+  height: 72px;
+  padding: 0 max(3.5rem, env(safe-area-inset-right)) 0 max(3.5rem, env(safe-area-inset-left));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -104,7 +115,7 @@ body {
 main {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem max(1rem, env(safe-area-inset-left)) 2rem max(1rem, env(safe-area-inset-right));
 }
 
 body.page-about main {
@@ -360,6 +371,44 @@ body.page-about .photo-carousel-caption {
 }
 
 @media (max-width: 700px) {
+  .navbar-inner {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .nav-links {
+    gap: 0.75rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  .about-intro,
+  .experience-section,
+  .photo-carousel-section {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .about-photo {
+    margin-left: 0;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .playground-section .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
   .photo-carousel-prev {
     left: 0.35rem;
   }
@@ -377,7 +426,7 @@ body.page-about .photo-carousel-caption {
 
 .site-footer {
   text-align: center;
-  padding: 2.5rem 1rem 2rem;
+  padding: 2.5rem max(1rem, env(safe-area-inset-left)) max(2rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-right));
   color: #6b7280;
   font-size: 0.9rem;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
@@ -403,7 +452,7 @@ body.page-about .photo-carousel-caption {
 }
 
 .playground-section {
-  scroll-margin-top: 92px;
+  scroll-margin-top: calc(92px + env(safe-area-inset-top, 0px));
 }
 
 .playground-section .projects-grid {
@@ -590,7 +639,10 @@ body.page-about .photo-carousel-caption {
 .project-page {
   max-width: 900px;
   margin: 0 auto;
-  padding: 3rem 1rem 4rem;
+  padding-top: max(3rem, env(safe-area-inset-top));
+  padding-right: max(1rem, env(safe-area-inset-right));
+  padding-bottom: max(4rem, env(safe-area-inset-bottom));
+  padding-left: max(1rem, env(safe-area-inset-left));
 }
 
 .project-page h1 {
@@ -623,12 +675,6 @@ body.page-about .photo-carousel-caption {
   margin-top: 1.3rem;
   color: #374151;
   line-height: 1.7;
-}
-
-@media (max-width: 700px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
