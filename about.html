@@ -12,15 +12,16 @@
         <h1 class="brand"><a href="index.html">WEN</a></h1>
         <ul class="nav-links">
           <li><a href="index.html#work">Work</a></li>
-          <li><a href="index.html#playground">Playground</a></li>
+          <li><a href="index.html#play">Play</a></li>
           <li><a class="active" href="about.html">About</a></li>
         </ul>
       </div>
     </nav>
 
     <main>
-      <section id="about">
-        <img class="about-photo" src="assets/profile.jpg" alt="WEN portrait" />
+      <section id="about" class="about-intro" aria-labelledby="about-heading">
+        <h2 id="about-heading" class="section-heading">Hi, I'm Kevin Wen</h2>
+        <p class="about-intro-text">在這裡撰寫自我介紹。</p>
       </section>
 
       <section id="experience" class="experience-section">
@@ -45,7 +46,156 @@
           </article>
         </div>
       </section>
+
+      <section id="education" class="experience-section">
+        <h2>Education</h2>
+        <div class="experience-list">
+          <article class="experience-item">
+            <div class="experience-header">
+              <h3>National Cheng Kung University</h3>
+              <p class="experience-description">B.S Industrial Design</p>
+            </div>
+            <p class="experience-period">2022 - Present</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="gallery" class="photo-carousel-section" aria-label="Photo carousel">
+        <div class="photo-carousel" data-carousel>
+          <div class="photo-carousel-viewport" tabindex="0">
+            <ul class="photo-carousel-track">
+              <li class="photo-carousel-slide">
+                <img src="assets/Gallery_06.JPG" alt="Colendar project" loading="lazy" draggable="false" />
+                <p class="photo-carousel-caption">That is me!!!</p>
+              </li>
+              <li class="photo-carousel-slide">
+                <img src="assets/Gallery_02.JPEG" alt="Profile" loading="lazy" draggable="false" />
+                <p class="photo-carousel-caption">在這裡填寫第三張照片說明。</p>
+              </li>
+              <li class="photo-carousel-slide">
+                <img src="assets/Gallery_03.JPG" alt="Colendar project (2)" loading="lazy" draggable="false" />
+                <p class="photo-carousel-caption">在這裡填寫第四張照片說明。</p>
+              </li>
+              <li class="photo-carousel-slide">
+                <img src="assets/Gallery_10.JPG" alt="TJOY project (2)" loading="lazy" draggable="false" />
+                <p class="photo-carousel-caption">在這裡填寫第五張照片說明。</p>
+              </li>
+              <li class="photo-carousel-slide">
+                <img src="assets/Gallery_07.JPG" alt="Profile (2)" loading="lazy" draggable="false" />
+                <p class="photo-carousel-caption">在這裡填寫第六張照片說明。</p>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="photo-carousel-btn photo-carousel-prev" aria-label="Previous image">
+            ‹
+          </button>
+          <button type="button" class="photo-carousel-btn photo-carousel-next" aria-label="Next image">
+            ›
+          </button>
+          <div class="photo-carousel-dots" role="tablist" aria-label="Choose slide"></div>
+        </div>
+      </section>
     </main>
     <footer class="site-footer">&copy; 2026 Yuan-Jui Wen</footer>
+    <script>
+      (() => {
+        const root = document.querySelector("[data-carousel]");
+        if (!root) return;
+
+        const viewport = root.querySelector(".photo-carousel-viewport");
+        const slides = Array.from(root.querySelectorAll(".photo-carousel-slide"));
+        const prevBtn = root.querySelector(".photo-carousel-prev");
+        const nextBtn = root.querySelector(".photo-carousel-next");
+        const dotsEl = root.querySelector(".photo-carousel-dots");
+        if (!viewport || slides.length === 0 || !prevBtn || !nextBtn || !dotsEl) return;
+
+        let index = 0;
+
+        const updateA11y = () => {
+          slides.forEach((slide, i) => {
+            slide.setAttribute("aria-hidden", i === index ? "false" : "true");
+          });
+          Array.from(dotsEl.children).forEach((dot, i) => {
+            dot.setAttribute("aria-selected", i === index ? "true" : "false");
+            dot.tabIndex = i === index ? 0 : -1;
+          });
+        };
+
+        const syncIndexFromScroll = () => {
+          const mid = viewport.scrollLeft + viewport.clientWidth / 2;
+          let best = 0;
+          let bestDist = Infinity;
+          slides.forEach((slide, i) => {
+            const left = slide.offsetLeft;
+            const sw = slide.offsetWidth;
+            const center = left + sw / 2;
+            const d = Math.abs(mid - center);
+            if (d < bestDist) {
+              bestDist = d;
+              best = i;
+            }
+          });
+          if (best !== index) {
+            index = best;
+            updateA11y();
+          }
+        };
+
+        const scrollToIndex = (i) => {
+          const clamped = Math.max(0, Math.min(slides.length - 1, i));
+          slides[clamped].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        };
+
+        const go = (delta) => {
+          scrollToIndex((index + delta + slides.length) % slides.length);
+        };
+
+        slides.forEach((_, i) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "photo-carousel-dot";
+          btn.setAttribute("role", "tab");
+          btn.setAttribute("aria-label", `Slide ${i + 1}`);
+          btn.addEventListener("click", () => scrollToIndex(i));
+          dotsEl.appendChild(btn);
+        });
+
+        prevBtn.addEventListener("click", () => go(-1));
+        nextBtn.addEventListener("click", () => go(1));
+
+        viewport.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowLeft") go(-1);
+          if (e.key === "ArrowRight") go(1);
+        });
+
+        let scrollRaf = null;
+        viewport.addEventListener(
+          "scroll",
+          () => {
+            if (scrollRaf != null) cancelAnimationFrame(scrollRaf);
+            scrollRaf = requestAnimationFrame(() => {
+              scrollRaf = null;
+              syncIndexFromScroll();
+            });
+          },
+          { passive: true }
+        );
+
+        viewport.addEventListener("scrollend", () => {
+          syncIndexFromScroll();
+        });
+
+        let resizeTimer;
+        window.addEventListener("resize", () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(() => {
+            scrollToIndex(index);
+          }, 120);
+        });
+
+        syncIndexFromScroll();
+        updateA11y();
+      })();
+    </script>
   </body>
 </html>

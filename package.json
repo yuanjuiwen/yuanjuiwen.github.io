@@ -1,0 +1,25 @@
+{
+  "name": "yuanjuiwen.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serve . -l 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuanjuiwen/yuanjuiwen.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yuanjuiwen/yuanjuiwen.github.io/issues"
+  },
+  "homepage": "https://github.com/yuanjuiwen/yuanjuiwen.github.io#readme",
+  "devDependencies": {
+    "serve": "^14.2.6"
+  }
+}
