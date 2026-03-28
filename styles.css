@@ -637,6 +637,31 @@ body.page-about .photo-carousel-caption {
   padding-left: max(1rem, env(safe-area-inset-left));
 }
 
+body:has(.navbar) .project-page {
+  padding-top: 2rem;
+}
+
+.project-page--wide {
+  max-width: 1120px;
+}
+
+.project-page--wide .project-page-media-row {
+  gap: 1.25rem;
+}
+
+.project-page--wide .project-page-media--gray-panel {
+  --inner-video-width: 94%;
+  padding: clamp(1.15rem, 3.2vw, 2rem);
+}
+
+.project-page--wide .project-page-media--gray-panel.project-page-media--laptop-mockup {
+  padding: clamp(0.35rem, 1vw, 0.65rem);
+}
+
+.project-page--wide .project-page-media--gray-panel video {
+  max-width: min(100%, 960px);
+}
+
 .project-page h1 {
   margin: 0 0 0.8rem;
   font-size: 2rem;
@@ -656,11 +681,185 @@ body.page-about .photo-carousel-caption {
   background: #f3f4f6;
 }
 
+.project-page-media-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.project-page-media-row > .project-page-media {
+  min-width: 0;
+  align-self: stretch;
+  height: 100%;
+}
+
+.project-page-media--gray-panel {
+  --inner-video-width: 88%;
+  background: #f8f8f8;
+  border-color: #e4e4e4;
+  padding: clamp(1rem, 3vw, 1.75rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 .project-page-media img,
 .project-page-media video {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.project-page-media--gray-panel video {
+  border-radius: 14px;
+  width: var(--inner-video-width);
+  max-width: min(100%, 720px);
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  flex-shrink: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+.project-page-media--gray-panel.project-page-media--demo-gif {
+  aspect-ratio: auto;
+  min-height: 0;
+}
+
+.project-page-media--demo-gif img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+.project-page-media--laptop-mockup {
+  aspect-ratio: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(0.35rem, 1vw, 0.65rem);
+  overflow: hidden;
+  min-height: 0;
+  height: 100%;
+}
+
+.laptop-mockup {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  transform: scale(1.1);
+  transform-origin: center center;
+}
+
+.laptop-mockup__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: bottom;
+}
+
+.laptop-mockup__screen {
+  --screen-video-width: 100%;
+  --screen-video-height: 100%;
+  --screen-video-max-width: 100%;
+  --screen-video-max-height: 100%;
+  --screen-video-object-x: 50%;
+  --screen-video-object-y: 50%;
+  position: absolute;
+  left: 27.58%;
+  top: 28.8%;
+  width: 44.8%;
+  height: 38.2%;
+  overflow: hidden;
+  border-radius: 2.5px 2.5px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-page--wide .project-page-media--laptop-mockup .laptop-mockup__screen video,
+.project-page-media--laptop-mockup .laptop-mockup__screen video {
+  width: var(--screen-video-width);
+  height: var(--screen-video-height);
+  max-width: var(--screen-video-max-width);
+  max-height: var(--screen-video-max-height);
+  border-radius: 0;
+  object-fit: cover;
+  object-position: var(--screen-video-object-x) var(--screen-video-object-y);
+  display: block;
+  flex-shrink: 0;
+}
+
+.project-page-lead {
+  margin-top: 2.5rem;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.project-page-lead__title {
+  margin: 0;
+  font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1rem, 2.1vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: #111827;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  white-space: nowrap;
+}
+
+.project-page-facts {
+  margin-top: 1.75rem;
+  padding-bottom: 3rem;
+  width: 100%;
+  max-width: none;
+  position: relative;
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #6b7280;
+}
+
+.project-page-facts::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100vw;
+  height: 1px;
+  margin-left: -50vw;
+  background: rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+}
+
+.project-page-facts__date {
+  margin: 0 0 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #4b5563;
+  letter-spacing: 0.02em;
+}
+
+.project-page-facts__row {
+  margin: 0.35rem 0 0;
+}
+
+.project-page-facts__label {
+  display: inline-block;
+  min-width: 3.25rem;
+  margin-right: 0.5rem;
+  font-weight: 500;
+  color: #374151;
 }
 
 .project-page-desc {
@@ -670,6 +869,10 @@ body.page-about .photo-carousel-caption {
 }
 
 @media (max-width: 700px) {
+  .project-page-media-row {
+    grid-template-columns: 1fr;
+  }
+
   .projects-grid {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -679,7 +882,31 @@ body.page-about .photo-carousel-caption {
   }
 }
 
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  opacity: 1;
+  visibility: visible;
+  background: #ffffff;
+  will-change: opacity;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear;
+}
+
+.page-transition-overlay.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  will-change: auto;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.3s;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .page-transition-overlay,
+  .page-transition-overlay.is-hidden {
+    transition: none;
+  }
+
   .project-card {
     transition: none;
   }
@@ -691,5 +918,4 @@ body.page-about .photo-carousel-caption {
   .project-card::after {
     transition: none;
   }
-
 }

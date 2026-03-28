@@ -7,14 +7,67 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="project-page">
-      <a href="index.html">← Back to home</a>
-      <h1>EYEZEN (Play)</h1>
-      <p class="project-page-meta">Prototype · Product · UX</p>
-      <div class="project-page-media">
-        <video src="assets/eyezen_app.mov" controls playsinline></video>
+    <div class="page-transition-overlay" aria-hidden="true"></div>
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <h1 class="brand"><a href="index.html">Kevin Wen</a></h1>
+        <ul class="nav-links">
+          <li><a href="index.html#work">work</a></li>
+          <li><a href="index.html#play">play</a></li>
+          <li><a href="about.html">about</a></li>
+        </ul>
       </div>
-      <p class="project-page-desc">Add your project details here.</p>
+    </nav>
+
+    <main class="project-page project-page--wide">
+      <div class="project-page-media-row">
+        <div class="project-page-media project-page-media--gray-panel project-page-media--laptop-mockup">
+          <div class="laptop-mockup">
+            <img
+              class="laptop-mockup__img"
+              src="assets/Mockup_1.png"
+              alt=""
+              width="1024"
+              height="768"
+              decoding="async"
+            />
+            <div class="laptop-mockup__screen">
+              <video src="assets/eyezen_app.mov" autoplay muted loop playsinline></video>
+            </div>
+          </div>
+        </div>
+        <div class="project-page-media project-page-media--gray-panel project-page-media--demo-gif">
+          <img
+            src="assets/eyezen%20demo.gif"
+            alt="EYEZEN demo"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+
+      <section class="project-page-lead" aria-labelledby="eyezen-lead-heading">
+        <h2 id="eyezen-lead-heading" class="project-page-lead__title">
+          "What if we could intuitively feel that we're too close to the screen without any notification at all?"
+        </h2>
+      </section>
+
+      <section class="project-page-facts" lang="en" aria-label="Project details">
+        <p class="project-page-facts__date">2024/02</p>
+        <p class="project-page-facts__row">
+          <span class="project-page-facts__label">Role</span>
+          User research, Interaction design, Prototyping
+        </p>
+        <p class="project-page-facts__row">
+          <span class="project-page-facts__label">Team</span>
+          1 Computer Science student, 2 Industrial Design students
+        </p>
+      </section>
+
+      <p class="project-page-desc">
+        A screen eye-care tool inspired by mydriatic drops. Mydriatics naturally blur near-distance vision — we apply the same principle to screens. Using the laptop's front camera to detect viewing distance, the screen produces corresponding levels of blur, replacing intrusive alerts and naturally guiding users to correct their posture without disrupting workflow.
+      </p>
     </main>
+    <script src="page-transitions.js" defer></script>
   </body>
 </html>
