@@ -22,6 +22,7 @@
     <main class="project-page project-page--wide">
       <div class="project-page-media-row">
         <div class="project-page-media project-page-media--gray-panel project-page-media--laptop-mockup">
+          <span class="project-page-media__live-dot" aria-hidden="true"></span>
           <div class="laptop-mockup">
             <img
               class="laptop-mockup__img"
@@ -37,12 +38,14 @@
           </div>
         </div>
         <div class="project-page-media project-page-media--gray-panel project-page-media--demo-gif">
-          <img
-            src="assets/eyezen%20demo.gif"
-            alt="EYEZEN demo"
-            loading="lazy"
-            decoding="async"
-          />
+          <video
+            src="assets/eyezen_demo.mov"
+            autoplay
+            muted
+            loop
+            playsinline
+            aria-label="EYEZEN demo"
+          ></video>
         </div>
       </div>
 
@@ -59,18 +62,51 @@
 
 
       <section class="project-page-facts" lang="en" aria-label="Project details">
-        <p class="project-page-facts__date">2024/02</p>
-        <p class="project-page-facts__row">
-          <span class="project-page-facts__label">Role</span>
-          User research, Interaction design, Prototyping
-        </p>
-        <p class="project-page-facts__row">
-          <span class="project-page-facts__label">Team</span>
-          1 Computer Science student, 2 Industrial Design students
+        <div class="project-page-facts__inline">
+          <div class="project-page-facts__block project-page-facts__block--date">
+            <p class="project-page-facts__date">
+              <span class="project-page-facts__date-part">2024</span
+              ><span class="project-page-facts__date-sep">/</span
+              ><span class="project-page-facts__date-part">02</span>
+            </p>
+          </div>
+          <div class="project-page-facts__block project-page-facts__block--role">
+            <span class="project-page-facts__label">Role</span>
+            <span class="project-page-facts__chunks">
+              <span class="project-page-facts__chunk">User research</span><span class="project-page-facts__comma">, </span
+              ><span class="project-page-facts__chunk">Interaction design</span><span class="project-page-facts__comma">, </span
+              ><span class="project-page-facts__chunk">Prototyping</span>
+            </span>
+          </div>
+          <div class="project-page-facts__block project-page-facts__block--team">
+            <span class="project-page-facts__label">Team</span>
+            <span class="project-page-facts__chunks">
+              <span class="project-page-facts__chunk">1 Computer Science student</span><span class="project-page-facts__comma">, </span
+              ><span class="project-page-facts__chunk">2 Industrial Design students</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-context" lang="en" aria-labelledby="eyezen-context-heading">
+        <p class="project-context__label">context</p>
+        <h2 id="eyezen-context-heading" class="project-page-lead__title project-context__title">
+          We rarely notice how close we've gotten to the screen until our eyes start to ache.
+        </h2>
+        <p class="project-context__body">
+          Deep focus at a computer causes us to unconsciously drift closer and closer to the screen — a direct contributor to worsening nearsightedness and neck pain, yet it is something people rarely notice in the moment.
         </p>
       </section>
 
-      
+      <section class="project-research" lang="en" aria-labelledby="eyezen-research-heading">
+        <p class="project-research__label">research</p>
+        <h2 id="eyezen-research-heading" class="project-page-lead__title project-research__title">
+          Why is it so hard to keep your distance from the screen? And why do existing solutions fail?
+        </h2>
+        <p class="project-research__body">
+          We ran semi-structured interviews and a short diary study to learn when people notice eye strain, how they currently cope (breaks, brightness, distance), and what would feel acceptable from software that uses the camera. Findings informed blur thresholds and how aggressively the effect should ramp with distance.
+        </p>
+      </section>
     </main>
     <script src="page-transitions.js" defer></script>
   </body>
