@@ -91,7 +91,7 @@
       <section class="project-context" lang="en" aria-labelledby="eyezen-context-heading">
         <p class="project-context__label">context</p>
         <h2 id="eyezen-context-heading" class="project-page-lead__title project-context__title">
-          We rarely notice how close we've gotten to the screen until our eyes start to ache.
+          The deeper we focus, the closer we lean in.
         </h2>
         <p class="project-context__body">
           Deep focus at a computer causes us to unconsciously drift closer and closer to the screen — a direct contributor to worsening nearsightedness and neck pain, yet it is something people rarely notice in the moment.
@@ -100,14 +100,135 @@
 
       <section class="project-research" lang="en" aria-labelledby="eyezen-research-heading">
         <p class="project-research__label">research</p>
-        <h2 id="eyezen-research-heading" class="project-page-lead__title project-research__title">
-          Why is it so hard to keep your distance from the screen? And why do existing solutions fail?
+        <div class="project-research__block">
+          <h2 id="eyezen-research-heading" class="project-page-lead__title project-research__title">
+            It's not just your eyes
+          </h2>
+          <p class="project-research__body">
+            Leaning toward the screen unconsciously affects more than just your eyesight. According to Hansraj (2014), tilting your head forward by just 15 degrees increases the load on your cervical spine from 5 kg to 12 kg. Sustained over hours, this posture can lead to forward head posture, chronic neck and shoulder pain, and lasting fatigue.
+          </p>
+        </div>
+        <div class="project-research__block">
+          <h3 class="project-page-lead__title project-research__title">Why do existing solutions fail?</h3>
+          <p class="project-research__body">
+            People wanted cues that felt physiological rather than punitive—something that scaled with how “wrong” their distance was, not a binary nag. Privacy came up often: they accepted camera use when the pipeline stayed on-device and the UI made that clear.
+          </p>
+          <table class="project-research-compare" lang="en">
+            <caption class="visually-hidden">
+              Three limitations of common eye-care and posture tools
+            </caption>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="project-research-compare__cell">
+                    <span class="project-research-compare__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 7v5l3 2" />
+                      </svg>
+                    </span>
+                    <p class="project-research-compare__heading">Focused on time, not distance</p>
+                    <p class="project-research-compare__text">
+                      Most eye-care tools simply remind users to take breaks at fixed intervals.
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <div class="project-research-compare__cell">
+                    <span class="project-research-compare__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                        <path d="M18 8a6 6 0 10-12 0c0 7-3 7-3 7h18s-3 0-3-7" />
+                        <path d="M13.73 21a2 2 0 01-3.46 0" />
+                        <line x1="3" y1="3" x2="21" y2="21" />
+                      </svg>
+                    </span>
+                    <p class="project-research-compare__heading">Notifications break focus</p>
+                    <p class="project-research-compare__text">
+                      Pop-up alerts interrupt flow state. Users instinctively disable the software altogether.
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <div class="project-research-compare__cell">
+                    <span class="project-research-compare__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12h4l3-9 4 18 3-9h4" />
+                      </svg>
+                    </span>
+                    <p class="project-research-compare__heading">No real-time feedback</p>
+                    <p class="project-research-compare__text">
+                      Without continuous distance awareness, users can’t detect or correct their posture in the moment.
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="project-design-challenge" lang="en" aria-labelledby="eyezen-design-challenge-heading">
+        <p class="project-design-challenge__label">design challenge</p>
+        <h2 id="eyezen-design-challenge-heading" class="project-page-lead__title project-design-challenge__title">
+          How might we guide users to notice and correct their screen distance and posture without disrupting their focus?
         </h2>
-        <p class="project-research__body">
-          We ran semi-structured interviews and a short diary study to learn when people notice eye strain, how they currently cope (breaks, brightness, distance), and what would feel acceptable from software that uses the camera. Findings informed blur thresholds and how aggressively the effect should ramp with distance.
+      </section>
+
+      <section class="project-solution" lang="en" aria-labelledby="eyezen-solution-heading">
+        <p class="project-solution__label">solution</p>
+        <h2 id="eyezen-solution-heading" class="project-page-lead__title project-solution__title">
+          An app inspired by the mechanism of mydriatic eye drops.
+        </h2>
+        <div class="project-solution-card">
+          <img
+            class="project-solution-card__img"
+            src="assets/pup.png"
+            alt="Comparison of viewing distance: too close with blurry text versus proper distance with sharp text."
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <hr class="project-solution__divider" aria-hidden="true" />
+        <p id="eyezen-solution-figure-caption" class="project-solution__body project-solution__figure-caption">
+          When user open the app, there would be a transparent layer on the computer screen that updates every 0.05 seconds, adjusting the blur level based on the distance between the user and the screen.
         </p>
+        <div class="project-blur-panel">
+          <div class="project-blur-panel__blur">
+            <h2 id="eyezen-blur-panel-heading" class="project-page-lead__title project-blur-panel__title">
+              The closer you are to the screen, the blurry the screen becomes.
+            </h2>
+          </div>
+          <video
+            class="project-blur-panel__demo"
+            src="assets/app_demo_real.mov"
+            autoplay
+            muted
+            loop
+            playsinline
+            aria-hidden="true"
+          ></video>
+        </div>
       </section>
     </main>
     <script src="page-transitions.js" defer></script>
+    <script>
+      (function () {
+        var video = document.querySelector(".project-blur-panel__demo");
+        var blur = document.querySelector(".project-blur-panel__blur");
+        if (!video || !blur) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        function startBlurDrift() {
+          blur.classList.add("project-blur-panel__blur--active");
+        }
+
+        video.addEventListener("playing", startBlurDrift, { once: true });
+
+        /* 若載入時已在播放（快取等），立即啟動 */
+        if (!video.paused && video.readyState >= 2) {
+          startBlurDrift();
+        }
+      })();
+    </script>
   </body>
 </html>

@@ -941,7 +941,9 @@ body:has(.navbar) .project-page {
 }
 
 .project-context,
-.project-research {
+.project-research,
+.project-design-challenge,
+.project-solution {
   max-width: 52rem;
   width: 100%;
   font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
@@ -951,28 +953,36 @@ body:has(.navbar) .project-page {
   margin-top: 6rem;
 }
 
-.project-research {
+.project-research,
+.project-design-challenge,
+.project-solution {
   margin-top: 6rem;
 }
 
 .project-context__label,
-.project-research__label {
+.project-research__label,
+.project-design-challenge__label,
+.project-solution__label {
   margin: 0 0 0.85rem;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.7;
   letter-spacing: 0;
-  color: #6b7280;
+  color: #9d9d9d;
 }
 
 .project-context__title,
-.project-research__title {
+.project-research__title,
+.project-design-challenge__title,
+.project-solution__title {
   margin: 0 0 1.1rem;
   white-space: normal;
 }
 
 .project-context__body,
-.project-research__body {
+.project-research__body,
+.project-design-challenge__body,
+.project-solution__body {
   margin: 0;
   font-size: 1rem;
   font-weight: 300;
@@ -981,16 +991,201 @@ body:has(.navbar) .project-page {
 }
 
 .project-context__body strong,
-.project-research__body strong {
+.project-research__body strong,
+.project-design-challenge__body strong,
+.project-solution__body strong {
   font-weight: 500;
   color: #374151;
 }
 
 .project-context__cite,
-.project-research__cite {
+.project-research__cite,
+.project-design-challenge__cite,
+.project-solution__cite {
   border-bottom: 1px dotted currentColor;
   text-decoration: none;
   cursor: default;
+}
+
+.project-research__block + .project-research__block {
+  margin-top: 2.25rem;
+}
+
+.project-solution-card {
+  margin-top: 1.5rem;
+  width: 100%;
+  background: #f8f8f8;
+  border: 1px solid #e4e4e4;
+  border-radius: 18px;
+  overflow: hidden;
+  box-sizing: border-box;
+  line-height: 0;
+}
+
+.project-solution-card__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  /* 圓角裁切（與卡片內緣一致，作為遮罩效果） */
+  clip-path: inset(0 round 17px);
+}
+
+.project-solution__divider {
+  border: none;
+  margin: 2.5rem 0;
+  border-top: 1px dashed #d1d5db;
+}
+
+.project-solution__figure-caption {
+  margin-top: 0;
+}
+
+.project-blur-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  /* 上下對稱 + min-height，flex 才能把文字置中；若上重下輕，視覺會永遠偏下 */
+  min-height: 18rem;
+  padding: 14rem 1.25rem;
+  background: #f8f8f8;
+  border: 1px solid #e4e4e4;
+  border-radius: 18px;
+  overflow: hidden;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* 只對內文做 blur，外框與邊線維持清晰；動畫待影片 playing 後再加 class 啟動，開頭才會是清晰 */
+.project-blur-panel__blur {
+  width: 100%;
+  transform: translateZ(0);
+  isolation: isolate;
+  filter: blur(0);
+}
+
+.project-blur-panel__blur--active {
+  animation: project-blur-panel-drift 2.5s ease-in-out infinite alternate;
+}
+
+.project-blur-panel__title {
+  margin: 0;
+  white-space: normal;
+}
+
+.project-blur-panel__demo {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: min(30%, 8.5rem);
+  max-height: 32%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes project-blur-panel-drift {
+  from {
+    filter: blur(0);
+  }
+  to {
+    filter: blur(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-blur-panel__blur,
+  .project-blur-panel__blur--active {
+    animation: none;
+    filter: blur(0);
+  }
+
+  .project-blur-panel__demo {
+    display: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.project-research-compare {
+  width: 100%;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-collapse: collapse;
+}
+
+.project-research-compare tbody {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.project-research-compare tr {
+  display: contents;
+}
+
+.project-research-compare td {
+  min-width: 0;
+  vertical-align: top;
+  padding: 0.65rem 0.85rem;
+  box-sizing: border-box;
+  background: #f8f8f8;
+  border: 1px solid #e4e4e4;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.project-research-compare__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.project-research-compare__icon {
+  display: flex;
+  color: #4b5563;
+}
+
+.project-research-compare__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.project-research-compare__heading {
+  margin: 0;
+  font-size: clamp(0.82rem, 1.65vw, 0.92rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: #111827;
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+}
+
+.project-research-compare__text {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #6b7280;
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
 }
 
 .project-page-desc {
@@ -1004,6 +1199,11 @@ body:has(.navbar) .project-page {
 @media (max-width: 700px) {
   .project-page-media-row {
     grid-template-columns: 1fr;
+  }
+
+  .project-research-compare tbody {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
   }
 
   .projects-grid {
