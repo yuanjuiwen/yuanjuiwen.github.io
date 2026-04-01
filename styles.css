@@ -1013,6 +1013,13 @@ body:has(.navbar) .project-page {
 .project-market-charts,
 .project-design-challenge,
 .project-jtbd-survey,
+.project-ipa-analysis,
+.project-product-strategy,
+.project-our-goal,
+.project-design-experiment,
+.project-causal-relationship-map,
+.project-baffle-exp1,
+.project-process,
 .project-solution {
   max-width: 52rem;
   width: 100%;
@@ -1027,6 +1034,13 @@ body:has(.navbar) .project-page {
 .project-market-charts,
 .project-design-challenge,
 .project-jtbd-survey,
+.project-ipa-analysis,
+.project-product-strategy,
+.project-our-goal,
+.project-design-experiment,
+.project-causal-relationship-map,
+.project-baffle-exp1,
+.project-process,
 .project-solution {
   margin-top: 6rem;
 }
@@ -1216,6 +1230,13 @@ body:has(.navbar) .project-page {
 .project-research__label,
 .project-design-challenge__label,
 .project-jtbd-survey__label,
+.project-ipa-analysis__label,
+.project-product-strategy__label,
+.project-our-goal__label,
+.project-design-experiment__label,
+.project-causal-relationship-map__label,
+.project-baffle-exp1__label,
+.project-process__label,
 .project-solution__label {
   margin: 0 0 0.85rem;
   font-size: 1rem;
@@ -1229,6 +1250,13 @@ body:has(.navbar) .project-page {
 .project-research__title,
 .project-design-challenge__title,
 .project-jtbd-survey__title,
+.project-ipa-analysis__title,
+.project-product-strategy__title,
+.project-our-goal__title,
+.project-design-experiment__title,
+.project-causal-relationship-map__title,
+.project-baffle-exp1__title,
+.project-process__title,
 .project-solution__title {
   margin: 0 0 1.1rem;
   white-space: normal;
@@ -1238,12 +1266,461 @@ body:has(.navbar) .project-page {
 .project-research__body,
 .project-design-challenge__body,
 .project-jtbd-survey__body,
+.project-ipa-analysis__body,
+.project-product-strategy__body,
+.project-our-goal__body,
+.project-design-experiment__body,
+.project-causal-relationship-map__body,
+.project-baffle-exp1__body,
+.project-process__body,
 .project-solution__body {
   margin: 0;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.7;
   color: #6b7280;
+}
+
+.project-product-strategy__table-wrap {
+  margin-top: 1.25rem;
+  padding-top: 0.55rem;
+  width: 100%;
+  overflow-x: visible;
+  border-top: 1px dashed #d1d5db;
+}
+
+.project-product-strategy-table {
+  width: 100%;
+  max-width: none;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.8125rem;
+  font-weight: 300;
+  line-height: 1.35;
+  color: #111827;
+}
+
+.project-product-strategy-table__col {
+  width: 33.33%;
+}
+
+.project-product-strategy-table caption {
+  text-align: left;
+}
+
+.project-product-strategy-table th,
+.project-product-strategy-table td {
+  padding: 0.2rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+  border: none;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* 欄與欄交界（與 table 欄寬一致，避免用偽元素百分比錯位） */
+.project-product-strategy-table thead th:nth-child(2),
+.project-product-strategy-table thead th:nth-child(3),
+.project-product-strategy-table tbody td:nth-child(2),
+.project-product-strategy-table tbody td:nth-child(3) {
+  border-left: 1px solid #e5e7eb;
+}
+
+.project-product-strategy-table thead th {
+  padding-top: 0;
+  padding-bottom: 0.35rem;
+  font-weight: 400;
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.project-product-strategy-table thead th.project-product-strategy-table__analysis-heading {
+  vertical-align: top;
+}
+
+.project-product-strategy-table thead th:nth-child(3) {
+  text-align: left;
+}
+
+.project-product-strategy-table tbody td:first-child,
+.project-product-strategy-table tbody td:nth-child(2) {
+  text-align: center;
+}
+
+.project-product-strategy-table__strategy-heading {
+  font-weight: 500;
+  color: #111827;
+  vertical-align: top;
+}
+
+.project-product-strategy-table__mark {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.project-product-strategy-table__empty {
+  display: inline-block;
+  min-width: 0.5em;
+}
+
+.project-design-experiment__figure {
+  margin: 1.25rem 0 0;
+}
+
+.project-design-experiment__figure-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.project-causal-relationship-map__figure {
+  margin: 1.25rem 0 0;
+  background: #f8f8f8;
+  border: 1px solid #e4e4e4;
+  border-radius: 18px;
+  padding: clamp(1.15rem, 3.2vw, 2rem);
+  box-sizing: border-box;
+}
+
+.project-causal-relationship-map__figure-img,
+.project-causal-relationship-map__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.project-causal-relationship-map__svg {
+  aspect-ratio: 920 / 850;
+}
+
+.project-causal-relationship-map__svg text {
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC",
+    sans-serif;
+}
+
+.project-causal-relationship-map__figure.is-anim-ready .crm-anim-center,
+.project-causal-relationship-map__figure.is-anim-ready .crm-anim-tier-1,
+.project-causal-relationship-map__figure.is-anim-ready .crm-anim-tier-2,
+.project-causal-relationship-map__figure.is-anim-ready .crm-anim-tier-3 {
+  opacity: 0;
+  transform: scale(0.92);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.project-causal-relationship-map__figure.is-anim-ready .crm-anim-link {
+  stroke-dasharray: var(--crm-line-len, 220);
+  stroke-dashoffset: var(--crm-line-len, 220);
+}
+
+.project-causal-relationship-map__figure.is-visible .crm-anim-center,
+.project-causal-relationship-map__figure.is-visible .crm-anim-tier-1,
+.project-causal-relationship-map__figure.is-visible .crm-anim-tier-2,
+.project-causal-relationship-map__figure.is-visible .crm-anim-tier-3 {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.project-causal-relationship-map__figure.is-visible .crm-anim-center {
+  transition-delay: 0.05s;
+}
+
+.project-causal-relationship-map__figure.is-visible .crm-anim-tier-1 {
+  transition-delay: 0.3s;
+}
+
+.project-causal-relationship-map__figure.is-visible .crm-anim-tier-2 {
+  transition-delay: 0.55s;
+}
+
+.project-causal-relationship-map__figure.is-visible .crm-anim-tier-3 {
+  transition-delay: 0.8s;
+}
+
+.project-causal-relationship-map__figure.is-visible .crm-anim-link {
+  animation: crm-draw-line 0.85s ease forwards;
+  animation-delay: 1.05s;
+}
+
+@keyframes crm-draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.project-baffle-exp1__figure {
+  margin: 1.25rem 0 0;
+  background: #f8f8f8;
+  border: 1px solid #e4e4e4;
+  border-radius: 18px;
+  padding: clamp(1rem, 2.8vw, 1.5rem);
+  box-sizing: border-box;
+}
+
+.project-baffle-exp1__diagram {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  background: transparent;
+}
+
+.project-baffle-exp1__diagram text {
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC",
+    sans-serif;
+}
+
+@keyframes baffle-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.project-baffle-exp1__diagram .blade-left {
+  animation: baffle-spin 2s linear infinite;
+  transform-origin: 220px 220px;
+}
+
+.project-baffle-exp1__diagram .blade-right {
+  animation: baffle-spin 2s linear infinite;
+  transform-origin: 740px 220px;
+}
+
+.project-baffle-exp1__diagram .swirls-orbit {
+  animation: none;
+}
+
+.project-baffle-exp1__diagram .swirls-orbit path {
+  animation: baffle-spin 1.8s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.project-baffle-exp1__diagram .swirls-orbit path:nth-child(2n) {
+  animation-direction: reverse;
+}
+
+.project-baffle-exp1__photo-compare {
+  margin: 1rem 0 0;
+}
+
+.project-baffle-exp1__photo-compare-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+}
+
+.project-process__figure {
+  margin: 1.25rem 0 0;
+  background: #f8f8f8;
+  border: 1px solid #e4e4e4;
+  border-radius: 18px;
+  padding: clamp(1rem, 2.8vw, 1.5rem);
+  box-sizing: border-box;
+}
+
+.project-process__diagram {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-process__diagram text {
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC",
+    sans-serif;
+}
+
+.project-baffle-exp1__divider {
+  border: none;
+  margin: 1rem 0;
+  border-top: 1px dashed #d1d5db;
+}
+
+.project-causal-relationship-map__svg .crm-ring {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.12);
+  stroke-width: 1;
+}
+
+.project-causal-relationship-map__svg .crm-links {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.75);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.project-causal-relationship-map__svg .crm-center {
+  font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC",
+    sans-serif;
+  font-weight: 500;
+  font-size: 34px;
+  fill: #ffffff;
+}
+
+.project-causal-relationship-map__svg .crm-node rect {
+  fill: #d1d5db;
+}
+
+.project-causal-relationship-map__svg .crm-node--dark rect {
+  fill: #6b7280;
+}
+
+.project-causal-relationship-map__svg .crm-node--blue rect {
+  fill: #b7c9df;
+}
+
+.project-causal-relationship-map__svg .crm-node text {
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC",
+    sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  fill: #ffffff;
+  dominant-baseline: middle;
+}
+
+@media (max-width: 640px) {
+  .project-product-strategy__table-wrap {
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+  }
+
+  .project-product-strategy-table th,
+  .project-product-strategy-table td {
+    padding: 0.18rem 0.4rem;
+    font-size: 0.75rem;
+  }
+}
+
+.project-ipa-analysis__card {
+  margin-top: 1rem;
+  width: 100%;
+  background: #f8f8f8;
+  border: 1px solid #e4e4e4;
+  border-radius: 18px;
+  padding: clamp(1.15rem, 3.2vw, 2rem);
+  box-sizing: border-box;
+}
+
+.project-ipa-analysis__layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: clamp(1rem, 3vw, 1.75rem);
+  width: 100%;
+}
+
+.project-ipa-analysis__table-wrap {
+  flex: 0 1 26rem;
+  max-width: 26rem;
+  min-width: 0;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.project-ipa-analysis__chart {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 14rem;
+  min-width: min(100%, 12rem);
+  min-height: 0;
+  max-width: 22rem;
+  margin: 0;
+  padding: 0;
+  --ipa-chart-radius: 14px;
+  /* 與左欄表格同列等高；圖片在框內盡量放大。若要限制圖最高可取消下行註解並設定數值 */
+  --ipa-chart-max-height: none;
+}
+
+.project-ipa-analysis__chart-frame {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  border-radius: var(--ipa-chart-radius);
+  overflow: hidden;
+  background: #fff;
+  /* 單一層裁切圓角 */
+  contain: paint;
+}
+
+.project-ipa-analysis__chart-frame img {
+  flex: 1 1 0;
+  display: block;
+  width: 100%;
+  min-height: 0;
+  max-height: var(--ipa-chart-max-height);
+  object-fit: contain;
+  object-position: top center;
+}
+
+.project-ipa-opp-table {
+  width: 100%;
+  border-collapse: collapse;
+  --ipa-table-text: #6b7280;
+  --ipa-table-border: #a8b0ba;
+  border: 1px solid var(--ipa-table-border);
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--ipa-table-text);
+}
+
+.project-ipa-opp-table caption {
+  text-align: left;
+}
+
+.project-ipa-opp-table th,
+.project-ipa-opp-table td {
+  padding: 0.35rem 0.45rem;
+  text-align: left;
+  vertical-align: top;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.project-ipa-opp-table thead th {
+  border-bottom: 1px solid var(--ipa-table-border);
+}
+
+.project-ipa-opp-table tbody th[scope="row"] {
+  width: 1.75rem;
+  white-space: nowrap;
+}
+
+.project-ipa-opp-table tbody td:nth-child(2) {
+  white-space: nowrap;
+}
+
+.project-ipa-opp-table tbody tr:first-child th,
+.project-ipa-opp-table tbody tr:first-child td {
+  border-top: none;
+}
+
+.project-ipa-opp-table tbody tr + tr th,
+.project-ipa-opp-table tbody tr + tr td {
+  border-top: 1px solid var(--ipa-table-border);
 }
 
 .project-context__body strong,
@@ -1760,6 +2237,117 @@ body:has(.navbar) .project-page {
 .page-oculus-main .project-page :is(h1, h2, h3, p, li, span, a, button) {
   line-height: 1.4;
   letter-spacing: -0.005em;
+}
+
+.page-oculus-main .oculus-toc {
+  position: fixed;
+  top: calc(92px + env(safe-area-inset-top, 0px));
+  left: max(1rem, env(safe-area-inset-left));
+  z-index: 20;
+  width: clamp(10.5rem, 16vw, 13.5rem);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.page-oculus-main .oculus-toc.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-oculus-main .oculus-toc__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem 0.35rem;
+  border-left: 1px solid #e5e7eb;
+}
+
+.page-oculus-main .oculus-toc__link {
+  pointer-events: auto;
+  display: block;
+  padding: 0.28rem 0.55rem;
+  font-size: 0.78rem;
+  line-height: 1.3;
+  color: #9ca3af;
+  text-decoration: none;
+  border-radius: 0.35rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: color 0.2s ease, opacity 0.45s ease, transform 0.45s ease;
+}
+
+.page-oculus-main .oculus-toc.is-visible .oculus-toc__link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(1) {
+  transition-delay: 0.04s;
+}
+.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(3) {
+  transition-delay: 0.16s;
+}
+.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(4) {
+  transition-delay: 0.22s;
+}
+.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(5) {
+  transition-delay: 0.28s;
+}
+.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(6) {
+  transition-delay: 0.34s;
+}
+.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(7) {
+  transition-delay: 0.4s;
+}
+.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(8) {
+  transition-delay: 0.46s;
+}
+.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(9) {
+  transition-delay: 0.52s;
+}
+.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(10) {
+  transition-delay: 0.58s;
+}
+.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(11) {
+  transition-delay: 0.64s;
+}
+
+.page-oculus-main .oculus-toc__link:hover {
+  color: #6b7280;
+}
+
+.page-oculus-main .oculus-toc__link.is-active {
+  color: #111827;
+  font-weight: 500;
+}
+
+@media (max-width: 1200px) {
+  .page-oculus-main .oculus-toc {
+    display: none;
+  }
+}
+
+/* Oculus: from context onward, align right edge with hero media */
+.page-oculus-main .project-context,
+.page-oculus-main .project-research,
+.page-oculus-main .project-market-charts,
+.page-oculus-main .project-design-challenge,
+.page-oculus-main .project-jtbd-survey,
+.page-oculus-main .project-ipa-analysis,
+.page-oculus-main .project-product-strategy,
+.page-oculus-main .project-our-goal,
+.page-oculus-main .project-design-experiment,
+.page-oculus-main .project-causal-relationship-map,
+.page-oculus-main .project-baffle-exp1,
+.page-oculus-main .project-process,
+.page-oculus-main .project-solution {
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .project-research-compare {
