@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>EYEZEN Play | Kevin Wen</title>
+    <title>Lifebuoy | Kevin Wen</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -20,37 +20,30 @@
     </nav>
 
     <main class="project-page project-page--wide">
-      <div class="project-page-media-row">
-        <div class="project-page-media project-page-media--gray-panel project-page-media--laptop-mockup">
-          <span class="project-page-media__live-dot" aria-hidden="true"></span>
-          <div class="laptop-mockup">
-            <img
-              class="laptop-mockup__img"
-              src="assets/Mockup_1.png"
-              alt=""
-              width="1024"
-              height="768"
-              decoding="async"
-            />
-            <div class="laptop-mockup__screen">
-              <video src="assets/eyezen_app.mov" autoplay muted loop playsinline></video>
-            </div>
-          </div>
-        </div>
-        <div class="project-page-media project-page-media--gray-panel project-page-media--demo-gif">
+      <div class="project-page-media project-page-media--gray-panel project-page-media--no-border project-page-media--no-bg">
+        <div
+          class="project-image-slot project-image-slot--feature project-image-slot--filled"
+          role="img"
+          aria-label="Lifebuoy project cover"
+        >
           <img
-            src="assets/eyezen%20demo.gif"
-            alt="EYEZEN demo"
+            class="project-image-slot__img"
+            src="assets/lifebuoy.png"
+            alt="Lifebuoy project cover"
             loading="lazy"
             decoding="async"
+            draggable="false"
           />
         </div>
       </div>
 
-      <section class="project-page-lead" aria-labelledby="eyezen-lead-heading">
-        <h2 id="eyezen-lead-heading" class="project-page-lead__title">
-          "What if we could intuitively feel that we're too close to the screen without any notification at all?"
-        </h2>
+      <section class="project-page-lead" aria-labelledby="lifebuoy-lead-heading">
+        <h2 id="lifebuoy-lead-heading" class="project-page-lead__title">Lifebuoy</h2>
+        <p class="project-page-desc">
+          Reimagining how a drowning person enters the lifebuoy, enabling them to receive rescue support with
+
+less effort and in a more instinctive posture, while maintaining stability and safety even in chaotic conditions.
+        </p>
       </section>
 
       <section class="project-page-facts" lang="en" aria-label="Project details">
@@ -79,11 +72,9 @@
           </div>
         </div>
       </section>
-
-      <p class="project-page-desc">
-        A screen eye-care tool inspired by mydriatic drops. Mydriatics naturally blur near-distance vision — we apply the same principle to screens. Using the laptop's front camera to detect viewing distance, the screen produces corresponding levels of blur, replacing intrusive alerts and naturally guiding users to correct their posture without disrupting workflow.
-      </p>
     </main>
+
     <script src="page-transitions.js" defer></script>
   </body>
 </html>
+

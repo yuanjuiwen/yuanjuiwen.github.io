@@ -2849,6 +2849,22 @@ body:has(.navbar) .project-page {
   color: #6b7280;
 }
 
+.project-karman-line__figure {
+  margin: 2.25rem 0 0;
+  width: 100%;
+}
+
+.project-karman-line__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+}
+
+.project-karman-line__story {
+  margin-top: 2rem;
+}
+
 /* Oculus: make the quoted lead sentence stand out */
 .oculus-quote {
   color: #111827;
