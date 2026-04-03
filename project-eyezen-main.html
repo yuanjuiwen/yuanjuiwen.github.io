@@ -6,7 +6,7 @@
     <title>EYEZEN | Kevin Wen</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="page-eyezen-main">
     <div class="page-transition-overlay" aria-hidden="true"></div>
     <nav class="navbar">
       <div class="navbar-inner">
@@ -18,6 +18,15 @@
         </ul>
       </div>
     </nav>
+
+    <aside class="eyezen-toc" aria-label="Section navigation">
+      <nav class="eyezen-toc__nav">
+        <a class="eyezen-toc__link" href="#eyezen-context-heading">context</a>
+        <a class="eyezen-toc__link" href="#eyezen-research-heading">research</a>
+        <a class="eyezen-toc__link" href="#eyezen-design-challenge-heading">design challenge</a>
+        <a class="eyezen-toc__link" href="#eyezen-solution-heading">solution</a>
+      </nav>
+    </aside>
 
     <main class="project-page project-page--wide">
       <div class="project-page-media-row">
@@ -213,6 +222,80 @@
     <script src="page-transitions.js" defer></script>
     <script>
       (function () {
+        (function initEyezenToc() {
+          var toc = document.querySelector(".eyezen-toc");
+          var links = Array.prototype.slice.call(document.querySelectorAll(".eyezen-toc__link"));
+          if (!toc || links.length === 0) return;
+
+          var sections = links
+            .map(function (link) {
+              var id = (link.getAttribute("href") || "").replace("#", "");
+              if (!id) return null;
+              var heading = document.getElementById(id);
+              var section = heading ? heading.closest("section") : null;
+              if (!section) return null;
+              return { link: link, section: section, id: id };
+            })
+            .filter(Boolean);
+
+          if (sections.length === 0) return;
+
+          var contextSection = document.querySelector(".project-context");
+          function alignTocToContextLeft() {
+            if (!contextSection) return;
+            var rect = contextSection.getBoundingClientRect();
+            var gap = 20;
+            var tocWidth = toc.offsetWidth || 190;
+            var targetLeft = Math.round(rect.left - tocWidth - gap);
+            toc.style.left = Math.max(12, targetLeft) + "px";
+          }
+
+          function updateTocVisibility() {
+            if (!contextSection) return;
+            var thresholdY = contextSection.offsetTop - 120;
+            toc.classList.toggle("is-visible", window.scrollY >= thresholdY);
+          }
+
+          function setActive(id) {
+            sections.forEach(function (item) {
+              item.link.classList.toggle("is-active", item.id === id);
+            });
+          }
+
+          function updateActiveByScroll() {
+            var probeY = window.scrollY + Math.max(120, window.innerHeight * 0.3);
+            var current = sections[0];
+            sections.forEach(function (item) {
+              if (item.section.offsetTop <= probeY) current = item;
+            });
+            if (current) setActive(current.id);
+          }
+
+          alignTocToContextLeft();
+          updateTocVisibility();
+          updateActiveByScroll();
+
+          var rafId = null;
+          window.addEventListener(
+            "scroll",
+            function () {
+              if (rafId != null) cancelAnimationFrame(rafId);
+              rafId = requestAnimationFrame(function () {
+                rafId = null;
+                updateTocVisibility();
+                updateActiveByScroll();
+              });
+            },
+            { passive: true }
+          );
+
+          window.addEventListener("resize", function () {
+            alignTocToContextLeft();
+            updateTocVisibility();
+            updateActiveByScroll();
+          });
+        })();
+
         var video = document.querySelector(".project-blur-panel__demo");
         var blur = document.querySelector(".project-blur-panel__blur");
         if (!video || !blur) return;

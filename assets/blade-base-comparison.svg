@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1100 440" role="img" aria-label="Blade base circulation comparison">
+  <defs>
+    <marker id="abk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M1 1L8 5L1 9Z" fill="#1F2937"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1100" height="440" fill="#f5f5f5"/>
+
+  <text x="235" y="90" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-style="italic" fill="#E8856C">horizontal circulation</text>
+  <g>
+    <ellipse cx="235" cy="175" rx="130" ry="55" fill="none" stroke="#E8856C" stroke-width="1.6" stroke-dasharray="6 5"/>
+    <polygon points="365,171 357,162 363,159" fill="#E8856C"/>
+    <polygon points="105,179 113,188 107,191" fill="#E8856C"/>
+    <animateTransform attributeName="transform" type="rotate" from="0 235 175" to="-360 235 175" dur="8s" repeatCount="indefinite"/>
+  </g>
+
+  <line x1="485" y1="175" x2="565" y2="175" stroke="#1F2937" stroke-width="2" marker-end="url(#abk)"/>
+
+  <text x="830" y="48" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-style="italic" fill="#E8856C">vertical circulation</text>
+  <g>
+    <ellipse cx="830" cy="190" rx="130" ry="55" fill="none" stroke="#E8856C" stroke-width="1.6" stroke-dasharray="6 5"/>
+    <polygon points="960,186 952,177 958,174" fill="#E8856C"/>
+    <polygon points="700,194 708,203 702,206" fill="#E8856C"/>
+    <animateTransform attributeName="transform" type="rotate" from="0 830 190" to="-360 830 190" dur="8s" repeatCount="indefinite"/>
+  </g>
+
+  <g>
+    <ellipse cx="830" cy="190" rx="42" ry="125" fill="none" stroke="#E8856C" stroke-width="1.6" stroke-dasharray="6 5"/>
+    <polygon points="844,69 832,67 835,61" fill="#E8856C"/>
+    <polygon points="816,311 828,313 825,319" fill="#E8856C"/>
+    <animateTransform attributeName="transform" type="rotate" from="0 830 190" to="360 830 190" dur="6.5s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- simple baffle silhouettes -->
+  <g stroke="#1F2937" stroke-width="2" fill="none" opacity="0.85">
+    <path d="M100 340 L180 315 L290 315 L370 340 Z"/>
+    <path d="M205 315 L175 340"/>
+    <path d="M245 315 L275 340"/>
+
+    <path d="M680 340 L760 315 L900 315 L980 340 Z"/>
+    <path d="M760 315 L705 340"/>
+    <path d="M790 315 L760 340"/>
+    <path d="M820 315 L815 340"/>
+    <path d="M850 315 L870 340"/>
+    <path d="M880 315 L925 340"/>
+  </g>
+
+  <g font-family="system-ui, -apple-system, sans-serif" fill="#1F2937" font-size="42" font-weight="500">
+    <text x="240" y="406" text-anchor="middle">Before</text>
+    <text x="825" y="406" text-anchor="middle">Our design</text>
+  </g>
+</svg>
