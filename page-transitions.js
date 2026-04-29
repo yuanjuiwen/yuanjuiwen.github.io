@@ -73,8 +73,10 @@
         e.preventDefault();
         var smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         dest.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
-        if (window.history && window.history.replaceState) {
-          window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+        // Use pushState (not replaceState) so the browser back button can undo
+        // in-page section changes instead of leaving no history entry to pop.
+        if (window.location.hash !== url.hash && window.history && window.history.pushState) {
+          window.history.pushState(null, "", url.pathname + url.search + url.hash);
         }
       }
       return;
@@ -92,9 +94,38 @@
     }, DURATION_MS);
   }
 
+  function onPopState() {
+    var hash = window.location.hash ? window.location.hash.slice(1) : "";
+    var smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (hash) {
+      var el = document.getElementById(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+        return;
+      }
+    }
+    window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+  }
+
+  function resetOverlayBeforeBfcache(e) {
+    // Before the page is frozen for the back-forward cache, hide the transition
+    // overlay. Otherwise a snapshot may be taken mid-transition (white layer
+    // visible) and "back" restores a blank-looking page.
+    if (!e.persisted) return;
+    var overlay = document.querySelector(".page-transition-overlay");
+    if (overlay) overlay.classList.add("is-hidden");
+  }
+
+  function onPageShow(e) {
+    if (e.persisted) enter();
+  }
+
   function init() {
     enter();
     document.addEventListener("click", onDocClick);
+    window.addEventListener("popstate", onPopState);
+    window.addEventListener("pagehide", resetOverlayBeforeBfcache);
+    window.addEventListener("pageshow", onPageShow);
   }
 
   if (document.readyState === "loading") {

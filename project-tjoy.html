@@ -6,7 +6,7 @@
     <title>TJOY | Kevin Wen</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="page-eyezen-main page-tjoy">
     <div class="page-transition-overlay" aria-hidden="true"></div>
     <nav class="navbar">
       <div class="navbar-inner">
@@ -19,14 +19,61 @@
       </div>
     </nav>
 
-    <main class="project-page">
-      <a href="index.html">← Back to home</a>
-      <h1>TJOY</h1>
-      <p class="project-page-meta">Shipped · Professional · B2B SaaS</p>
-      <div class="project-page-media">
-        <img src="assets/Tcard_portfolio_home .png" alt="TJOY project cover" />
+    <main class="project-page project-page--wide">
+      <div class="project-page-media project-page-media--gray-panel project-page-media--no-border project-page-media--no-bg">
+        <div class="project-image-slot project-image-slot--feature project-image-slot--filled" role="img" aria-label="TJOY project cover">
+          <img class="project-image-slot__img" src="assets/Tcard__1.png" alt="TJOY project cover" />
+        </div>
       </div>
-      <p class="project-page-desc">Add your project details here.</p>
+      <section class="project-page-lead" aria-labelledby="tjoy-lead-heading">
+        <h2 id="tjoy-lead-heading" class="project-page-lead__title">TJOY</h2>
+        <p class="project-page-desc">2025 Meichu Hackathon - TSMC Challenge</p>
+      </section>
+
+      <section class="project-context project-context--tjoy-summary" lang="en" aria-labelledby="tjoy-summary-heading">
+      
+        <h2 id="tjoy-summary-heading" class="project-page-lead__title project-context__title">
+          SUMMARY
+        </h2>
+        <p class="project-context__body">
+          TJOY is a cross-cultural networking platform that fosters mutual understanding among employees and empowers
+          business decisions through data analytics. It helps international new hires integrate quickly into teams and
+          workplace culture, while enabling companies to understand employee needs, optimize management processes, and
+          reduce operational costs.
+        </p>
+      </section>
+      <section class="project-page-facts" lang="en" aria-label="Project details">
+        <div class="project-page-facts__inline">
+          <div class="project-page-facts__block project-page-facts__block--timeline">
+            <span class="project-page-facts__label">Timeline</span>
+            <span class="project-page-facts__chunks">
+              <span class="project-page-facts__chunk">2025/09/20 - 2025/09/21</span>
+            </span>
+          </div>
+          <div class="project-page-facts__block">
+            <span class="project-page-facts__label">Role</span>
+            <span class="project-page-facts__chunks">
+              <span class="project-page-facts__chunk">Product design</span><span class="project-page-facts__comma">, </span
+              ><span class="project-page-facts__chunk">UX research</span>
+            </span>
+          </div>
+          <div class="project-page-facts__block">
+            <span class="project-page-facts__label">Team</span>
+            <span class="project-page-facts__chunks">
+              <span class="project-page-facts__chunk">1 Designer, 4 Engineers</span>
+            </span>
+          </div>
+        </div>
+      </section>
+      <section class="project-context" lang="en" aria-labelledby="tjoy-context-heading">
+        <p class="project-context__label">context</p>
+        <h2 id="tjoy-context-heading" class="project-page-lead__title project-context__title">
+          Context
+        </h2>
+        <p class="project-context__body">
+          At the 2025 Meichu Hackathon, TSMC invited teams to design a platform that enhances the onboarding experience for new employees. We chose to focus on the adaptation journey of international hires, exploring the real challenges they face in a cross-cultural workplace.
+        </p>
+      </section>
     </main>
     <script src="page-transitions.js" defer></script>
   </body>
