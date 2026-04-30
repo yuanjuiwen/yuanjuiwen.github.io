@@ -180,10 +180,12 @@ body.page-about .photo-carousel-caption {
   font-family: "EB Garamond", "Times New Roman", serif;
   font-weight: 500;
   color: #000000;
+  margin-left: 1.05rem;
 }
 
 #home > p {
   font-family: "EB Garamond", "Times New Roman", serif;
+  margin-left: 1.05rem;
 }
 
 .about-photo {
@@ -555,14 +557,28 @@ body.page-about .photo-carousel-caption {
 
 .playground-section {
   scroll-margin-top: calc(92px + env(safe-area-inset-top, 0px));
+  position: relative;
+  padding-top: 1.6rem;
 }
 
-.playground-section .projects-grid {
-  --playground-left-col: 1.15fr;
-  --playground-right-col: 0.85fr;
-  --playground-gap: 2.5rem;
-  grid-template-columns: minmax(0, var(--playground-left-col)) minmax(0, var(--playground-right-col));
-  gap: var(--playground-gap);
+.playground-section::before {
+  content: "";
+  position: absolute;
+  top: 2.5rem;
+  left: 1.05rem;
+  right: 0;
+  border-top: 1px solid #d1d5db;
+  pointer-events: none;
+}
+
+.playground-section .section-heading {
+  margin-top: 2.6rem;
+  margin-left: 1.05rem;
+  text-align: left;
+  font-family: "EB Garamond", "Times New Roman", serif;
+  font-style: normal;
+  font-size: 1.5em;
+  color: #000000;
 }
 
 .projects-grid {
@@ -681,16 +697,6 @@ body.page-about .photo-carousel-caption {
 .project-card:hover .project-image,
 .project-card:focus-within .project-image {
   transform: scale(1.04);
-}
-
-.project-card--photo-e .project-image {
-  height: 360px;
-  
-}
-
-.project-card--game-design {
-  
-  max-width: 700px;
 }
 
 .project-media {
