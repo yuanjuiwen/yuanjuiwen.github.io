@@ -2510,6 +2510,104 @@ body:has(.navbar) .project-page {
   transform: none !important;
 }
 
+.page-tjoy .project-context:not(.project-context--tjoy-summary),
+.page-tjoy .project-research {
+  margin-top: 3rem;
+}
+
+.page-tjoy .tjoy-problem-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+  column-gap: 2rem;
+  row-gap: 5rem;
+  align-items: start;
+  margin-top: 0.85rem;
+}
+
+.page-tjoy .tjoy-problem-grid::before,
+.page-tjoy .tjoy-problem-grid::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.75;
+}
+
+.page-tjoy .tjoy-problem-grid::before {
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 0.4rem);
+  width: 1px;
+  transform: translateX(-0.5px);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #b8bfc8 0,
+    #b8bfc8 2px,
+    transparent 2px,
+    transparent 6px
+  );
+}
+
+.page-tjoy .tjoy-problem-grid::after {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  transform: translateY(-0.5px);
+  background-image: repeating-linear-gradient(
+    to right,
+    #b8bfc8 0,
+    #b8bfc8 2px,
+    transparent 2px,
+    transparent 6px
+  );
+}
+
+.page-tjoy .tjoy-problem-grid > .project-context {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  width: 100%;
+  max-width: none;
+  transform: none !important;
+}
+
+.page-tjoy .tjoy-problem-grid__label {
+  width: 100%;
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.9rem;
+}
+
+.page-tjoy .tjoy-problem-summary {
+  width: 100%;
+  max-width: 52rem;
+  margin: 1.25rem auto 0;
+}
+
+.page-tjoy .tjoy-problem-divider {
+  width: 100%;
+  max-width: 52rem;
+  margin: 1.25rem auto 0;
+  border: none;
+  border-top: 1px dashed #b8bfc8;
+}
+
+@media (min-width: 1201px) {
+  .page-tjoy .tjoy-problem-grid,
+  .page-tjoy .tjoy-problem-grid__label,
+  .page-tjoy .tjoy-problem-summary,
+  .page-tjoy .tjoy-problem-divider {
+    transform: translateX(var(--eyezen-group-shift));
+  }
+}
+
 .page-tjoy .project-page-lead {
   margin-top: 1rem;
 }
@@ -2517,6 +2615,29 @@ body:has(.navbar) .project-page {
 .page-tjoy #tjoy-lead-heading {
   font-size: clamp(1.4rem, 3vw, 1.9rem);
   line-height: 1.3;
+  font-weight: 500;
+}
+
+.page-tjoy .tjoy-problem-title-icon {
+  display: inline-flex;
+  width: 1.12rem;
+  height: 1.12rem;
+  margin-right: 0.46rem;
+  vertical-align: -0.08em;
+}
+
+.page-tjoy .tjoy-problem-title-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: none;
+  stroke: #9ca3af;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#eyezen-title-heading {
   font-weight: 500;
 }
 
@@ -2532,6 +2653,15 @@ body:has(.navbar) .project-page {
 }
 
 @media (max-width: 900px) {
+  .page-tjoy .tjoy-problem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-tjoy .tjoy-problem-grid::before,
+  .page-tjoy .tjoy-problem-grid::after {
+    display: none;
+  }
+
   .page-tjoy .project-page-facts__inline {
     grid-template-columns: 1fr;
   }
