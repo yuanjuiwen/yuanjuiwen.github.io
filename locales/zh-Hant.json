@@ -1,0 +1,34 @@
+{
+  "lang": {
+    "en": "EN",
+    "zhHant": "中文"
+  },
+  "nav": {
+    "work": "作品",
+    "play": "探索",
+    "about": "關於",
+    "switcherAria": "語言切換"
+  },
+  "footer": {
+    "copyright": "© 2026 Yuan-Jui Wen",
+    "socialLabel": "社群連結",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram"
+  },
+  "home": {
+    "intro": "一位設計學生，透過持續創作探索我真正熱愛的事物。",
+    "playHeading": "探索"
+  },
+  "common": {
+    "open": "開啟",
+    "backToHome": "← 返回首頁",
+    "prevImage": "上一張圖片",
+    "nextImage": "下一張圖片",
+    "chooseSlide": "選擇投影片",
+    "slideN": "投影片 {n}",
+    "chartN": "圖表 {n}",
+    "prevChart": "上一張圖表",
+    "nextChart": "下一張圖表",
+    "chooseChart": "選擇圖表"
+  }
+}

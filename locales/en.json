@@ -1,0 +1,34 @@
+{
+  "lang": {
+    "en": "EN",
+    "zhHant": "中文"
+  },
+  "nav": {
+    "work": "work",
+    "play": "play",
+    "about": "about",
+    "switcherAria": "Language switcher"
+  },
+  "footer": {
+    "copyright": "© 2026 Yuan-Jui Wen",
+    "socialLabel": "Social links",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram"
+  },
+  "home": {
+    "intro": "A design student exploring what I'm passionate about by building things.",
+    "playHeading": "Play"
+  },
+  "common": {
+    "open": "Open",
+    "backToHome": "← Back to home",
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "chooseSlide": "Choose slide",
+    "slideN": "Slide {n}",
+    "chartN": "Chart {n}",
+    "prevChart": "Previous chart",
+    "nextChart": "Next chart",
+    "chooseChart": "Choose chart"
+  }
+}
