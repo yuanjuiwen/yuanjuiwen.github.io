@@ -18,7 +18,13 @@
   }
 
   function detectInitialLang() {
-    // Keep initial render stable: language changes only on explicit user action.
+    var saved = null;
+    try {
+      saved = localStorage.getItem(STORAGE_KEY);
+    } catch (e) {
+      saved = null;
+    }
+    if (saved && isSupported(saved)) return saved;
     return DEFAULT_LANG;
   }
 
@@ -136,13 +142,10 @@
 
     var toggles = document.querySelectorAll("[data-lang-toggle]");
     for (var j = 0; j < toggles.length; j++) {
-      var nextKey = currentLang === "en" ? "lang.zhHant" : "lang.en";
-      var fallbackLabel = currentLang === "en" ? "中文" : "EN";
-      var translated = t(nextKey);
-      var targetLabel = translated === nextKey ? fallbackLabel : translated;
       toggles[j].setAttribute("aria-pressed", "true");
       toggles[j].classList.add("is-active");
-      toggles[j].textContent = targetLabel;
+      toggles[j].textContent = currentLang === "en" ? t("lang.zhHant") : t("lang.en");
+      var targetLabel = currentLang === "en" ? t("lang.zhHant") : t("lang.en");
       toggles[j].setAttribute("aria-label", "Switch language to " + targetLabel);
     }
   }
@@ -208,10 +211,7 @@
   function init() {
     normalizeSwitchers();
     initLanguageSwitcher();
-    currentLang = detectInitialLang();
-    updateSwitcherState();
-    document.documentElement.lang = currentLang;
-    document.documentElement.setAttribute("data-site-lang", currentLang);
+    setLanguage(detectInitialLang());
   }
 
   window.i18n = {
