@@ -177,15 +177,31 @@ body.page-about .photo-carousel-caption {
 }
 
 .home-title {
-  font-family: "EB Garamond", "Times New Roman", serif;
-  font-weight: 500;
+  font-family: "Rufina", "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   color: #000000;
+  margin-left: 1.05rem;
+  font-size: clamp(1.24rem, 3.4vw, 1.75rem);
+  line-height: 1.1;
+}
+
+.home-intro,
+.home-currently {
+  font-family: "Rufina", "Times New Roman", serif;
   margin-left: 1.05rem;
 }
 
-#home > p {
-  font-family: "EB Garamond", "Times New Roman", serif;
-  margin-left: 1.05rem;
+.home-intro {
+  font-size: clamp(0.82rem, 1.28vw, 0.95rem);
+  line-height: 1.35;
+  margin-bottom: 0.4rem;
+}
+
+.home-currently {
+  font-size: clamp(0.82rem, 1.28vw, 0.95rem);
+  line-height: 1.35;
+  margin-top: 0;
 }
 
 .about-photo {
