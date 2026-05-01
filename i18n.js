@@ -18,13 +18,7 @@
   }
 
   function detectInitialLang() {
-    var saved = null;
-    try {
-      saved = localStorage.getItem(STORAGE_KEY);
-    } catch (e) {
-      saved = null;
-    }
-    if (saved && isSupported(saved)) return saved;
+    // Keep initial render stable: language changes only on explicit user action.
     return DEFAULT_LANG;
   }
 
@@ -211,7 +205,10 @@
   function init() {
     normalizeSwitchers();
     initLanguageSwitcher();
-    setLanguage(detectInitialLang());
+    currentLang = detectInitialLang();
+    updateSwitcherState();
+    document.documentElement.lang = currentLang;
+    document.documentElement.setAttribute("data-site-lang", currentLang);
   }
 
   window.i18n = {
