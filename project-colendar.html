@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Colendar | Kevin Wen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="page-eyezen-main page-colendar">
     <div class="page-transition-overlay" aria-hidden="true"></div>
     <nav class="navbar">
       <div class="navbar-inner">
@@ -33,11 +36,65 @@
       </div>
     </nav>
 
-    <main class="project-page">
-      <div class="project-page-media">
-        <img src="assets/Colendar_portfolio_main.jpg" alt="Colendar project cover" />
+    <main class="project-page project-page--wide">
+      <div
+        class="project-page-media project-page-media--gray-panel project-page-media--no-border project-page-media--no-bg"
+      >
+        <div
+          class="project-image-slot project-image-slot--feature project-image-slot--filled"
+          role="img"
+          aria-label="Colendar project cover"
+        >
+          <img class="project-image-slot__img" src="assets/Colendar_portfolio_main.jpg" alt="Colendar project cover" />
+        </div>
       </div>
-      <p class="project-page-desc">Add your project details here.</p>
+
+      <section class="project-page-lead" aria-labelledby="colendar-lead-heading">
+        <h2 id="colendar-lead-heading" class="project-page-lead__title">Colendar</h2>
+        <p class="project-page-desc">Add your subtitle or context line here.</p>
+      </section>
+
+      <section class="project-context project-context--colendar-summary" lang="en" aria-labelledby="colendar-summary-heading">
+        <h2 id="colendar-summary-heading" class="project-page-lead__title project-context__title">SUMMARY</h2>
+        <p class="project-context__body">
+          Colendar is a task-planning tool designed for college students, aimed at increasing their chances of achieving academic goals. Through an engaging, low-friction planning experience and peer accountability features, it helps users stay on track with the goals they set at the beginning of the semester while gradually building stronger time management habits
+        </p>
+      </section>
+
+      <section class="project-page-facts" lang="en" aria-label="Project details">
+        <div class="project-page-facts__inline">
+          <div class="project-page-facts__block project-page-facts__block--timeline">
+            <span class="project-page-facts__label">Timeline</span>
+            <span class="project-page-facts__chunks">
+              <span class="project-page-facts__chunk">2026.02 - 2026.05</span>
+            </span>
+          </div>
+          <div class="project-page-facts__block">
+            <span class="project-page-facts__label">Role</span>
+            <span class="project-page-facts__chunks">
+              <span class="project-page-facts__chunk">UX Research</span><span class="project-page-facts__comma">, </span
+              ><span class="project-page-facts__chunk">UI Design</span>
+            </span>
+          </div>
+          <div class="project-page-facts__block">
+            <span class="project-page-facts__label">Team</span>
+            <span class="project-page-facts__chunks">
+              <span class="project-page-facts__chunk">2 Designers, 1 Engineer</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-context" lang="en" aria-labelledby="colendar-context-heading">
+        <p class="project-context__label">context</p>
+        <h2 id="colendar-context-heading" class="project-page-lead__title project-context__title">
+          Add your context headline — the situation or insight that motivated this project.
+        </h2>
+        <p class="project-context__body">
+          Add supporting details here: who this work serves, what constraints or observations shaped the direction, and how
+          you framed the problem space before moving into research or design.
+        </p>
+      </section>
     </main>
     <script src="i18n.js" defer></script>
     <script src="page-transitions.js" defer></script>

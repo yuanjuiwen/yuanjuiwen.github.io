@@ -2805,6 +2805,58 @@ body:has(.navbar) .project-page {
   }
 }
 
+/* Colendar project page — match TJOY lead / summary / facts layout */
+.page-colendar .project-context--colendar-summary {
+  max-width: none;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+/* Same as TJOY: Eyezen shift applies to context blocks, but not the SUMMARY column */
+.page-eyezen-main.page-colendar .project-context--colendar-summary {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transform: none !important;
+}
+
+.page-colendar .project-context:not(.project-context--colendar-summary) {
+  margin-top: 3rem;
+}
+
+.page-colendar .project-page-lead {
+  margin-top: 2.35rem;
+}
+
+.page-colendar #colendar-lead-heading {
+  font-family: "Rufina", "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #000000;
+  font-size: clamp(1.24rem, 3.4vw, 1.75rem);
+  line-height: 1.1;
+}
+
+.page-colendar .project-page-facts__inline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 1.75rem;
+  row-gap: 0.5rem;
+}
+
+.page-colendar .project-page-facts__block--timeline {
+  gap: 0.55rem;
+}
+
+@media (max-width: 900px) {
+  .page-colendar .project-page-facts__inline {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-colendar .project-page-facts + .project-context {
+  margin-top: 3rem;
+}
+
 .page-eyezen-main .eyezen-toc,
 .page-lifebuoy .eyezen-toc {
   position: fixed;
