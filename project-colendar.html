@@ -36,6 +36,18 @@
       </div>
     </nav>
 
+    <aside class="colendar-toc" aria-label="Section navigation">
+      <nav class="colendar-toc__nav">
+        <a class="colendar-toc__link" href="#colendar-lead-heading">overview</a>
+        <a class="colendar-toc__link" href="#colendar-summary-heading">summary</a>
+        <a class="colendar-toc__link" href="#colendar-context-heading">context</a>
+        <a class="colendar-toc__link" href="#colendar-initial-research-heading">user research</a>
+        <a class="colendar-toc__link" href="#colendar-key-insight-heading">key insight</a>
+        <a class="colendar-toc__link" href="#colendar-design-goals-heading">design goals</a>
+        <a class="colendar-toc__link" href="#colendar-solution-heading">solution</a>
+      </nav>
+    </aside>
+
     <main class="project-page project-page--wide">
       <div
         class="project-page-media project-page-media--gray-panel project-page-media--no-border project-page-media--no-bg"
@@ -88,15 +100,180 @@
       <section class="project-context" lang="en" aria-labelledby="colendar-context-heading">
         <p class="project-context__label">context</p>
         <h2 id="colendar-context-heading" class="project-page-lead__title project-context__title">
-          Add your context headline — the situation or insight that motivated this project.
+          Goals are set at the start of the semester, but often fade away by the end.
         </h2>
         <p class="project-context__body">
-          Add supporting details here: who this work serves, what constraints or observations shaped the direction, and how
-          you framed the problem space before moving into research or design.
+          At the start of the semester, we set various learning and growth goals. But as coursework, activities, and social commitments fill our days, long-term goals are gradually replaced by short-term demands—eventually forgotten or abandoned.
+        </p>
+      </section>
+
+      <section class="project-context" lang="en" aria-labelledby="colendar-initial-research-heading">
+        <p class="project-context__label">User research</p>
+        <h2 id="colendar-initial-research-heading" class="project-page-lead__title project-context__title">
+          Discover Patterns : Compiling insights from interviews, surveys, and secondary research
+        </h2>
+        <p class="project-context__body">
+          We conducted in-depth background research,
+          <strong>collecting 52 survey responses and interviewing 10 students from diverse academic backgrounds</strong>
+          to explore why students struggle to sustain goal execution, as well as the underlying behavioral patterns and key
+          barriers.
+        </p>
+      </section>
+
+      <section class="project-context" lang="en" aria-labelledby="colendar-key-insight-heading">
+        <p class="project-context__label">Key insight</p>
+        <h2 id="colendar-key-insight-heading" class="project-page-lead__title project-context__title">
+          Add a headline that states the main insight you want readers to take away.
+        </h2>
+        
+        <div class="colendar-key-insight-cards">
+          <div class="colendar-key-insight-cards__item">
+            <img class="colendar-key-insight-cards__img" src="assets/Colendar-01.png" alt="" />
+            <div class="colendar-key-insight-cards__foot">
+              <p class="colendar-key-insight-cards__label">Key Insight #1</p>
+              <p class="colendar-key-insight-cards__text">
+                <span class="colendar-key-insight-cards__accent">Low urgency</span> makes goals easy to overlook and likely
+                to fade over time.
+              </p>
+            </div>
+          </div>
+          <div class="colendar-key-insight-cards__item">
+            <img class="colendar-key-insight-cards__img" src="assets/Colendar-02.png" alt="" />
+            <div class="colendar-key-insight-cards__foot">
+              <p class="colendar-key-insight-cards__label">Key Insight #2</p>
+              <p class="colendar-key-insight-cards__text">
+                Lack of a clear execution plan.
+              </p>
+            </div>
+          </div>
+          <div class="colendar-key-insight-cards__item">
+            <img class="colendar-key-insight-cards__img" src="assets/Colendar-03.png" alt="" />
+            <div class="colendar-key-insight-cards__foot">
+              <p class="colendar-key-insight-cards__label">Key Insight #3</p>
+              <p class="colendar-key-insight-cards__text">
+                Invisible progress reduces the sense of achievement
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-context" lang="en" aria-labelledby="colendar-design-goals-heading">
+        <p class="project-context__label">Design goals</p>
+        <h2 id="colendar-design-goals-heading" class="project-page-lead__title project-context__title">
+          Translate key insights into concrete product directions.
+        </h2>
+        <p class="project-context__body">
+          Define 2-3 actionable goals that directly respond to the findings above, and use them to guide prioritization,
+          interaction design, and feature scope in the next stage.
+        </p>
+        <div class="colendar-design-goals-cards" aria-hidden="true">
+          <div class="colendar-design-goals-cards__item">
+            <p class="colendar-design-goals-cards__label">Pain Point</p>
+          </div>
+          <div class="colendar-design-goals-cards__item">
+            <p class="colendar-design-goals-cards__label">Design opportunities</p>
+          </div>
+          <div class="colendar-design-goals-cards__item"></div>
+          <div class="colendar-design-goals-cards__item"></div>
+          <div class="colendar-design-goals-cards__item"></div>
+          <div class="colendar-design-goals-cards__item"></div>
+        </div>
+      </section>
+
+      <section class="project-solution" lang="en" aria-labelledby="colendar-solution-heading">
+        <p class="project-solution__label">solution</p>
+        <h2 id="colendar-solution-heading" class="project-page-lead__title project-solution__title">
+          Introducing Colendar
+        </h2>
+        <p class="project-solution__body">
+          Describe how Colendar addresses the key insights above: what the core experience is, what changes for the user,
+          and how you will validate success in the next iteration.
         </p>
       </section>
     </main>
     <script src="i18n.js" defer></script>
     <script src="page-transitions.js" defer></script>
+    <script>
+      (function initColendarToc() {
+        var toc = document.querySelector(".colendar-toc");
+        var links = Array.prototype.slice.call(document.querySelectorAll(".colendar-toc__link"));
+        if (!toc || links.length === 0) return;
+
+        var sections = links
+          .map(function (link) {
+            var id = (link.getAttribute("href") || "").replace("#", "");
+            if (!id) return null;
+            var heading = document.getElementById(id);
+            var section = heading ? heading.closest("section") : null;
+            if (!section) return null;
+            return { link: link, section: section, id: id };
+          })
+          .filter(Boolean);
+
+        if (sections.length === 0) return;
+
+        var contextSection =
+          document.querySelector(".page-colendar .project-context:not(.project-context--colendar-summary)") ||
+          document.querySelector(".project-context");
+
+        var titleAlign = document.querySelector(".page-colendar #colendar-lead-heading");
+
+        function alignTocToTitleLeft() {
+          if (!titleAlign) return;
+          var rect = titleAlign.getBoundingClientRect();
+          toc.style.left = Math.round(rect.left) + "px";
+        }
+
+        function updateTocVisibility() {
+          if (!contextSection) return;
+          var thresholdY = contextSection.offsetTop - 120;
+          toc.classList.toggle("is-visible", window.scrollY >= thresholdY);
+        }
+
+        function setActive(id) {
+          sections.forEach(function (item) {
+            item.link.classList.toggle("is-active", item.id === id);
+          });
+        }
+
+        function updateActiveByScroll() {
+          var probeY = window.scrollY + Math.max(120, window.innerHeight * 0.3);
+          var current = sections[0];
+          sections.forEach(function (item) {
+            if (item.section.offsetTop <= probeY) current = item;
+          });
+          if (current) setActive(current.id);
+        }
+
+        alignTocToTitleLeft();
+        updateTocVisibility();
+        updateActiveByScroll();
+
+        window.addEventListener("load", function () {
+          alignTocToTitleLeft();
+        });
+
+        var rafId = null;
+        window.addEventListener(
+          "scroll",
+          function () {
+            if (rafId != null) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(function () {
+              rafId = null;
+              updateTocVisibility();
+              updateActiveByScroll();
+            });
+          },
+          { passive: true }
+        );
+
+        window.addEventListener("resize", function () {
+          alignTocToTitleLeft();
+          updateTocVisibility();
+          updateActiveByScroll();
+        });
+      })();
+    </script>
   </body>
 </html>

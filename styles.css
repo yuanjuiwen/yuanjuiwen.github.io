@@ -176,6 +176,68 @@ body.page-about .photo-carousel-caption {
   font-size: 0.85rem;
 }
 
+/* About: neutral grays (no blue/cool cast) for secondary text and carousel chrome */
+body.page-about main {
+  color: #171717;
+}
+
+body.page-about main .section-heading,
+body.page-about main .experience-section h2,
+body.page-about main .experience-header h3 {
+  color: #171717;
+}
+
+body.page-about main .about-intro-text,
+body.page-about main .experience-description {
+  color: #525252;
+}
+
+body.page-about main .experience-role,
+body.page-about main .experience-period {
+  color: #a3a3a3;
+}
+
+body.page-about main .sponsored-tag {
+  color: #737373;
+}
+
+body.page-about main .photo-carousel-btn {
+  color: #171717;
+}
+
+body.page-about main .photo-carousel-caption {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0));
+}
+
+body.page-about main .photo-carousel-dot {
+  background: #d4d4d4;
+}
+
+body.page-about main .photo-carousel-dot[aria-selected="true"] {
+  background: #171717;
+}
+
+body.page-about main .experience-section,
+body.page-about main .photo-carousel-section {
+  border-top-color: #d4d4d4;
+}
+
+body.page-about main .photo-carousel-viewport {
+  border-color: #e5e5e5;
+}
+
+body.page-about .site-footer {
+  color: #737373;
+}
+
+body.page-about .site-footer__social-link {
+  color: #a3a3a3;
+}
+
+body.page-about .site-footer__social-link:hover {
+  color: #737373;
+}
+
 .home-title {
   font-family: "Rufina", "Times New Roman", serif;
   font-weight: 400;
@@ -2806,6 +2868,13 @@ body:has(.navbar) .project-page {
 }
 
 /* Colendar project page — match TJOY lead / summary / facts layout */
+.page-colendar .project-page {
+  --colendar-main-width: 52rem;
+  --colendar-toc-width: clamp(10.5rem, 16vw, 13.5rem);
+  --colendar-toc-gap: 1.25rem;
+  --colendar-group-shift: calc((var(--colendar-toc-width) + var(--colendar-toc-gap)) / 2);
+}
+
 .page-colendar .project-context--colendar-summary {
   max-width: none;
   width: 100%;
@@ -2817,10 +2886,6 @@ body:has(.navbar) .project-page {
   margin-left: 0 !important;
   margin-right: 0 !important;
   transform: none !important;
-}
-
-.page-colendar .project-context:not(.project-context--colendar-summary) {
-  margin-top: 3rem;
 }
 
 .page-colendar .project-page-lead {
@@ -2855,6 +2920,223 @@ body:has(.navbar) .project-page {
 
 .page-colendar .project-page-facts + .project-context {
   margin-top: 3rem;
+}
+
+.page-colendar .project-context:not(.project-context--colendar-summary) {
+  margin-top: 3rem;
+}
+
+.page-colendar .project-context[aria-labelledby="colendar-context-heading"] + .project-context,
+.page-colendar .project-context[aria-labelledby="colendar-initial-research-heading"] + .project-context {
+  margin-top: 5.6rem;
+}
+
+.page-colendar .project-context[aria-labelledby="colendar-key-insight-heading"] + .project-context[aria-labelledby="colendar-design-goals-heading"] {
+  margin-top: 5.6rem;
+}
+
+.page-colendar .project-context[aria-labelledby="colendar-design-goals-heading"] + .project-solution {
+  margin-top: 5.6rem;
+}
+
+.page-colendar .project-context[aria-labelledby="colendar-initial-research-heading"] .project-context__body strong {
+  color: #ea580c;
+}
+
+.page-colendar .project-context[aria-labelledby="colendar-context-heading"] .project-context__title,
+.page-colendar .project-context[aria-labelledby="colendar-initial-research-heading"] .project-context__title,
+.page-colendar .project-context[aria-labelledby="colendar-key-insight-heading"] .project-context__title,
+.page-colendar .project-context[aria-labelledby="colendar-design-goals-heading"] .project-context__title {
+  margin-bottom: 1.45rem;
+}
+
+.page-colendar .project-solution .project-solution__title {
+  margin-bottom: 1.45rem;
+  color: #ea580c;
+  font-weight: 600;
+}
+
+.page-colendar .colendar-key-insight-cards {
+  margin-top: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.35rem;
+}
+
+.page-colendar .colendar-key-insight-cards__item {
+  position: relative;
+  min-height: 13.2rem;
+  border-radius: 12px;
+  background: #f2f2f2;
+  border: none;
+  overflow: hidden;
+}
+
+.page-colendar .colendar-key-insight-cards__img {
+  position: absolute;
+  top: 0.95rem;
+  left: 0.95rem;
+  width: 22%;
+  height: auto;
+  display: block;
+}
+
+.page-colendar .colendar-key-insight-cards__label {
+  position: absolute;
+  left: 0.95rem;
+  bottom: 0.95rem;
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: #000000;
+}
+
+.page-colendar .colendar-key-insight-cards__foot {
+  position: absolute;
+  left: 0.95rem;
+  right: 0.95rem;
+  bottom: 1.45rem;
+}
+
+.page-colendar .colendar-key-insight-cards__foot .colendar-key-insight-cards__label {
+  position: static;
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+}
+
+.page-colendar .colendar-key-insight-cards__text {
+  margin: 0;
+  min-height: 2.9em;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #000000;
+}
+
+.page-colendar .colendar-key-insight-cards__accent {
+  color: #ea580c;
+}
+
+.page-colendar .colendar-design-goals-cards {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.35rem;
+}
+
+.page-colendar .colendar-design-goals-cards__item {
+  position: relative;
+  min-height: 14rem;
+  border-radius: 12px;
+  background: #f2f2f2;
+}
+
+.page-colendar .colendar-design-goals-cards__label {
+  position: absolute;
+  top: -1.95rem;
+  left: 0;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+@media (max-width: 900px) {
+  .page-colendar .colendar-key-insight-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .page-colendar .colendar-design-goals-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-colendar .colendar-toc {
+  position: fixed;
+  top: auto;
+  bottom: calc(max(1rem, env(safe-area-inset-bottom, 0px)) + 1.8rem);
+  left: max(
+    env(safe-area-inset-left),
+    calc(50% - (var(--colendar-main-width) / 2) - var(--colendar-toc-width) - var(--colendar-toc-gap) + var(--colendar-group-shift))
+  );
+  z-index: 20;
+  width: var(--colendar-toc-width);
+  max-height: min(42vh, 22rem);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.page-colendar .colendar-toc.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-colendar .colendar-toc__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem 0.35rem;
+  border-left: 1px solid #e5e7eb;
+}
+
+.page-colendar .colendar-toc__link {
+  pointer-events: auto;
+  display: block;
+  padding: 0.28rem 0.55rem;
+  font-size: 0.78rem;
+  line-height: 1.3;
+  color: #9ca3af;
+  text-decoration: none;
+  border-radius: 0.35rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: color 0.2s ease, opacity 0.45s ease, transform 0.45s ease;
+}
+
+.page-colendar .colendar-toc.is-visible .colendar-toc__link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-colendar .colendar-toc.is-visible .colendar-toc__link:nth-child(1) {
+  transition-delay: 0.04s;
+}
+.page-colendar .colendar-toc.is-visible .colendar-toc__link:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.page-colendar .colendar-toc.is-visible .colendar-toc__link:nth-child(3) {
+  transition-delay: 0.16s;
+}
+.page-colendar .colendar-toc.is-visible .colendar-toc__link:nth-child(4) {
+  transition-delay: 0.22s;
+}
+.page-colendar .colendar-toc.is-visible .colendar-toc__link:nth-child(5) {
+  transition-delay: 0.28s;
+}
+.page-colendar .colendar-toc.is-visible .colendar-toc__link:nth-child(6) {
+  transition-delay: 0.34s;
+}
+
+.page-colendar .colendar-toc.is-visible .colendar-toc__link:nth-child(7) {
+  transition-delay: 0.4s;
+}
+
+.page-colendar .colendar-toc__link:hover {
+  color: #6b7280;
+}
+
+.page-colendar .colendar-toc__link.is-active {
+  color: #111827;
+  font-weight: 500;
+}
+
+@media (max-width: 1200px) {
+  .page-colendar .colendar-toc {
+    display: none;
+  }
 }
 
 .page-eyezen-main .eyezen-toc,
