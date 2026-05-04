@@ -7,6 +7,8 @@
     "work": "work",
     "play": "play",
     "about": "about",
+    "resume": "resume",
+    "resumeAria": "Open resume as PDF",
     "switcherAria": "Language switcher"
   },
   "footer": {

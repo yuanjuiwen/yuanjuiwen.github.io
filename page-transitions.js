@@ -134,3 +134,166 @@
     init();
   }
 })();
+
+/** Bottom-fixed project TOCs: shrink link typography / spacing so everything fits (no inner scroll). */
+(function () {
+  var MQ_HIDE = "(max-width: 1200px)";
+
+  function topGuardPx() {
+    var pt = parseFloat(getComputedStyle(document.body).paddingTop);
+    if (isNaN(pt) || pt < 1) return 96;
+    return Math.round(pt + 6);
+  }
+
+  function fitDockedTocAside(toc) {
+    if (!toc) return;
+    var nav = toc.querySelector("nav");
+    if (!nav) return;
+    var links = nav.querySelectorAll("a");
+
+    function clearOverrides() {
+      nav.style.fontSize = "";
+      nav.style.gap = "";
+      nav.style.padding = "";
+      for (var i = 0; i < links.length; i++) {
+        links[i].style.fontSize = "";
+        links[i].style.paddingTop = "";
+        links[i].style.paddingBottom = "";
+      }
+    }
+
+    if (window.matchMedia(MQ_HIDE).matches) {
+      clearOverrides();
+      return;
+    }
+
+    clearOverrides();
+
+    var guard = topGuardPx();
+    var r = toc.getBoundingClientRect();
+    var avail = Math.max(64, r.bottom - guard - 4);
+    if (toc.offsetHeight <= avail) return;
+
+    var comp0 = links[0] ? getComputedStyle(links[0]) : getComputedStyle(nav);
+    var startFs = parseFloat(comp0.fontSize);
+    if (isNaN(startFs)) startFs = 12.48;
+
+    var fs;
+    var k;
+    for (fs = startFs - 0.5; fs >= 9; fs -= 0.5) {
+      for (k = 0; k < links.length; k++) links[k].style.fontSize = fs + "px";
+      if (toc.offsetHeight <= avail) return;
+    }
+
+    nav.style.gap = "0.12rem";
+    if (toc.offsetHeight <= avail) return;
+
+    nav.style.padding = "0.4rem 0.3rem";
+    for (fs = 9; fs >= 7.5; fs -= 0.5) {
+      for (k = 0; k < links.length; k++) links[k].style.fontSize = fs + "px";
+      if (toc.offsetHeight <= avail) return;
+    }
+
+    for (k = 0; k < links.length; k++) {
+      links[k].style.paddingTop = "0.18rem";
+      links[k].style.paddingBottom = "0.18rem";
+    }
+    for (fs = 7.5; fs >= 7; fs -= 0.5) {
+      for (k = 0; k < links.length; k++) links[k].style.fontSize = fs + "px";
+      if (toc.offsetHeight <= avail) return;
+    }
+  }
+
+  function initDockedTocFit() {
+    var raf = null;
+    function tick() {
+      var docks = document.querySelectorAll(".toc--dock-bottom");
+      for (var i = 0; i < docks.length; i++) fitDockedTocAside(docks[i]);
+    }
+    function schedule() {
+      if (raf != null) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(function () {
+        raf = null;
+        tick();
+      });
+    }
+
+    if (!document.querySelector(".toc--dock-bottom")) return;
+
+    tick();
+    window.addEventListener("resize", schedule, { passive: true });
+    window.addEventListener("load", schedule);
+    document.addEventListener("site-language-changed", schedule);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", schedule);
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initDockedTocFit);
+  } else {
+    initDockedTocFit();
+  }
+})();
+
+/** Home (#work / #play): keep project-card preview videos looping (recover from tab sleep / scroll pause). */
+(function () {
+  function tryPlay(el) {
+    if (!el || el.tagName !== "VIDEO") return;
+    el.play().catch(function () {});
+  }
+
+  function initHomeProjectCardVideos() {
+    var home = document.getElementById("home");
+    if (!home) return;
+    var videos = home.querySelectorAll(".project-card video");
+    if (!videos.length) return;
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) tryPlay(entries[i].target);
+        }
+      },
+      { threshold: 0.08, rootMargin: "40px 0px" }
+    );
+
+    for (var j = 0; j < videos.length; j++) {
+      var v = videos[j];
+      v.muted = true;
+      v.loop = true;
+      v.setAttribute("playsinline", "");
+      v.addEventListener(
+        "pause",
+        function (ev) {
+          if (document.hidden) return;
+          var t = ev.target;
+          if (!t || t.tagName !== "VIDEO") return;
+          requestAnimationFrame(function () {
+            if (t.paused) tryPlay(t);
+          });
+        },
+        { passive: true }
+      );
+      io.observe(v);
+      tryPlay(v);
+    }
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) return;
+      for (var k = 0; k < videos.length; k++) tryPlay(videos[k]);
+    });
+
+    window.addEventListener("pageshow", function (e) {
+      if (e.persisted) {
+        for (var p = 0; p < videos.length; p++) tryPlay(videos[p]);
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHomeProjectCardVideos);
+  } else {
+    initHomeProjectCardVideos();
+  }
+})();

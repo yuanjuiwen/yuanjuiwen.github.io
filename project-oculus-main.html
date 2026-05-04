@@ -15,25 +15,22 @@
           <li><a href="index.html#work" data-i18n="nav.work">work</a></li>
           <li><a href="index.html#play" data-i18n="nav.play">play</a></li>
           <li><a href="about.html" data-i18n="nav.about">about</a></li>
+          <li>
+            <a
+              href="https://drive.google.com/file/d/1zUd77evxGmOmOf-U2A0rWiG_1yQkBVCH/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="nav.resume"
+              data-i18n-attrs="aria-label:nav.resumeAria"
+              aria-label="Open resume as PDF"
+              >resume</a
+            >
+          </li>
         </ul>
-        <div class="lang-switcher" data-i18n-attrs="aria-label:nav.switcherAria" aria-label="Language switcher">
-          <button type="button" class="lang-switcher__btn" data-lang-switch="en" aria-pressed="false" data-i18n="lang.en">
-            EN
-          </button>
-          <button
-            type="button"
-            class="lang-switcher__btn"
-            data-lang-switch="zh-Hant"
-            aria-pressed="false"
-            data-i18n="lang.zhHant"
-          >
-            中文
-          </button>
-        </div>
       </div>
     </nav>
 
-    <aside class="oculus-toc" aria-label="Section navigation">
+    <aside class="oculus-toc toc--dock-bottom" aria-label="Section navigation">
       <nav class="oculus-toc__nav">
         <a class="oculus-toc__link" href="#oculus-context-heading">context</a>
         <a class="oculus-toc__link" href="#oculus-research-heading">market research</a>
@@ -53,6 +50,7 @@
 
     <main class="project-page project-page--wide">
       <div
+        id="oculus-hero"
         class="project-page-media project-page-media--gray-panel project-page-media--no-border project-page-media--no-bg"
       >
         <div
@@ -1326,13 +1324,12 @@ outperforming comparable products on the market.
           if (sections.length === 0) return;
 
           var contextSection = document.querySelector(".project-context");
-          function alignTocToContextLeft() {
-            if (!contextSection) return;
-            var rect = contextSection.getBoundingClientRect();
-            var gap = 20;
-            var tocWidth = toc.offsetWidth || 190;
-            var targetLeft = Math.round(rect.left - tocWidth - gap);
-            toc.style.left = Math.max(12, targetLeft) + "px";
+          var heroAlign = document.querySelector("#oculus-hero");
+
+          function alignTocToHeroLeft() {
+            if (!heroAlign) return;
+            var rect = heroAlign.getBoundingClientRect();
+            toc.style.left = Math.round(rect.left) + "px";
           }
 
           function updateTocVisibility() {
@@ -1356,9 +1353,13 @@ outperforming comparable products on the market.
             if (current) setActive(current.id);
           }
 
-          alignTocToContextLeft();
+          alignTocToHeroLeft();
           updateTocVisibility();
           updateActiveByScroll();
+
+          window.addEventListener("load", function () {
+            alignTocToHeroLeft();
+          });
 
           var rafId = null;
           window.addEventListener(
@@ -1375,7 +1376,7 @@ outperforming comparable products on the market.
           );
 
           window.addEventListener("resize", function () {
-            alignTocToContextLeft();
+            alignTocToHeroLeft();
             updateTocVisibility();
             updateActiveByScroll();
           });

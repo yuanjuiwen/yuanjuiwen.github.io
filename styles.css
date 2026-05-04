@@ -101,34 +101,6 @@ body:has(.navbar) {
   gap: 2rem;
   margin: 0;
   padding: 0;
-  margin-right: 5.2rem;
-}
-
-.lang-switcher {
-  position: absolute;
-  right: max(3.5rem, env(safe-area-inset-right));
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-}
-
-.lang-switcher__btn {
-  border: none;
-  background: transparent;
-  color: #4b5563;
-  border-radius: 0;
-  padding: 0.12rem 0.48rem;
-  font-size: 0.78rem;
-  font-weight: 500;
-  line-height: 1.3;
-  cursor: pointer;
-}
-
-.lang-switcher__btn.is-active,
-.lang-switcher__btn[aria-pressed="true"] {
-  color: #111827;
 }
 
 .nav-links a {
@@ -499,17 +471,6 @@ body.page-about .site-footer__social-link:hover {
 
   .nav-links {
     gap: 0.75rem;
-    margin-right: 3.6rem;
-  }
-
-  .lang-switcher {
-    right: max(1rem, env(safe-area-inset-right));
-    gap: 0;
-  }
-
-  .lang-switcher__btn {
-    padding: 0.1rem 0.38rem;
-    font-size: 0.72rem;
   }
 
   .nav-links a {
@@ -1006,6 +967,13 @@ body:has(.navbar) .project-page {
   display: block;
   object-fit: cover;
   border-radius: 14px;
+}
+
+/* Hero video: same slot / footprint as Colendar cover (.project-image-slot--feature) */
+.project-page-media--no-bg .project-image-slot--feature video.project-image-slot__img {
+  width: 100%;
+  min-height: 35rem;
+  object-fit: cover;
 }
 
 .project-image-slot--card {
@@ -2691,6 +2659,7 @@ body:has(.navbar) .project-page {
   --eyezen-toc-width: clamp(10.5rem, 16vw, 13.5rem);
   --eyezen-toc-gap: 1.25rem;
   --eyezen-group-shift: calc((var(--eyezen-toc-width) + var(--eyezen-toc-gap)) / 2);
+  --eyezen-main-width: 52rem;
   line-height: 1.4;
   letter-spacing: -0.005em;
 }
@@ -3179,9 +3148,6 @@ body:has(.navbar) .project-page {
   );
   z-index: 20;
   width: var(--colendar-toc-width);
-  max-height: min(42vh, 22rem);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.25s ease, transform 0.25s ease;
@@ -3258,7 +3224,23 @@ body:has(.navbar) .project-page {
   }
 }
 
-.page-eyezen-main .eyezen-toc,
+.page-eyezen-main .eyezen-toc {
+  position: fixed;
+  top: auto;
+  bottom: calc(max(1rem, env(safe-area-inset-bottom, 0px)) + 1.8rem);
+  /* Align with hero row left (matches .project-page--wide centered column + padding); JS refines from #eyezen-hero */
+  left: max(
+    env(safe-area-inset-left, 0px),
+    calc((100vw - min(1120px, 100vw)) / 2 + max(1rem, env(safe-area-inset-left, 0px)))
+  );
+  z-index: 20;
+  width: var(--eyezen-toc-width);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
 .page-lifebuoy .eyezen-toc {
   position: fixed;
   top: calc(92px + env(safe-area-inset-top, 0px));
@@ -3364,15 +3346,17 @@ body:has(.navbar) .project-page {
 
 .page-oculus-main .oculus-toc {
   position: fixed;
-  top: calc(92px + env(safe-area-inset-top, 0px));
+  top: auto;
+  bottom: calc(max(1rem, env(safe-area-inset-bottom, 0px)) + 1.8rem);
+  /* Align with hero block left (matches .project-page--wide + padding); JS refines from #oculus-hero */
   left: max(
-    env(safe-area-inset-left),
-    calc(50% - (var(--oculus-main-width) / 2) - var(--oculus-toc-width) - var(--oculus-toc-gap) + var(--oculus-group-shift))
+    env(safe-area-inset-left, 0px),
+    calc((100vw - min(1120px, 100vw)) / 2 + max(1rem, env(safe-area-inset-left, 0px)))
   );
   z-index: 20;
   width: var(--oculus-toc-width);
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateY(8px);
   transition: opacity 0.25s ease, transform 0.25s ease;
   pointer-events: none;
 }
