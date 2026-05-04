@@ -2939,8 +2939,49 @@ body:has(.navbar) .project-page {
   margin-top: 5.6rem;
 }
 
+.page-colendar .project-context .colendar-next-block__box {
+  width: 100%;
+  min-height: 34rem;
+  border-radius: 12px;
+  background: #f2f2f2;
+  margin-bottom: 1.25rem;
+}
+
+.page-colendar .project-context[aria-labelledby="colendar-context-heading"] .colendar-context__box {
+  width: 100%;
+  min-height: 18rem;
+  border-radius: 12px;
+  background: #f2f2f2;
+  margin-top: 1.1rem;
+}
+
+.page-colendar .project-context[aria-labelledby="colendar-initial-research-heading"] .colendar-initial-research__box {
+  width: 100%;
+  min-height: 36rem;
+  border-radius: 12px;
+  background: #f2f2f2;
+  margin-top: 1.1rem;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1.1rem;
+}
+
+.page-colendar .project-context[aria-labelledby="colendar-initial-research-heading"] .colendar-initial-research__img {
+  width: min(100%, 1260px);
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 8px;
+  transform: none;
+}
+
 .page-colendar .project-context[aria-labelledby="colendar-initial-research-heading"] .project-context__body strong {
-  color: #ea580c;
+  color: #20b8ff;
 }
 
 .page-colendar .project-context[aria-labelledby="colendar-context-heading"] .project-context__title,
@@ -2952,8 +2993,10 @@ body:has(.navbar) .project-page {
 
 .page-colendar .project-solution .project-solution__title {
   margin-bottom: 1.45rem;
-  color: #ea580c;
+  color: #20b8ff;
   font-weight: 600;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-style: italic;
 }
 
 .page-colendar .colendar-key-insight-cards {
@@ -3012,8 +3055,13 @@ body:has(.navbar) .project-page {
   color: #000000;
 }
 
+.page-colendar .colendar-key-insight-cards__foot .colendar-key-insight-cards__text + .colendar-key-insight-cards__text {
+  margin-top: 2rem;
+  min-height: 0;
+}
+
 .page-colendar .colendar-key-insight-cards__accent {
-  color: #ea580c;
+  color: #20b8ff;
 }
 
 .page-colendar .colendar-design-goals-cards {
@@ -3025,9 +3073,42 @@ body:has(.navbar) .project-page {
 
 .page-colendar .colendar-design-goals-cards__item {
   position: relative;
-  min-height: 14rem;
+  min-height: 18.5rem;
   border-radius: 12px;
   background: #f2f2f2;
+}
+
+.page-colendar .colendar-design-goals-cards__item::before {
+  content: "✨";
+  position: absolute;
+  top: 2.5rem;
+  left: 2.5rem;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.page-colendar .colendar-design-goals-cards__item:nth-child(1)::before {
+  content: "😓";
+}
+.page-colendar .colendar-design-goals-cards__item:nth-child(2)::before {
+  content: "🧭";
+}
+.page-colendar .colendar-design-goals-cards__item:nth-child(3)::before {
+  content: "🤯";
+}
+.page-colendar .colendar-design-goals-cards__item:nth-child(4)::before {
+  content: "🗂️";
+}
+.page-colendar .colendar-design-goals-cards__item:nth-child(5)::before {
+  content: "🤥";
+}
+.page-colendar .colendar-design-goals-cards__item:nth-child(6)::before {
+  content: "🏁";
+}
+
+.page-colendar .colendar-design-goals-cards__item:nth-child(even) {
+  background: #e6f7ff;
+  background: color-mix(in srgb, #20b8ff 40%, #ffffff);
 }
 
 .page-colendar .colendar-design-goals-cards__label {
@@ -3038,6 +3119,44 @@ body:has(.navbar) .project-page {
   font-size: 0.95rem;
   font-weight: 500;
   color: #111827;
+}
+
+/* Keep each row's left/right card text aligned in Design goals */
+.page-colendar .colendar-design-goals-cards__item .colendar-key-insight-cards__foot {
+  left: 1.1rem;
+  right: 1.1rem;
+  top: 8rem;
+  bottom: 0.65rem;
+  display: grid;
+  grid-template-rows: auto minmax(4.1em, auto) minmax(4.1em, auto);
+  row-gap: 0.75rem;
+  align-content: start;
+}
+
+.page-colendar .colendar-design-goals-cards__item .colendar-key-insight-cards__foot .colendar-key-insight-cards__label {
+  margin: 0;
+}
+
+.page-colendar .colendar-design-goals-cards__item .colendar-key-insight-cards__text {
+  margin: 0;
+  min-height: 0;
+}
+
+.page-colendar
+  .colendar-design-goals-cards__item
+  .colendar-key-insight-cards__foot
+  .colendar-key-insight-cards__text
+  + .colendar-key-insight-cards__text {
+  margin-top: 0;
+}
+
+/* First body line slightly heavier than second; card title stays bolder (600) */
+.page-colendar
+  .colendar-design-goals-cards__item
+  .colendar-key-insight-cards__foot
+  > .colendar-key-insight-cards__label
+  + .colendar-key-insight-cards__text {
+  font-weight: 500;
 }
 
 @media (max-width: 900px) {
