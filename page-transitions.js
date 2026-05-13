@@ -297,3 +297,73 @@
     initHomeProjectCardVideos();
   }
 })();
+
+/** Light / dark theme (localStorage `site_theme`: light | dark). */
+(function () {
+  var KEY = "site_theme";
+
+  function setMetaTheme(light) {
+    var tcDark = document.getElementById("themeColorDark");
+    var tcLight = document.getElementById("themeColorLight");
+    if (!tcDark || !tcLight) return;
+    if (light) {
+      tcDark.media = "not all";
+      tcLight.media = "(max-width: 99999px)";
+    } else {
+      tcDark.media = "(max-width: 99999px)";
+      tcLight.media = "not all";
+    }
+  }
+
+  function applyTheme(dark) {
+    document.documentElement.classList.toggle("dark-mode", dark);
+    document.body.classList.toggle("dark-mode", dark);
+    document.documentElement.style.colorScheme = dark ? "dark" : "light";
+    setMetaTheme(!dark);
+
+    try {
+      window.localStorage.setItem(KEY, dark ? "dark" : "light");
+    } catch (e) {
+      /* no-op */
+    }
+
+    var btn = document.getElementById("themeToggle");
+    if (btn) {
+      var moon = btn.querySelector(".theme-toggle__moon");
+      var sun = btn.querySelector(".theme-toggle__sun");
+      if (moon) moon.style.display = dark ? "none" : "";
+      if (sun) sun.style.display = dark ? "" : "none";
+      btn.setAttribute("aria-pressed", dark ? "true" : "false");
+    }
+  }
+
+  function initThemeToggle() {
+    var btn = document.getElementById("themeToggle");
+    if (!btn) return;
+
+    var dark = false;
+    try {
+      dark = window.localStorage.getItem(KEY) === "dark";
+    } catch (e) {
+      dark = false;
+    }
+    applyTheme(dark);
+
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        document.documentElement.classList.add("theme-ready");
+        document.body.classList.add("theme-ready");
+      });
+    });
+
+    btn.addEventListener("click", function () {
+      applyTheme(!document.documentElement.classList.contains("dark-mode"));
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initThemeToggle);
+  } else {
+    initThemeToggle();
+  }
+})();

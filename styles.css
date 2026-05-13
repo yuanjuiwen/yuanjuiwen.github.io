@@ -1,9 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap");
+
 :root {
   --nav-bg: rgba(245, 245, 247, 0.72);
-  --nav-text: #6b7280;
+  --nav-text: #737373;
   --nav-link: #000000;
   --nav-link-hover: #000000;
   --nav-border: rgba(0, 0, 0, 0.06);
+  --font-body: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  --font-body-weight: 400;
+}
+
+html:lang(zh-Hant) {
+  --font-body: "Fraunces", "Noto Serif TC", "Noto Serif SC", "Source Han Serif TC", "Songti TC", "PingFang TC", "LiSong Pro", "PMingLiU", "Microsoft JhengHei", ui-serif, serif;
+  --font-body-weight: 400;
+}
+
+html:lang(zh-Hant) body {
+  letter-spacing: 0.01em;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
+}
+
+/* 繁中排版對齊 thelingwu.com：Fraunces + Noto Serif TC、較緊字距、行高約 1.65–1.7 */
+html:lang(zh-Hant) .project-page-lead__title,
+html:lang(zh-Hant) .project-context__title,
+html:lang(zh-Hant) .project-solution__title {
+  letter-spacing: -0.012em;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+html:lang(zh-Hant) .project-page-facts__label {
+  letter-spacing: 0.02em;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+html:lang(zh-Hant) .project-page-facts__date,
+html:lang(zh-Hant) .project-page-facts__chunks,
+html:lang(zh-Hant) .project-page-facts__chunk,
+html:lang(zh-Hant) .project-page-facts__comma {
+  letter-spacing: 0.01em;
+}
+
+html:lang(zh-Hant) .nav-links a,
+html:lang(zh-Hant) .brand a {
+  letter-spacing: 0.01em;
+}
+
+html:lang(zh-Hant) .navbar-lang .lang-toggle {
+  letter-spacing: 0.01em;
+}
+
+html:lang(zh-Hant) .project-context__label,
+html:lang(zh-Hant) .project-research__label,
+html:lang(zh-Hant) .project-design-challenge__label,
+html:lang(zh-Hant) .project-jtbd-survey__label,
+html:lang(zh-Hant) .project-ipa-analysis__label,
+html:lang(zh-Hant) .project-product-strategy__label,
+html:lang(zh-Hant) .project-our-goal__label,
+html:lang(zh-Hant) .project-design-experiment__label,
+html:lang(zh-Hant) .project-causal-relationship-map__label,
+html:lang(zh-Hant) .project-baffle-exp1__label,
+html:lang(zh-Hant) .project-process__label,
+html:lang(zh-Hant) .project-result__label,
+html:lang(zh-Hant) .project-result-2__label,
+html:lang(zh-Hant) .project-result-3__label,
+html:lang(zh-Hant) .project-blade-base-exp2__label,
+html:lang(zh-Hant) .project-process-2__label,
+html:lang(zh-Hant) .project-cup-shape-exp3-1__label,
+html:lang(zh-Hant) .project-process-3__label,
+html:lang(zh-Hant) .project-cup-shape-exp3-2__label,
+html:lang(zh-Hant) .project-design-conclusion__label,
+html:lang(zh-Hant) .project-design__label,
+html:lang(zh-Hant) .project-solution__label {
+  letter-spacing: 0.1em;
+  line-height: 1.65;
+}
+
+html:lang(zh-Hant) .project-context__body,
+html:lang(zh-Hant) .project-research__body,
+html:lang(zh-Hant) .project-design-challenge__body,
+html:lang(zh-Hant) .project-jtbd-survey__body,
+html:lang(zh-Hant) .project-ipa-analysis__body,
+html:lang(zh-Hant) .project-product-strategy__body,
+html:lang(zh-Hant) .project-our-goal__body,
+html:lang(zh-Hant) .project-design-experiment__body,
+html:lang(zh-Hant) .project-causal-relationship-map__body,
+html:lang(zh-Hant) .project-baffle-exp1__body,
+html:lang(zh-Hant) .project-process__body,
+html:lang(zh-Hant) .project-result__body,
+html:lang(zh-Hant) .project-result-2__body,
+html:lang(zh-Hant) .project-result-3__body,
+html:lang(zh-Hant) .project-blade-base-exp2__body,
+html:lang(zh-Hant) .project-process-2__body,
+html:lang(zh-Hant) .project-cup-shape-exp3-1__body,
+html:lang(zh-Hant) .project-process-3__body,
+html:lang(zh-Hant) .project-cup-shape-exp3-2__body,
+html:lang(zh-Hant) .project-design-conclusion__body,
+html:lang(zh-Hant) .project-design__body,
+html:lang(zh-Hant) .project-solution__body {
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+html:lang(zh-Hant) .project-page-desc,
+html:lang(zh-Hant) .project-research-compare__text {
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+html:lang(zh-Hant) .project-page-facts {
+  line-height: 1.68;
+  letter-spacing: 0.01em;
+}
+
+html:lang(zh-Hant) .home-intro,
+html:lang(zh-Hant) .home-currently {
+  font-family: var(--font-body);
+  line-height: 1.68;
+  letter-spacing: 0.01em;
+}
+
+html:lang(zh-Hant) .home-title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+html:lang(zh-Hant) .page-colendar .colendar-key-insight-cards__text,
+html:lang(zh-Hant) .page-colendar .colendar-design-goals-cards__item .colendar-key-insight-cards__text {
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+}
+
+html:lang(zh-Hant) .page-colendar .colendar-key-insight-cards__label,
+html:lang(zh-Hant) .page-colendar .colendar-design-goals-cards__item .colendar-key-insight-cards__label {
+  letter-spacing: 0.06em;
+  line-height: 1.55;
 }
 
 * {
@@ -19,18 +154,17 @@ html {
 
 body {
   margin: 0;
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
-  font-weight: 300;
+  font-family: var(--font-body);
+  font-weight: var(--font-body-weight);
   background: #ffffff;
-  color: #111827;
+  color: #171717;
   overflow-x: hidden;
   overflow-wrap: break-word;
 }
 
 /* Oculus: keep SVG labels consistent with the page typography */
 .page-oculus-main svg text {
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC",
-    sans-serif !important;
+  font-family: var(--font-body) !important;
 }
 
 body:has(.navbar) {
@@ -107,7 +241,7 @@ body:has(.navbar) {
   color: var(--nav-link);
   text-decoration: none;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
   border-bottom: 1.5px solid transparent;
   padding-bottom: 2px;
   transition: border-color 0.15s ease;
@@ -117,6 +251,93 @@ body:has(.navbar) {
 .nav-links a.active {
   color: var(--nav-link-hover);
   border-bottom-color: #000000;
+}
+
+.navbar-tools {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+}
+
+.navbar-lang {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+html.theme-ready .navbar-lang .lang-toggle {
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.navbar-lang .lang-toggle {
+  margin: 0;
+  padding: 0 0.35rem;
+  min-width: auto;
+  min-height: 2.35rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--nav-link);
+  font-size: 1rem;
+  font-weight: var(--font-body-weight);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.navbar-lang .lang-toggle:hover {
+  background: transparent;
+  color: var(--nav-link-hover);
+}
+
+.navbar-lang .lang-toggle:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.55);
+  outline-offset: 3px;
+}
+
+html.dark-mode .navbar-lang .lang-toggle {
+  border: none;
+  background: transparent;
+  color: #e5e5e5;
+}
+
+html.dark-mode .navbar-lang .lang-toggle:hover {
+  background: transparent;
+  color: #ffffff;
+}
+
+.theme-toggle {
+  position: relative;
+  z-index: 6;
+  width: 2.35rem;
+  height: 2.35rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--nav-link);
+  cursor: pointer;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+html.theme-ready .theme-toggle {
+  transition: color 0.15s ease, opacity 0.15s ease, transform 0.22s ease;
+}
+
+.theme-toggle:hover {
+  background: transparent;
+  color: var(--nav-link-hover);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.55);
+  outline-offset: 3px;
+}
+
+.theme-toggle__icon {
+  display: block;
 }
 
 main {
@@ -236,14 +457,14 @@ body.page-about .site-footer__social-link:hover {
   font-size: clamp(0.82rem, 1.28vw, 0.95rem);
   line-height: 1.35;
   margin-top: 0;
-  color: #6b7280;
+  color: #737373;
 }
 
 .about-photo {
   width: 280px;
   max-width: 100%;
   border-radius: 14px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #d0d0d0;
   display: block;
   margin-left: -1.75rem;
   margin-top: 3rem;
@@ -254,7 +475,7 @@ body.page-about .site-footer__social-link:hover {
   margin-left: -1.75rem;
   margin-right: -1.75rem;
   padding-top: 3rem;
-  border-top: 1px solid #d1d5db;
+  border-top: 1px solid #d0d0d0;
 }
 
 .experience-section h2 {
@@ -293,18 +514,18 @@ body.page-about .site-footer__social-link:hover {
 .experience-period {
   margin: 0.25rem 0 0;
   font-size: 0.88rem;
-  color: #9ca3af;
+  color: #a3a3a3;
 }
 
 .experience-role {
   margin: 0.25rem 0 0;
   font-size: 0.88rem;
-  color: #9ca3af;
+  color: #a3a3a3;
 }
 
 .experience-description {
   margin: 0;
-  color: #4b5563;
+  color: #525252;
   line-height: 1.5;
   text-align: left;
 }
@@ -321,7 +542,7 @@ body.page-about .site-footer__social-link:hover {
 .about-intro-text {
   margin: 0;
   max-width: 65ch;
-  color: #4b5563;
+  color: #525252;
   line-height: 1.7;
   font-size: 0.98rem;
 }
@@ -331,7 +552,7 @@ body.page-about .site-footer__social-link:hover {
   margin-left: -1.75rem;
   margin-right: -1.75rem;
   padding-top: 3rem;
-  border-top: 1px solid #d1d5db;
+  border-top: 1px solid #d0d0d0;
 }
 
 .photo-carousel-section .section-heading {
@@ -354,7 +575,7 @@ body.page-about .site-footer__social-link:hover {
   -webkit-overflow-scrolling: touch;
   width: 100%;
   border-radius: 14px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e8e8e8;
   background: #ffffff;
   scrollbar-width: none;
   outline: none;
@@ -404,7 +625,7 @@ body.page-about .site-footer__social-link:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to top, rgba(17, 24, 39, 0.72), rgba(17, 24, 39, 0));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0));
   pointer-events: none;
 }
 
@@ -417,13 +638,13 @@ body.page-about .site-footer__social-link:hover {
   border-radius: 999px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: rgba(255, 255, 255, 0.92);
-  color: #111827;
+  color: #171717;
   font-size: 1.25rem;
   line-height: 1;
   cursor: pointer;
   display: grid;
   place-items: center;
-  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 
@@ -453,13 +674,13 @@ body.page-about .site-footer__social-link:hover {
   padding: 0;
   border: none;
   border-radius: 999px;
-  background: #d1d5db;
+  background: #d0d0d0;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .photo-carousel-dot[aria-selected="true"] {
-  background: #111827;
+  background: #171717;
   transform: scale(1.15);
 }
 
@@ -474,6 +695,21 @@ body.page-about .site-footer__social-link:hover {
   }
 
   .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  .navbar-tools {
+    gap: 0.55rem;
+  }
+
+  .theme-toggle {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+
+  .navbar-lang .lang-toggle {
+    min-height: 2.1rem;
+    padding: 0 0.25rem;
     font-size: 0.9rem;
   }
 
@@ -519,7 +755,7 @@ body.page-about .site-footer__social-link:hover {
   gap: 1rem;
   padding: 1.5rem max(2.05rem, env(safe-area-inset-left)) max(4rem, env(safe-area-inset-bottom))
     max(2.05rem, env(safe-area-inset-right));
-  color: #6b7280;
+  color: #737373;
   font-size: 0.9rem;
   border-top: none;
   position: relative;
@@ -549,7 +785,7 @@ body.page-about .site-footer__social-link:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #9ca3af;
+  color: #a3a3a3;
   cursor: pointer;
   pointer-events: auto;
 }
@@ -576,7 +812,7 @@ body.page-about .site-footer__social-link:hover {
 }
 
 .site-footer__social-link:hover {
-  color: #6b7280;
+  color: #737373;
 }
 
 /* Projects cards (home page) */
@@ -607,7 +843,7 @@ body.page-about .site-footer__social-link:hover {
   top: 2.5rem;
   left: 1.05rem;
   right: 0;
-  border-top: 1px solid #d1d5db;
+  border-top: 1px solid #d0d0d0;
   pointer-events: none;
 }
 
@@ -700,7 +936,7 @@ body.page-about .site-footer__social-link:hover {
   height: 300px;
   position: relative;
   border-radius: 16px;
-  background: #f3f4f6;
+  background: #f0f0f0;
   margin-bottom: 0.9rem;
   overflow: hidden;
   transform: translateZ(0);
@@ -762,7 +998,7 @@ body.page-about .site-footer__social-link:hover {
   font-size: 1.12rem;
   font-weight: 600;
   font-family: "EB Garamond", "Times New Roman", serif;
-  color: #111827;
+  color: #171717;
 }
 
 .projects-title,
@@ -782,15 +1018,15 @@ body.page-about .site-footer__social-link:hover {
   align-items: center;
   padding: 0.25rem 0.55rem;
   border-radius: 999px;
-  background: #f3f4f6;
-  color: #4b5563;
+  background: #f0f0f0;
+  color: #525252;
   font-size: 0.78rem;
   font-weight: 500;
 }
 
 .project-desc {
   margin: 0;
-  color: #4b5563;
+  color: #525252;
   line-height: 1.55;
   font-size: 0.95rem;
 }
@@ -841,16 +1077,16 @@ body:has(.navbar) .project-page {
 
 .project-page-meta {
   margin: 0 0 1.4rem;
-  color: #6b7280;
+  color: #737373;
   font-size: 0.95rem;
 }
 
 .project-page-media {
   width: 100%;
   border-radius: 18px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e8e8e8;
   overflow: hidden;
-  background: #f3f4f6;
+  background: #f0f0f0;
 }
 
 /* Project-specific: remove the outer border for certain placeholders */
@@ -946,10 +1182,10 @@ body:has(.navbar) .project-page {
   justify-content: center;
   padding: 1rem;
   box-sizing: border-box;
-  border: 1px dashed #d1d5db;
+  border: 1px dashed #d0d0d0;
   border-radius: 14px;
-  background: rgba(243, 244, 246, 0.75);
-  color: #6b7280;
+  background: rgba(240, 240, 240, 0.75);
+  color: #737373;
   font-size: 0.95rem;
   line-height: 1.4;
   text-align: center;
@@ -1082,11 +1318,11 @@ body:has(.navbar) .project-page {
 
 .project-page-lead__title {
   margin: 0;
-  font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(1rem, 2.1vw, 1.25rem);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.55;
-  color: #111827;
+  color: #171717;
   letter-spacing: 0.02em;
   -webkit-font-smoothing: antialiased;
   white-space: nowrap;
@@ -1098,11 +1334,11 @@ body:has(.navbar) .project-page {
   width: 100%;
   max-width: none;
   position: relative;
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  font-family: var(--font-body);
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: var(--font-body-weight);
   line-height: 1.7;
-  color: #6b7280;
+  color: #737373;
 }
 
 .project-page-facts::after {
@@ -1147,9 +1383,9 @@ body:has(.navbar) .project-page {
   align-items: baseline;
   margin: 0;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: var(--font-body-weight);
   line-height: 1.7;
-  color: #6b7280;
+  color: #737373;
   letter-spacing: 0;
 }
 
@@ -1166,13 +1402,13 @@ body:has(.navbar) .project-page {
 }
 
 .project-page-facts__chunk {
-  font-weight: 300;
-  color: #6b7280;
+  font-weight: var(--font-body-weight);
+  color: #737373;
 }
 
 .project-page-facts__comma {
-  font-weight: 300;
-  color: #6b7280;
+  font-weight: var(--font-body-weight);
+  color: #737373;
 }
 
 .project-page-facts__label {
@@ -1180,7 +1416,7 @@ body:has(.navbar) .project-page {
   min-width: 3.25rem;
   margin-right: 0.1rem;
   font-weight: 400;
-  color: #111827;
+  color: #171717;
 }
 
 .project-context,
@@ -1208,7 +1444,7 @@ body:has(.navbar) .project-page {
 .project-solution {
   max-width: 52rem;
   width: 100%;
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  font-family: var(--font-body);
 }
 
 .project-context {
@@ -1265,7 +1501,7 @@ body:has(.navbar) .project-page {
 .project-market-charts__source-label {
   font-size: 11px;
   font-weight: 400;
-  color: #9ca3af;
+  color: #a3a3a3;
 }
 
 .project-market-charts__source-logo {
@@ -1323,7 +1559,7 @@ body:has(.navbar) .project-page {
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
-  color: #4b5563;
+  color: #525252;
   font-size: 1.25rem;
   line-height: 1;
   display: inline-flex;
@@ -1367,13 +1603,13 @@ body:has(.navbar) .project-page {
   height: 7px;
   border: 0;
   border-radius: 999px;
-  background: #d1d5db;
+  background: #d0d0d0;
   padding: 0;
   cursor: pointer;
 }
 
 .project-market-carousel__dot[aria-selected="true"] {
-  background: #6b7280;
+  background: #737373;
 }
 
 .project-market-chart__title {
@@ -1381,7 +1617,7 @@ body:has(.navbar) .project-page {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.4;
-  color: #111827;
+  color: #171717;
 }
 
 .project-market-chart__subtitle {
@@ -1389,7 +1625,7 @@ body:has(.navbar) .project-page {
   font-size: 12px;
   font-weight: 400;
   line-height: 1.4;
-  color: #6b7280;
+  color: #737373;
 }
 
 .project-market-chart__canvas-wrap {
@@ -1416,9 +1652,9 @@ body:has(.navbar) .project-page {
 .project-market-charts__note {
   margin: 1.5rem 0 0;
   font-size: 11px;
-  font-weight: 300;
+  font-weight: var(--font-body-weight);
   line-height: 1.6;
-  color: #9ca3af;
+  color: #a3a3a3;
 }
 
 .project-context__label,
@@ -1445,7 +1681,7 @@ body:has(.navbar) .project-page {
 .project-solution__label {
   margin: 0 0 0.85rem;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: var(--font-body-weight);
   line-height: 1.7;
   letter-spacing: 0;
   color: #9d9d9d;
@@ -1501,9 +1737,9 @@ body:has(.navbar) .project-page {
 .project-solution__body {
   margin: 0;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: var(--font-body-weight);
   line-height: 1.7;
-  color: #6b7280;
+  color: #737373;
 }
 
 .project-product-strategy__table-wrap {
@@ -1511,7 +1747,7 @@ body:has(.navbar) .project-page {
   padding-top: 0.55rem;
   width: 100%;
   overflow-x: visible;
-  border-top: 1px dashed #d1d5db;
+  border-top: 1px dashed #d0d0d0;
 }
 
 .project-product-strategy-table {
@@ -1520,9 +1756,9 @@ body:has(.navbar) .project-page {
   border-collapse: collapse;
   table-layout: fixed;
   font-size: 0.8125rem;
-  font-weight: 300;
+  font-weight: var(--font-body-weight);
   line-height: 1.35;
-  color: #111827;
+  color: #171717;
 }
 
 .project-product-strategy-table__col {
@@ -1550,7 +1786,7 @@ body:has(.navbar) .project-page {
 .project-product-strategy-table thead th:nth-child(3),
 .project-product-strategy-table tbody td:nth-child(2),
 .project-product-strategy-table tbody td:nth-child(3) {
-  border-left: 1px solid #e5e7eb;
+  border-left: 1px solid #e8e8e8;
 }
 
 .project-product-strategy-table thead th {
@@ -1578,7 +1814,7 @@ body:has(.navbar) .project-page {
 
 .project-product-strategy-table__strategy-heading {
   font-weight: 500;
-  color: #111827;
+  color: #171717;
   vertical-align: top;
 }
 
@@ -1629,8 +1865,7 @@ body:has(.navbar) .project-page {
 }
 
 .project-causal-relationship-map__svg text {
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC",
-    sans-serif;
+  font-family: var(--font-body);
 }
 
 .project-causal-relationship-map__figure.is-anim-ready .crm-anim-center,
@@ -1702,8 +1937,7 @@ body:has(.navbar) .project-page {
 }
 
 .project-baffle-exp1__diagram text {
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC",
-    sans-serif;
+  font-family: var(--font-body);
 }
 
 @keyframes baffle-spin {
@@ -1766,8 +2000,7 @@ body:has(.navbar) .project-page {
 }
 
 .project-process__diagram text {
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC",
-    sans-serif;
+  font-family: var(--font-body);
 }
 
 .project-result-chart,
@@ -1959,7 +2192,7 @@ body:has(.navbar) .project-page {
 .project-baffle-exp1__divider {
   border: none;
   margin: 1rem 0;
-  border-top: 1px dashed #d1d5db;
+  border-top: 1px dashed #d0d0d0;
 }
 
 .project-causal-relationship-map__svg .crm-ring {
@@ -1977,19 +2210,18 @@ body:has(.navbar) .project-page {
 }
 
 .project-causal-relationship-map__svg .crm-center {
-  font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC",
-    sans-serif;
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 34px;
   fill: #ffffff;
 }
 
 .project-causal-relationship-map__svg .crm-node rect {
-  fill: #d1d5db;
+  fill: #d0d0d0;
 }
 
 .project-causal-relationship-map__svg .crm-node--dark rect {
-  fill: #6b7280;
+  fill: #737373;
 }
 
 .project-causal-relationship-map__svg .crm-node--blue rect {
@@ -1997,8 +2229,7 @@ body:has(.navbar) .project-page {
 }
 
 .project-causal-relationship-map__svg .crm-node text {
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC",
-    sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
   font-size: 14px;
   fill: #ffffff;
@@ -2086,12 +2317,12 @@ body:has(.navbar) .project-page {
 .project-ipa-opp-table {
   width: 100%;
   border-collapse: collapse;
-  --ipa-table-text: #6b7280;
+  --ipa-table-text: #737373;
   --ipa-table-border: #a8b0ba;
   border: 1px solid var(--ipa-table-border);
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  font-family: var(--font-body);
   font-size: 0.75rem;
-  font-weight: 300;
+  font-weight: var(--font-body-weight);
   line-height: 1.45;
   color: var(--ipa-table-text);
 }
@@ -2139,7 +2370,7 @@ body:has(.navbar) .project-page {
 .project-design-challenge__body strong,
 .project-solution__body strong {
   font-weight: 500;
-  color: #374151;
+  color: #404040;
 }
 
 .project-context__cite,
@@ -2157,7 +2388,7 @@ body:has(.navbar) .project-page {
 
 .project-research__divider {
   border: none;
-  border-top: 1px dashed #d1d5db;
+  border-top: 1px dashed #d0d0d0;
   margin: 1.75rem 0;
 }
 
@@ -2273,7 +2504,7 @@ body:has(.navbar) .project-page {
   font-size: 0.78rem;
   font-weight: 500;
   font-style: italic;
-  color: #111827;
+  color: #171717;
 }
 
 .project-review-flow__note-list {
@@ -2284,7 +2515,7 @@ body:has(.navbar) .project-page {
 .project-review-flow__note-list li {
   font-size: 0.72rem;
   line-height: 1.42;
-  color: #4b5563;
+  color: #525252;
 }
 
 .project-review-flow__note-list li + li {
@@ -2320,11 +2551,11 @@ body:has(.navbar) .project-page {
 }
 
 .project-review-flow__note-title--purple {
-  color: #111827;
+  color: #171717;
 }
 
 .project-review-flow__arrow {
-  color: #6b7280;
+  color: #737373;
   flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
@@ -2404,9 +2635,9 @@ body:has(.navbar) .project-page {
 .project-review-story__list li {
   margin: 0;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: var(--font-body-weight);
   line-height: 1.7;
-  color: #111827;
+  color: #171717;
 }
 
 .project-review-story__list li + li {
@@ -2459,7 +2690,7 @@ body:has(.navbar) .project-page {
 .project-key-insights__label {
   margin: 0 0 0.35rem;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: var(--font-body-weight);
   line-height: 1.7;
   color: #9d9d9d;
 }
@@ -2469,15 +2700,15 @@ body:has(.navbar) .project-page {
   font-size: clamp(1rem, 2.1vw, 1.25rem);
   font-weight: 400;
   line-height: 1.55;
-  color: #111827;
+  color: #171717;
 }
 
 .project-key-insights__body {
   margin: 1rem 0 0;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: var(--font-body-weight);
   line-height: 1.7;
-  color: #6b7280;
+  color: #737373;
 }
 
 .project-key-insights__body--lead {
@@ -2492,9 +2723,9 @@ body:has(.navbar) .project-page {
 .project-key-insights__item-text {
   margin: 0;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: var(--font-body-weight);
   line-height: 1.7;
-  color: #6b7280;
+  color: #737373;
 }
 
 .project-key-insights__item-text::marker {
@@ -2550,7 +2781,7 @@ body:has(.navbar) .project-page {
 .project-solution__divider {
   border: none;
   margin: 2.5rem 0;
-  border-top: 1px dashed #d1d5db;
+  border-top: 1px dashed #d0d0d0;
 }
 
 .project-solution__figure-caption {
@@ -2601,7 +2832,7 @@ body:has(.navbar) .project-page {
   display: block;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
   z-index: 1;
   pointer-events: none;
 }
@@ -2800,7 +3031,7 @@ body:has(.navbar) .project-page {
   height: 100%;
   display: block;
   fill: none;
-  stroke: #9ca3af;
+  stroke: #a3a3a3;
   stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -3100,7 +3331,7 @@ body:has(.navbar) .project-page {
   margin: 0;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #111827;
+  color: #171717;
 }
 
 /* Keep each row's left/right card text aligned in Design goals */
@@ -3177,7 +3408,7 @@ body:has(.navbar) .project-page {
   flex-direction: column;
   gap: 0.2rem;
   padding: 0.5rem 0.35rem;
-  border-left: 1px solid #e5e7eb;
+  border-left: 1px solid #e8e8e8;
 }
 
 .page-colendar .colendar-toc__link {
@@ -3186,7 +3417,7 @@ body:has(.navbar) .project-page {
   padding: 0.28rem 0.55rem;
   font-size: 0.78rem;
   line-height: 1.3;
-  color: #9ca3af;
+  color: #a3a3a3;
   text-decoration: none;
   border-radius: 0.35rem;
   opacity: 0;
@@ -3223,11 +3454,11 @@ body:has(.navbar) .project-page {
 }
 
 .page-colendar .colendar-toc__link:hover {
-  color: #6b7280;
+  color: #737373;
 }
 
 .page-colendar .colendar-toc__link.is-active {
-  color: #111827;
+  color: #171717;
   font-weight: 500;
 }
 
@@ -3278,7 +3509,7 @@ body:has(.navbar) .project-page {
   flex-direction: column;
   gap: 0.2rem;
   padding: 0.5rem 0.35rem;
-  border-left: 1px solid #e5e7eb;
+  border-left: 1px solid #e8e8e8;
 }
 
 .page-eyezen-main .eyezen-toc__link,
@@ -3288,7 +3519,7 @@ body:has(.navbar) .project-page {
   padding: 0.28rem 0.55rem;
   font-size: 0.78rem;
   line-height: 1.3;
-  color: #9ca3af;
+  color: #a3a3a3;
   text-decoration: none;
   border-radius: 0.35rem;
   opacity: 0;
@@ -3321,12 +3552,12 @@ body:has(.navbar) .project-page {
 
 .page-eyezen-main .eyezen-toc__link:hover,
 .page-lifebuoy .eyezen-toc__link:hover {
-  color: #6b7280;
+  color: #737373;
 }
 
 .page-eyezen-main .eyezen-toc__link.is-active,
 .page-lifebuoy .eyezen-toc__link.is-active {
-  color: #111827;
+  color: #171717;
   font-weight: 500;
 }
 
@@ -3384,7 +3615,7 @@ body:has(.navbar) .project-page {
   flex-direction: column;
   gap: 0.2rem;
   padding: 0.5rem 0.35rem;
-  border-left: 1px solid #e5e7eb;
+  border-left: 1px solid #e8e8e8;
 }
 
 .page-oculus-main .oculus-toc__link {
@@ -3393,7 +3624,7 @@ body:has(.navbar) .project-page {
   padding: 0.28rem 0.55rem;
   font-size: 0.78rem;
   line-height: 1.3;
-  color: #9ca3af;
+  color: #a3a3a3;
   text-decoration: none;
   border-radius: 0.35rem;
   opacity: 0;
@@ -3448,11 +3679,11 @@ body:has(.navbar) .project-page {
 }
 
 .page-oculus-main .oculus-toc__link:hover {
-  color: #6b7280;
+  color: #737373;
 }
 
 .page-oculus-main .oculus-toc__link.is-active {
-  color: #111827;
+  color: #171717;
   font-weight: 500;
 }
 
@@ -3585,7 +3816,7 @@ body:has(.navbar) .project-page {
 
 .project-research-compare__icon {
   display: flex;
-  color: #4b5563;
+  color: #525252;
 }
 
 .project-research-compare__icon svg {
@@ -3598,25 +3829,25 @@ body:has(.navbar) .project-page {
   font-size: clamp(0.82rem, 1.65vw, 0.92rem);
   font-weight: 600;
   line-height: 1.35;
-  color: #111827;
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  color: #171717;
+  font-family: var(--font-body);
 }
 
 .project-research-compare__text {
   margin: 0;
   font-size: 0.82rem;
-  font-weight: 300;
+  font-weight: var(--font-body-weight);
   line-height: 1.5;
-  color: #6b7280;
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  color: #737373;
+  font-family: var(--font-body);
 }
 
 .project-page-desc {
   margin-top: 1rem;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: var(--font-body-weight);
   line-height: 1.7;
-  color: #6b7280;
+  color: #737373;
 }
 
 .project-karman-line__figure {
@@ -3637,7 +3868,7 @@ body:has(.navbar) .project-page {
 
 /* Oculus: make the quoted lead sentence stand out */
 .oculus-quote {
-  color: #111827;
+  color: #171717;
 }
 
 @media (max-width: 700px) {
@@ -3726,4 +3957,195 @@ body:has(.navbar) .project-page {
   .project-card::after {
     transition: none;
   }
+}
+
+/* ----- Dark theme (opt-in via html.dark-mode + localStorage site_theme) ----- */
+html.dark-mode {
+  color-scheme: dark;
+}
+
+html.dark-mode body {
+  background: #000000;
+  color: #e5e5e5;
+}
+
+html.dark-mode .navbar {
+  background: linear-gradient(135deg, rgba(8, 8, 8, 0.97), rgba(0, 0, 0, 0.94));
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark-mode .navbar::before {
+  background: linear-gradient(
+    120deg,
+    rgba(36, 36, 36, 0.22) 0%,
+    rgba(18, 18, 18, 0.12) 45%,
+    rgba(0, 0, 0, 0.06) 100%
+  );
+}
+
+html.dark-mode .brand a,
+html.dark-mode .nav-links a {
+  color: #e5e5e5;
+}
+
+html.dark-mode .nav-links a:hover,
+html.dark-mode .nav-links a.active {
+  color: #ffffff;
+  border-bottom-color: rgba(255, 255, 255, 0.55);
+}
+
+html.dark-mode .theme-toggle {
+  border: none;
+  background: transparent;
+  color: #e5e5e5;
+}
+
+html.dark-mode .theme-toggle:hover {
+  background: transparent;
+  color: #ffffff;
+}
+
+html.dark-mode .home-title,
+html.dark-mode .home-currently,
+html.dark-mode .section-heading {
+  color: #f0f0f0;
+}
+
+html.dark-mode .home-intro,
+html.dark-mode .home-currently {
+  color: #d4d4d4;
+}
+
+html.dark-mode .project-title {
+  color: #f0f0f0;
+}
+
+html.dark-mode .project-desc {
+  color: #a3a3a3;
+}
+
+html.dark-mode .project-card {
+  background: #0a0a0a;
+}
+
+html.dark-mode .project-image {
+  background: #141414;
+}
+
+html.dark-mode .project-card:hover .project-image::after,
+html.dark-mode .project-card:focus-within .project-image::after {
+  color: #fb923c;
+}
+
+html.dark-mode .site-footer {
+  color: #a3a3a3;
+}
+
+html.dark-mode .site-footer::before {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+html.dark-mode .site-footer__social-link {
+  color: #a3a3a3;
+}
+
+html.dark-mode .site-footer__social-link:hover {
+  color: #e5e5e5;
+}
+
+html.dark-mode .page-transition-overlay {
+  background: #000000;
+}
+
+html.dark-mode .project-page-lead__title,
+html.dark-mode .project-context__title,
+html.dark-mode .project-solution__title,
+html.dark-mode .project-solution__label,
+html.dark-mode .project-context__label {
+  color: #f0f0f0;
+}
+
+html.dark-mode .project-page-desc,
+html.dark-mode .project-context__body,
+html.dark-mode .project-solution__body {
+  color: #d4d4d4;
+}
+
+html.dark-mode .project-page-facts,
+html.dark-mode .project-page-facts__label,
+html.dark-mode .project-page-facts__chunks,
+html.dark-mode .project-page-facts__chunk,
+html.dark-mode .project-page-facts__date {
+  color: #a3a3a3;
+}
+
+html.dark-mode body.page-about main {
+  color: #e5e5e5;
+}
+
+html.dark-mode body.page-about main .section-heading,
+html.dark-mode body.page-about main .experience-section h2,
+html.dark-mode body.page-about main .experience-header h3 {
+  color: #f0f0f0;
+}
+
+html.dark-mode body.page-about main .about-intro-text,
+html.dark-mode body.page-about main .experience-description {
+  color: #d4d4d4;
+}
+
+html.dark-mode body.page-about main .experience-role,
+html.dark-mode body.page-about main .experience-period {
+  color: #a3a3a3;
+}
+
+html.dark-mode body.page-about main .photo-carousel-btn {
+  color: #f0f0f0;
+}
+
+html.dark-mode body.page-about main .photo-carousel-dot {
+  background: #525252;
+}
+
+html.dark-mode body.page-about main .photo-carousel-dot[aria-selected="true"] {
+  background: #f0f0f0;
+}
+
+html.dark-mode body.page-about main .experience-section,
+html.dark-mode body.page-about main .photo-carousel-section {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+html.dark-mode body.page-about main .photo-carousel-viewport {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+html.dark-mode body.page-about .site-footer,
+html.dark-mode body.page-about .site-footer__social-link {
+  color: #a3a3a3;
+}
+
+html.dark-mode body.page-about .site-footer__social-link:hover {
+  color: #e5e5e5;
+}
+
+html.dark-mode body.page-colendar .project-context .colendar-next-block__box,
+html.dark-mode body.page-colendar .colendar-design-goals-cards__item {
+  background: #0f0f0f;
+}
+
+html.dark-mode body.page-colendar .colendar-design-goals-cards__item:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+html.dark-mode body.page-colendar .colendar-toc__link {
+  color: #737373;
+}
+
+html.dark-mode body.page-colendar .colendar-toc__link.is-active {
+  color: #f9fafb;
+}
+
+html.dark-mode .project-page-media {
+  border-color: rgba(255, 255, 255, 0.1);
 }

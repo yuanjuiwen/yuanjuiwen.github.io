@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta id="themeColorDark" name="theme-color" content="#000000" media="not all" />
+    <meta id="themeColorLight" name="theme-color" content="#ffffff" media="(max-width: 99999px)" />
+    <script src="theme-init.js"></script>
+
     <title>Colendar | Kevin Wen</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,6 +18,7 @@
     <nav class="navbar">
       <div class="navbar-inner">
         <h1 class="brand"><a href="index.html">Kevin Wen</a></h1>
+        <div class="navbar-tools">
         <ul class="nav-links">
           <li><a href="index.html#work" data-i18n="nav.work">work</a></li>
           <li><a href="index.html#play" data-i18n="nav.play">play</a></li>
@@ -30,18 +35,42 @@
             >
           </li>
         </ul>
+        <div
+          class="lang-switcher navbar-lang"
+          role="group"
+          data-i18n-attrs="aria-label:nav.switcherAria"
+          aria-label="Language switcher"
+        >
+          <button type="button" class="lang-toggle" data-lang-switch="en" aria-pressed="false">EN</button>
+          <button type="button" class="lang-toggle" data-lang-switch="zh-Hant" aria-pressed="false">中</button>
+        </div>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" data-i18n-attrs="aria-label:nav.themeToggleAria" aria-label="Toggle light or dark theme">
+          <svg class="theme-toggle__icon theme-toggle__moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          <svg class="theme-toggle__icon theme-toggle__sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        </div>
       </div>
     </nav>
 
-    <aside class="colendar-toc toc--dock-bottom" aria-label="Section navigation">
+    <aside
+      class="colendar-toc toc--dock-bottom"
+      data-i18n-attrs="aria-label:projects.colendar.tocNavAria"
+      aria-label="Section navigation"
+    >
       <nav class="colendar-toc__nav">
-        <a class="colendar-toc__link" href="#colendar-lead-heading">overview</a>
-        <a class="colendar-toc__link" href="#colendar-summary-heading">summary</a>
-        <a class="colendar-toc__link" href="#colendar-context-heading">context</a>
-        <a class="colendar-toc__link" href="#colendar-initial-research-heading">user research</a>
-        <a class="colendar-toc__link" href="#colendar-key-insight-heading">key insight</a>
-        <a class="colendar-toc__link" href="#colendar-design-goals-heading">design goals</a>
-        <a class="colendar-toc__link" href="#colendar-solution-heading">solution</a>
+        <a class="colendar-toc__link" href="#colendar-lead-heading" data-i18n="projects.colendar.tocOverview">overview</a>
+        <a class="colendar-toc__link" href="#colendar-summary-heading" data-i18n="projects.colendar.tocSummary">summary</a>
+        <a class="colendar-toc__link" href="#colendar-context-heading" data-i18n="projects.colendar.tocContext">context</a>
+        <a class="colendar-toc__link" href="#colendar-initial-research-heading" data-i18n="projects.colendar.tocUserResearch"
+          >user research</a
+        >
+        <a class="colendar-toc__link" href="#colendar-key-insight-heading" data-i18n="projects.colendar.tocKeyInsight"
+          >key insight</a
+        >
+        <a class="colendar-toc__link" href="#colendar-design-goals-heading" data-i18n="projects.colendar.tocDesignGoals"
+          >design goals</a
+        >
+        <a class="colendar-toc__link" href="#colendar-solution-heading" data-i18n="projects.colendar.tocSolution">solution</a>
       </nav>
     </aside>
 
@@ -52,65 +81,70 @@
         <div
           class="project-image-slot project-image-slot--feature project-image-slot--filled"
           role="img"
+          data-i18n-attrs="aria-label:projects.colendar.coverAria"
           aria-label="Colendar project cover"
         >
-          <img class="project-image-slot__img" src="assets/Colendar_portfolio_main.jpg" alt="Colendar project cover" />
+          <img
+            class="project-image-slot__img"
+            src="assets/Colendar_portfolio_main.jpg"
+            data-i18n-attrs="alt:projects.colendar.coverImgAlt"
+            alt="Colendar project cover"
+          />
         </div>
       </div>
 
       <section class="project-page-lead" aria-labelledby="colendar-lead-heading">
         <h2 id="colendar-lead-heading" class="project-page-lead__title">Colendar</h2>
-        <p class="project-page-desc">Add your subtitle or context line here.</p>
+        <p class="project-page-desc" data-i18n="projects.colendar.subtitle">Add your subtitle or context line here.</p>
       </section>
 
-      <section class="project-context project-context--colendar-summary" lang="en" aria-labelledby="colendar-summary-heading">
-        <h2 id="colendar-summary-heading" class="project-page-lead__title project-context__title">SUMMARY</h2>
-        <p class="project-context__body">
+      <section class="project-context project-context--colendar-summary" aria-labelledby="colendar-summary-heading">
+        <h2 id="colendar-summary-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.summaryHeading">SUMMARY</h2>
+        <p class="project-context__body" data-i18n="projects.colendar.summaryBody">
           Colendar is a task-planning tool designed for college students, aimed at increasing their chances of achieving academic goals. Through an engaging, low-friction planning experience and peer accountability features, it helps users stay on track with the goals they set at the beginning of the semester while gradually building stronger time management habits
         </p>
       </section>
 
-      <section class="project-page-facts" lang="en" aria-label="Project details">
+      <section class="project-page-facts" data-i18n-attrs="aria-label:projects.colendar.factsAria" aria-label="Project details">
         <div class="project-page-facts__inline">
           <div class="project-page-facts__block project-page-facts__block--timeline">
-            <span class="project-page-facts__label">Timeline</span>
+            <span class="project-page-facts__label" data-i18n="projects.colendar.factsTimelineLabel">Timeline</span>
             <span class="project-page-facts__chunks">
               <span class="project-page-facts__chunk">2026.02 - 2026.05</span>
             </span>
           </div>
           <div class="project-page-facts__block">
-            <span class="project-page-facts__label">Role</span>
+            <span class="project-page-facts__label" data-i18n="projects.colendar.factsRoleLabel">Role</span>
             <span class="project-page-facts__chunks">
-              <span class="project-page-facts__chunk">UX Research</span><span class="project-page-facts__comma">, </span
-              ><span class="project-page-facts__chunk">UI Design</span>
+              <span class="project-page-facts__chunk" data-i18n="projects.colendar.factsRoleValue">UX Research, UI Design</span>
             </span>
           </div>
           <div class="project-page-facts__block">
-            <span class="project-page-facts__label">Team</span>
+            <span class="project-page-facts__label" data-i18n="projects.colendar.factsTeamLabel">Team</span>
             <span class="project-page-facts__chunks">
-              <span class="project-page-facts__chunk">2 Designers, 1 Engineer</span>
+              <span class="project-page-facts__chunk" data-i18n="projects.colendar.factsTeamValue">2 Designers, 1 Engineer</span>
             </span>
           </div>
         </div>
       </section>
 
-      <section class="project-context" lang="en" aria-labelledby="colendar-context-heading">
-        <p class="project-context__label">context</p>
-        <h2 id="colendar-context-heading" class="project-page-lead__title project-context__title">
+      <section class="project-context" aria-labelledby="colendar-context-heading">
+        <p class="project-context__label" data-i18n="projects.colendar.contextLabel">context</p>
+        <h2 id="colendar-context-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.contextTitle">
           Goals are set at the start of the semester, but often fade away by the end.
         </h2>
-        <p class="project-context__body">
+        <p class="project-context__body" data-i18n="projects.colendar.contextBody">
           At the start of the semester, we set various learning and growth goals. But as coursework, activities, and social commitments fill our days, long-term goals are gradually replaced by short-term demands—eventually forgotten or abandoned.
         </p>
         <div class="colendar-context__box" aria-hidden="true"></div>
       </section>
 
-      <section class="project-context" lang="en" aria-labelledby="colendar-initial-research-heading">
-        <p class="project-context__label">User research</p>
-        <h2 id="colendar-initial-research-heading" class="project-page-lead__title project-context__title">
+      <section class="project-context" aria-labelledby="colendar-initial-research-heading">
+        <p class="project-context__label" data-i18n="projects.colendar.researchLabel">User research</p>
+        <h2 id="colendar-initial-research-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.researchTitle">
           Discover Patterns : Compiling insights from interviews, surveys, and secondary research
         </h2>
-        <p class="project-context__body">
+        <p class="project-context__body" data-i18n-html="projects.colendar.researchBodyHtml">
           We conducted in-depth background research,
           <strong>collecting 52 survey responses and interviewing 10 students from diverse academic backgrounds</strong>
           to explore why students struggle to sustain goal execution, as well as the underlying behavioral patterns and key
@@ -120,28 +154,30 @@
           <img
             class="colendar-initial-research__img"
             src="assets/Colendar___KJ.png"
+            data-i18n-attrs="alt:projects.colendar.researchImgAlt1"
             alt="Affinity map from Colendar user research"
           />
           <img
             class="colendar-initial-research__img"
             src="assets/Colendar_guotes.png"
+            data-i18n-attrs="alt:projects.colendar.researchImgAlt2"
             alt="Additional grouped notes from Colendar user research"
           />
         </div>
       </section>
 
-      <section class="project-context" lang="en" aria-labelledby="colendar-key-insight-heading">
-        <p class="project-context__label">Key insight</p>
-        <h2 id="colendar-key-insight-heading" class="project-page-lead__title project-context__title">
+      <section class="project-context" aria-labelledby="colendar-key-insight-heading">
+        <p class="project-context__label" data-i18n="projects.colendar.keyInsightLabel">Key insight</p>
+        <h2 id="colendar-key-insight-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.keyInsightTitle">
           Add a headline that states the main insight you want readers to take away.
         </h2>
-        
+
         <div class="colendar-key-insight-cards">
           <div class="colendar-key-insight-cards__item">
             <img class="colendar-key-insight-cards__img" src="assets/Colendar-01.png" alt="" />
             <div class="colendar-key-insight-cards__foot">
-              <p class="colendar-key-insight-cards__label">Key Insight #1</p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__label" data-i18n="projects.colendar.keyInsight1Label">Key Insight #1</p>
+              <p class="colendar-key-insight-cards__text" data-i18n-html="projects.colendar.keyInsight1Html">
                 <span class="colendar-key-insight-cards__accent">Low urgency</span> makes goals easy to overlook and likely
                 to fade over time.
               </p>
@@ -150,8 +186,8 @@
           <div class="colendar-key-insight-cards__item">
             <img class="colendar-key-insight-cards__img" src="assets/Colendar-02.png" alt="" />
             <div class="colendar-key-insight-cards__foot">
-              <p class="colendar-key-insight-cards__label">Key Insight #2</p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__label" data-i18n="projects.colendar.keyInsight2Label">Key Insight #2</p>
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.keyInsight2Text">
                 The lack of a clear execution plan leads to low execution ability.
               </p>
             </div>
@@ -159,8 +195,8 @@
           <div class="colendar-key-insight-cards__item">
             <img class="colendar-key-insight-cards__img" src="assets/Colendar-03.png" alt="" />
             <div class="colendar-key-insight-cards__foot">
-              <p class="colendar-key-insight-cards__label">Key Insight #3</p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__label" data-i18n="projects.colendar.keyInsight3Label">Key Insight #3</p>
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.keyInsight3Text">
                 Students often start doubting themselves when they can’t see any progress.
               </p>
             </div>
@@ -168,82 +204,76 @@
         </div>
       </section>
 
-      <section class="project-context" lang="en" aria-labelledby="colendar-design-goals-heading">
-        <p class="project-context__label">Design goals</p>
-        <h2 id="colendar-design-goals-heading" class="project-page-lead__title project-context__title">
-          
-        </h2>
-        <p class="project-context__body">
-         
-        </p>
+      <section class="project-context" aria-labelledby="colendar-design-goals-heading">
+        <p class="project-context__label" data-i18n="projects.colendar.designGoalsLabel">Design goals</p>
+        <h2 id="colendar-design-goals-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.designGoalsTitle"></h2>
+        <p class="project-context__body" data-i18n="projects.colendar.designGoalsBody"></p>
         <div class="colendar-design-goals-cards">
           <div class="colendar-design-goals-cards__item">
-            <p class="colendar-design-goals-cards__label">Pain points</p>
+            <p class="colendar-design-goals-cards__label" data-i18n="projects.colendar.designGoalsPainPointsLabel">Pain points</p>
             <div class="colendar-key-insight-cards__foot">
-              <p class="colendar-key-insight-cards__label">Pain Point #1</p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__label" data-i18n="projects.colendar.painPoint1Label">Pain Point #1</p>
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.painPoint1a">
                 Low urgency makes goals easy to overlook and likely to fade over time.
               </p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.painPoint1b">
                 As exams and activities increase, long-term tasks tend to be overlooked.
               </p>
             </div>
           </div>
           <div class="colendar-design-goals-cards__item">
-            <p class="colendar-design-goals-cards__label">Design opportunities</p>
+            <p class="colendar-design-goals-cards__label" data-i18n="projects.colendar.designOppLabel">Design opportunities</p>
             <div class="colendar-key-insight-cards__foot">
-              <p class="colendar-key-insight-cards__label">Feature #1</p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__label" data-i18n="projects.colendar.feature1Label">Feature #1</p>
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.feature1a">
                 How might we keep goals emotionally present in everyday life?
               </p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.feature1b">
                 Maintain continuous attention to goals through peer interaction.
               </p>
             </div>
           </div>
           <div class="colendar-design-goals-cards__item">
             <div class="colendar-key-insight-cards__foot">
-              <p class="colendar-key-insight-cards__label">Pain Point #2</p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__label" data-i18n="projects.colendar.painPoint2Label">Pain Point #2</p>
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.painPoint2a">
                 The lack of a clear execution plan leads to low execution ability.
               </p>
-              <p class="colendar-key-insight-cards__text">
-                A lack of planning leaves goals poorly defined, making them difficult to execute and adapt over time. 
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.painPoint2b">
+                A lack of planning leaves goals poorly defined, making them difficult to execute and adapt over time.
               </p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.painPoint2c">
                 The tedious planning process reduces students’ willingness to create execution plans.
               </p>
             </div>
           </div>
           <div class="colendar-design-goals-cards__item">
             <div class="colendar-key-insight-cards__foot">
-              <p class="colendar-key-insight-cards__label">Feature #2</p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__label" data-i18n="projects.colendar.feature2Label">Feature #2</p>
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.feature2a">
                 How might we make planning more enjoyable and accessible?
               </p>
-              <p class="colendar-key-insight-cards__text">
-                
-              </p>
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.feature2b"></p>
             </div>
           </div>
           <div class="colendar-design-goals-cards__item">
             <div class="colendar-key-insight-cards__foot">
-              <p class="colendar-key-insight-cards__label">Pain Point #3</p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__label" data-i18n="projects.colendar.painPoint3Label">Pain Point #3</p>
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.painPoint3a">
                 Students often start doubting themselves when they can’t see any progress.
               </p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.painPoint3b">
                 A lack of feedback makes it difficult for students to assess their progress, leading to a gradual loss of confidence to continue.
               </p>
             </div>
           </div>
           <div class="colendar-design-goals-cards__item">
             <div class="colendar-key-insight-cards__foot">
-              <p class="colendar-key-insight-cards__label">Feature #3</p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__label" data-i18n="projects.colendar.feature3Label">Feature #3</p>
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.feature3a">
                 How might we encourage students to keep going despite hesitation?
               </p>
-              <p class="colendar-key-insight-cards__text">
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.feature3b">
                 Encourage students to keep going by visualizing the accumulation of effort over time.
               </p>
             </div>
@@ -251,53 +281,82 @@
         </div>
       </section>
 
-      <section class="project-solution" lang="en" aria-labelledby="colendar-solution-heading">
-        <p class="project-solution__label">solution</p>
-        <h2 id="colendar-solution-heading" class="project-page-lead__title project-solution__title">
+      <section class="project-solution" aria-labelledby="colendar-solution-heading">
+        <p class="project-solution__label" data-i18n="projects.colendar.solutionLabel">solution</p>
+        <h2 id="colendar-solution-heading" class="project-page-lead__title project-solution__title" data-i18n="projects.colendar.solutionTitle">
           Introducing Colendar
         </h2>
-        <p class="project-solution__body">
+        <p class="project-solution__body" data-i18n="projects.colendar.solutionBody">
           Colendar integrates conversational planning, social support, and process visualization to maintain goal awareness and sustain progress.
         </p>
       </section>
 
-      <section class="project-context" lang="en" aria-labelledby="colendar-next-block-heading">
+      <section class="project-context" aria-labelledby="colendar-next-block-heading">
         <div class="colendar-next-block__box">
-          <img class="colendar-next-block__img" src="assets/Colendar_Social.png" alt="Colendar social sharing feature" />
+          <img
+            class="colendar-next-block__img"
+            src="assets/Colendar_Social.png"
+            data-i18n-attrs="alt:projects.colendar.next1ImgAlt"
+            alt="Colendar social sharing feature"
+          />
         </div>
-        <p class="project-context__label">next block</p>
-        <h2 id="colendar-next-block-heading" class="project-page-lead__title project-context__title">
+        <p class="project-context__label" data-i18n="projects.colendar.next1BlockLabel">Peer sharing</p>
+        <h2 id="colendar-next-block-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.next1Title">
           Use peer sharing to keep goals consistently visible and top of mind!
         </h2>
-        <p class="project-context__body">
-          Add the content for this block here.
+        <p class="project-context__body" data-i18n="projects.colendar.next1Body">Add the content for this block here.</p>
+      </section>
+
+      <section class="project-context" aria-labelledby="colendar-next-block-1sup-heading">
+        <div
+          class="colendar-next-block__box colendar-next-block__box--empty"
+          role="img"
+          data-i18n-attrs="aria-label:projects.colendar.next1SupImgAlt"
+          aria-label="Placeholder for additional design mockup"
+        ></div>
+        <p class="project-context__label" data-i18n="projects.colendar.next1SupBlockLabel">Additional view</p>
+        <h2
+          id="colendar-next-block-1sup-heading"
+          class="project-page-lead__title project-context__title"
+          data-i18n="projects.colendar.next1SupTitle"
+        >
+          Add a headline for this block.
+        </h2>
+        <p class="project-context__body" data-i18n="projects.colendar.next1SupBody">
+          Add supporting copy here. Replace the gray area with a mockup image when ready.
         </p>
       </section>
 
-      <section class="project-context" lang="en" aria-labelledby="colendar-next-block-2-heading">
+      <section class="project-context" aria-labelledby="colendar-next-block-2-heading">
         <div class="colendar-next-block__box">
-          <img class="colendar-next-block__img colendar-next-block__img--community" src="assets/Colendar__Community.png" alt="Colendar community feature" />
+          <img
+            class="colendar-next-block__img colendar-next-block__img--community"
+            src="assets/Colendar__Community.png"
+            data-i18n-attrs="alt:projects.colendar.next2ImgAlt"
+            alt="Colendar community feature"
+          />
         </div>
-        <p class="project-context__label">next block</p>
-        <h2 id="colendar-next-block-2-heading" class="project-page-lead__title project-context__title">
+        <p class="project-context__label" data-i18n="projects.colendar.next2BlockLabel">Community</p>
+        <h2 id="colendar-next-block-2-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.next2Title">
           Let users reference how other students plan, lowering the barrier to starting from scratch.
         </h2>
-        <p class="project-context__body">
-          Add the content for this block here.
-        </p>
+        <p class="project-context__body" data-i18n="projects.colendar.next2Body">Add the content for this block here.</p>
       </section>
 
-      <section class="project-context" lang="en" aria-labelledby="colendar-next-block-3-heading">
+      <section class="project-context" aria-labelledby="colendar-next-block-3-heading">
         <div class="colendar-next-block__box">
-          <img class="colendar-next-block__img" src="assets/Colendar_chat.png" alt="Colendar chat feature" />
+          <img
+            class="colendar-next-block__img"
+            src="assets/Colendar_chat.png"
+            data-i18n-attrs="alt:projects.colendar.next3ImgAlt"
+            alt="Colendar chat feature"
+          />
         </div>
-        <p class="project-context__label">next block</p>
-        <h2 id="colendar-next-block-3-heading" class="project-page-lead__title project-context__title">
+        <p class="project-context__label" data-i18n="projects.colendar.next3BlockLabel">Conversational planning</p>
+        <h2 id="colendar-next-block-3-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.next3Title">
           Transform the traditionally tedious planning process into an engaging and low-barrier experience through conversational input.
         </h2>
-        <p class="project-context__body">
-          Add the content for this block here.
-        </p>
+        <p class="project-context__body" data-i18n="projects.colendar.next3Body">Add the content for this block here.</p>
       </section>
     </main>
     <script src="i18n.js" defer></script>
