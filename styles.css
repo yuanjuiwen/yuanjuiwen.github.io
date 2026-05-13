@@ -8,6 +8,7 @@
   --nav-border: rgba(0, 0, 0, 0.06);
   --font-body: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
   --font-body-weight: 400;
+  --font-nav-brand: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
 }
 
 html:lang(zh-Hant) {
@@ -214,6 +215,9 @@ body:has(.navbar) {
   font-weight: 400;
   letter-spacing: 0.01em;
   color: var(--nav-link);
+  font-family: var(--font-nav-brand);
+  -webkit-font-smoothing: auto;
+  font-optical-sizing: none;
 }
 
 .brand a {
@@ -222,6 +226,9 @@ body:has(.navbar) {
   border-bottom: 1.5px solid transparent;
   padding-bottom: 2px;
   transition: border-color 0.15s ease;
+  font-family: var(--font-nav-brand);
+  -webkit-font-smoothing: auto;
+  font-optical-sizing: none;
 }
 
 .brand a:hover {
