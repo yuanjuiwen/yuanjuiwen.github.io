@@ -3092,8 +3092,36 @@ body:has(.navbar) .project-page {
   margin-top: 2rem;
 }
 
+.page-colendar .project-context--colendar-key-achievements {
+  max-width: none;
+  width: 100%;
+  margin-top: 2.5rem;
+}
+
+.page-colendar .project-context--colendar-key-achievements .project-context__title {
+  margin-bottom: 1.45rem;
+}
+
+.page-colendar .colendar-key-achievements__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.page-colendar .colendar-key-achievements__item {
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  font-weight: var(--font-body-weight);
+  line-height: 1.7;
+  color: #737373;
+}
+
 /* Same as TJOY: Eyezen shift applies to context blocks, but not the SUMMARY column */
-.page-eyezen-main.page-colendar .project-context--colendar-summary {
+.page-eyezen-main.page-colendar .project-context--colendar-summary,
+.page-eyezen-main.page-colendar .project-context--colendar-key-achievements {
   margin-left: 0 !important;
   margin-right: 0 !important;
   transform: none !important;
@@ -3133,7 +3161,7 @@ body:has(.navbar) .project-page {
   margin-top: 3rem;
 }
 
-.page-colendar .project-context:not(.project-context--colendar-summary) {
+.page-colendar .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements) {
   margin-top: 3rem;
 }
 
@@ -3179,6 +3207,19 @@ body:has(.navbar) .project-page {
 
 .page-colendar .project-context .colendar-next-block__img--community {
   object-position: center 90%;
+}
+
+.page-colendar .project-context .colendar-next-block__box.colendar-next-block__box--plain {
+  min-height: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.page-colendar .project-context .colendar-next-block__box--plain .colendar-next-block__img {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
 }
 
 .page-colendar .project-context .colendar-next-block__box.colendar-next-block__box--videos {
@@ -3243,7 +3284,7 @@ body:has(.navbar) .project-page {
   min-height: 36rem;
   border-radius: 12px;
   background: #f2f2f2;
-  margin-top: 1.1rem;
+  margin-top: 0;
   padding: 1.2rem;
   display: flex;
   flex-direction: column;
@@ -3265,6 +3306,61 @@ body:has(.navbar) .project-page {
 
 .page-colendar .project-context[aria-labelledby="colendar-initial-research-heading"] .project-context__body strong {
   color: #20b8ff;
+}
+
+.page-colendar .colendar-research-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  width: 100%;
+  margin-top: 2.75rem;
+  margin-bottom: 1.5rem;
+  column-gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.page-colendar .colendar-research-stats__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  text-align: center;
+  gap: 0.35rem;
+  width: clamp(7.25rem, 14vw, 10rem);
+  height: clamp(7.25rem, 14vw, 10rem);
+  aspect-ratio: 1;
+  padding: 0.65rem;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.page-colendar .colendar-research-stats__value {
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(2rem, 4.2vw, 2.65rem);
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1;
+  color: #000000;
+}
+
+.page-colendar .colendar-research-stats__label {
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(0.72rem, 1.25vw, 0.82rem);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.25;
+  color: #000000;
+  max-width: 88%;
+}
+
+@media (max-width: 700px) {
+  .page-colendar .colendar-research-stats {
+    grid-template-columns: 1fr;
+    row-gap: 1.25rem;
+    column-gap: 0;
+    justify-items: center;
+  }
 }
 
 .page-colendar .project-context[aria-labelledby="colendar-context-heading"] .project-context__title,
@@ -4238,9 +4334,26 @@ html.dark-mode body.page-colendar .project-context .colendar-next-block__box.col
   background: transparent;
 }
 
+html.dark-mode body.page-colendar .project-context .colendar-next-block__box.colendar-next-block__box--plain {
+  background: transparent;
+}
+
 html.dark-mode body.page-colendar .colendar-wireframe__box,
 html.dark-mode body.page-colendar .colendar-visual-system__box {
   background: #0f0f0f;
+}
+
+html.dark-mode body.page-colendar .colendar-research-stats__value,
+html.dark-mode body.page-colendar .colendar-research-stats__label {
+  color: #f3f4f6;
+}
+
+html.dark-mode body.page-colendar .colendar-research-stats__item {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+html.dark-mode body.page-colendar .colendar-key-achievements__item {
+  color: #d4d4d4;
 }
 
 html.dark-mode body.page-colendar .colendar-design-goals-cards__item:nth-child(even) {

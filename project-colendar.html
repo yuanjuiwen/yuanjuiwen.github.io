@@ -60,6 +60,9 @@
       <nav class="colendar-toc__nav">
         <a class="colendar-toc__link" href="#colendar-lead-heading" data-i18n="projects.colendar.tocOverview">overview</a>
         <a class="colendar-toc__link" href="#colendar-summary-heading" data-i18n="projects.colendar.tocSummary">summary</a>
+        <a class="colendar-toc__link" href="#colendar-key-achievements-heading" data-i18n="projects.colendar.tocKeyAchievements"
+          >key achievements</a
+        >
         <a class="colendar-toc__link" href="#colendar-context-heading" data-i18n="projects.colendar.tocContext">context</a>
         <a class="colendar-toc__link" href="#colendar-initial-research-heading" data-i18n="projects.colendar.tocUserResearch"
           >user research</a
@@ -109,6 +112,24 @@
         </p>
       </section>
 
+      <section class="project-context project-context--colendar-key-achievements" aria-labelledby="colendar-key-achievements-heading">
+        <h2
+          id="colendar-key-achievements-heading"
+          class="project-page-lead__title project-context__title"
+          data-i18n="projects.colendar.keyAchievementsHeading"
+        >
+          KEY ACHIEVEMENTS
+        </h2>
+        <ul class="colendar-key-achievements__list">
+          <li class="colendar-key-achievements__item">
+            <span data-i18n="projects.colendar.keyAchievement1">2026 Young Pin Sponsor Award — Finalist</span>
+          </li>
+          <li class="colendar-key-achievements__item">
+            <span data-i18n="projects.colendar.keyAchievement2">2026 NCKU Innovation Dream Project — Finalist</span>
+          </li>
+        </ul>
+      </section>
+
       <section class="project-page-facts" data-i18n-attrs="aria-label:projects.colendar.factsAria" aria-label="Project details">
         <div class="project-page-facts__inline">
           <div class="project-page-facts__block project-page-facts__block--timeline">
@@ -154,6 +175,20 @@
           to explore why students struggle to sustain goal execution, as well as the underlying behavioral patterns and key
           barriers.
         </p>
+        <div class="colendar-research-stats" data-i18n-attrs="aria-label:projects.colendar.researchStatsAria" aria-label="Research scope summary">
+          <div class="colendar-research-stats__item">
+            <span class="colendar-research-stats__value">52</span>
+            <span class="colendar-research-stats__label" data-i18n="projects.colendar.researchStat1Label">survey responses</span>
+          </div>
+          <div class="colendar-research-stats__item">
+            <span class="colendar-research-stats__value">10</span>
+            <span class="colendar-research-stats__label" data-i18n="projects.colendar.researchStat2Label">interviews</span>
+          </div>
+          <div class="colendar-research-stats__item">
+            <span class="colendar-research-stats__value">15+</span>
+            <span class="colendar-research-stats__label" data-i18n="projects.colendar.researchStat3Label">Second hand research</span>
+          </div>
+        </div>
         <div class="colendar-initial-research__box">
           <img
             class="colendar-initial-research__img"
@@ -296,7 +331,7 @@
       </section>
 
       <section class="project-context" aria-labelledby="colendar-next-block-heading">
-        <div class="colendar-next-block__box">
+        <div class="colendar-next-block__box colendar-next-block__box--plain">
           <img
             class="colendar-next-block__img"
             src="assets/Colendar_Social.png"
@@ -439,7 +474,9 @@
         if (sections.length === 0) return;
 
         var contextSection =
-          document.querySelector(".page-colendar .project-context:not(.project-context--colendar-summary)") ||
+          document.querySelector(
+            ".page-colendar .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements)"
+          ) ||
           document.querySelector(".project-context");
 
         var titleAlign = document.querySelector(".page-colendar #colendar-lead-heading");
