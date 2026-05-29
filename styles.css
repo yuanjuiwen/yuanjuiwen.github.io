@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap");
-
 :root {
   --nav-bg: rgba(245, 245, 247, 0.72);
   --nav-text: #737373;
@@ -12,7 +10,8 @@
 }
 
 html:lang(zh-Hant) {
-  --font-body: "Fraunces", "Noto Serif TC", "Noto Serif SC", "Source Han Serif TC", "Songti TC", "PingFang TC", "LiSong Pro", "PMingLiU", "Microsoft JhengHei", ui-serif, serif;
+  --font-body: "PingFang TC", "PingFangTC-Regular", "Heiti TC", "STHeiti", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  --font-nav-brand: "PingFang TC", "PingFangTC-Regular", "Heiti TC", "STHeiti", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
   --font-body-weight: 400;
 }
 
@@ -20,10 +19,9 @@ html:lang(zh-Hant) body {
   letter-spacing: 0.01em;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  font-optical-sizing: auto;
 }
 
-/* 繁中排版對齊 thelingwu.com：Fraunces + Noto Serif TC、較緊字距、行高約 1.65–1.7 */
+/* 繁中排版：PingFang TC、較緊字距、行高約 1.65–1.7 */
 html:lang(zh-Hant) .project-page-lead__title,
 html:lang(zh-Hant) .project-context__title,
 html:lang(zh-Hant) .project-solution__title {
@@ -128,6 +126,12 @@ html:lang(zh-Hant) .home-title {
   font-family: var(--font-body);
   font-weight: 500;
   letter-spacing: -0.02em;
+}
+
+html:lang(zh-Hant) .playground-section .section-heading,
+html:lang(zh-Hant) .project-title,
+html:lang(zh-Hant) .page-colendar #colendar-lead-heading {
+  font-family: var(--font-body);
 }
 
 html:lang(zh-Hant) .page-colendar .colendar-key-insight-cards__text,
@@ -3146,6 +3150,16 @@ body:has(.navbar) .project-page {
   margin-top: 5.6rem;
 }
 
+.page-colendar .project-solution + .project-context[aria-labelledby^="colendar-next-block"],
+.page-colendar .project-context[aria-labelledby^="colendar-next-block"] + .project-context[aria-labelledby^="colendar-next-block"] {
+  margin-top: 8rem;
+}
+
+.page-colendar .project-context[aria-labelledby="colendar-next-block-3-heading"] + .project-context--colendar-wireframe,
+.page-colendar .project-context--colendar-wireframe + .project-context--colendar-visual-system {
+  margin-top: 8rem;
+}
+
 .page-colendar .project-context .colendar-next-block__box {
   width: 100%;
   min-height: 34rem;
@@ -3165,6 +3179,55 @@ body:has(.navbar) .project-page {
 
 .page-colendar .project-context .colendar-next-block__img--community {
   object-position: center 90%;
+}
+
+.page-colendar .project-context .colendar-next-block__box.colendar-next-block__box--videos {
+  width: 100%;
+  max-width: 62%;
+  margin-inline: auto;
+  min-height: 0;
+  background: transparent;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.75rem;
+  align-items: start;
+}
+
+.page-colendar .colendar-next-block__video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 24px;
+  background: transparent;
+  filter: brightness(1.025);
+}
+
+.page-colendar .colendar-next-block__box--video-single {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.75rem;
+}
+
+.page-colendar .colendar-next-block__box--video-single .colendar-next-block__video {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc((100% - 2.75rem) / 2);
+  max-width: calc((100% - 2.75rem) / 2);
+}
+
+@media (max-width: 700px) {
+  .page-colendar .project-context .colendar-next-block__box.colendar-next-block__box--videos {
+    max-width: 72%;
+    gap: 6rem;
+    grid-template-columns: 1fr;
+  }
+
+  .page-colendar .colendar-next-block__box--video-single .colendar-next-block__video {
+    grid-column: 1;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .page-colendar .project-context[aria-labelledby="colendar-context-heading"] .colendar-context__box {
@@ -3217,6 +3280,27 @@ body:has(.navbar) .project-page {
   font-weight: 600;
   font-size: clamp(1.45rem, 3vw, 2rem);
   font-style: italic;
+}
+
+.page-colendar .project-context--colendar-wireframe .project-context__title:empty,
+.page-colendar .project-context--colendar-wireframe .project-context__body:empty,
+.page-colendar .project-context--colendar-visual-system .project-context__title:empty,
+.page-colendar .project-context--colendar-visual-system .project-context__body:empty {
+  display: none;
+}
+
+.page-colendar .project-context--colendar-wireframe .project-context__title:not(:empty),
+.page-colendar .project-context--colendar-visual-system .project-context__title:not(:empty) {
+  margin-bottom: 1.45rem;
+}
+
+.page-colendar .colendar-wireframe__box,
+.page-colendar .colendar-visual-system__box {
+  width: 100%;
+  min-height: 34rem;
+  border-radius: 12px;
+  background: #f2f2f2;
+  margin-bottom: 1.25rem;
 }
 
 .page-colendar .colendar-key-insight-cards {
@@ -3377,6 +3461,15 @@ body:has(.navbar) .project-page {
   > .colendar-key-insight-cards__label
   + .colendar-key-insight-cards__text {
   font-weight: 500;
+}
+
+/* Pain point lead lines: same weight as foot labels (e.g. Pain Point #3) */
+.page-colendar
+  .colendar-design-goals-cards__item
+  .colendar-key-insight-cards__foot
+  > .colendar-key-insight-cards__label
+  + .colendar-key-insight-cards__text.colendar-key-insight-cards__text--pain-point-lead {
+  font-weight: 600;
 }
 
 @media (max-width: 900px) {
@@ -4138,6 +4231,15 @@ html.dark-mode body.page-about .site-footer__social-link:hover {
 
 html.dark-mode body.page-colendar .project-context .colendar-next-block__box,
 html.dark-mode body.page-colendar .colendar-design-goals-cards__item {
+  background: #0f0f0f;
+}
+
+html.dark-mode body.page-colendar .project-context .colendar-next-block__box.colendar-next-block__box--videos {
+  background: transparent;
+}
+
+html.dark-mode body.page-colendar .colendar-wireframe__box,
+html.dark-mode body.page-colendar .colendar-visual-system__box {
   background: #0f0f0f;
 }
 

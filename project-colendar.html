@@ -71,6 +71,10 @@
           >design goals</a
         >
         <a class="colendar-toc__link" href="#colendar-solution-heading" data-i18n="projects.colendar.tocSolution">solution</a>
+        <a class="colendar-toc__link" href="#colendar-wireframe-heading" data-i18n="projects.colendar.tocWireframe">wireframe</a>
+        <a class="colendar-toc__link" href="#colendar-visual-system-heading" data-i18n="projects.colendar.tocVisualSystem"
+          >visual system</a
+        >
       </nav>
     </aside>
 
@@ -213,7 +217,7 @@
             <p class="colendar-design-goals-cards__label" data-i18n="projects.colendar.designGoalsPainPointsLabel">Pain points</p>
             <div class="colendar-key-insight-cards__foot">
               <p class="colendar-key-insight-cards__label" data-i18n="projects.colendar.painPoint1Label">Pain Point #1</p>
-              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.painPoint1a">
+              <p class="colendar-key-insight-cards__text colendar-key-insight-cards__text--pain-point-lead" data-i18n="projects.colendar.painPoint1a">
                 Low urgency makes goals easy to overlook and likely to fade over time.
               </p>
               <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.painPoint1b">
@@ -236,7 +240,7 @@
           <div class="colendar-design-goals-cards__item">
             <div class="colendar-key-insight-cards__foot">
               <p class="colendar-key-insight-cards__label" data-i18n="projects.colendar.painPoint2Label">Pain Point #2</p>
-              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.painPoint2a">
+              <p class="colendar-key-insight-cards__text colendar-key-insight-cards__text--pain-point-lead" data-i18n="projects.colendar.painPoint2a">
                 The lack of a clear execution plan leads to low execution ability.
               </p>
               <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.painPoint2b">
@@ -259,7 +263,7 @@
           <div class="colendar-design-goals-cards__item">
             <div class="colendar-key-insight-cards__foot">
               <p class="colendar-key-insight-cards__label" data-i18n="projects.colendar.painPoint3Label">Pain Point #3</p>
-              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.painPoint3a">
+              <p class="colendar-key-insight-cards__text colendar-key-insight-cards__text--pain-point-lead" data-i18n="projects.colendar.painPoint3a">
                 Students often start doubting themselves when they can’t see any progress.
               </p>
               <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.painPoint3b">
@@ -308,12 +312,32 @@
       </section>
 
       <section class="project-context" aria-labelledby="colendar-next-block-1sup-heading">
-        <div
-          class="colendar-next-block__box colendar-next-block__box--empty"
-          role="img"
-          data-i18n-attrs="aria-label:projects.colendar.next1SupImgAlt"
-          aria-label="Placeholder for additional design mockup"
-        ></div>
+        <div class="colendar-next-block__box colendar-next-block__box--videos">
+          <video
+            class="colendar-next-block__video"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            data-i18n-attrs="aria-label:projects.colendar.next1SupVideoAnimationAlt"
+            aria-label="Colendar time spot animation demo"
+          >
+            <source src="assets/time_spot_animation.MP4" type="video/mp4" />
+          </video>
+          <video
+            class="colendar-next-block__video"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            data-i18n-attrs="aria-label:projects.colendar.next1SupVideoScrollAlt"
+            aria-label="Colendar time spot scroll demo"
+          >
+            <source src="assets/time_spot_scroll.MP4" type="video/mp4" />
+          </video>
+        </div>
         <p class="project-context__label" data-i18n="projects.colendar.next1SupBlockLabel">Additional view</p>
         <h2
           id="colendar-next-block-1sup-heading"
@@ -328,13 +352,19 @@
       </section>
 
       <section class="project-context" aria-labelledby="colendar-next-block-2-heading">
-        <div class="colendar-next-block__box">
-          <img
-            class="colendar-next-block__img colendar-next-block__img--community"
-            src="assets/Colendar__Community.png"
-            data-i18n-attrs="alt:projects.colendar.next2ImgAlt"
-            alt="Colendar community feature"
-          />
+        <div class="colendar-next-block__box colendar-next-block__box--videos colendar-next-block__box--video-single">
+          <video
+            class="colendar-next-block__video colendar-next-block__video--template"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            data-i18n-attrs="aria-label:projects.colendar.next2VideoAlt"
+            aria-label="Colendar community template demo"
+          >
+            <source src="assets/templete.MP4" type="video/mp4" />
+          </video>
         </div>
         <p class="project-context__label" data-i18n="projects.colendar.next2BlockLabel">Community</p>
         <h2 id="colendar-next-block-2-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.next2Title">
@@ -357,6 +387,34 @@
           Transform the traditionally tedious planning process into an engaging and low-barrier experience through conversational input.
         </h2>
         <p class="project-context__body" data-i18n="projects.colendar.next3Body">Add the content for this block here.</p>
+      </section>
+
+      <section class="project-context project-context--colendar-wireframe" aria-labelledby="colendar-wireframe-heading">
+        <div
+          class="colendar-wireframe__box"
+          role="img"
+          data-i18n-attrs="aria-label:projects.colendar.wireframeImgAlt"
+          aria-label="Wireframe placeholder"
+        ></div>
+        <p class="project-context__label" data-i18n="projects.colendar.wireframeLabel">Wireframe</p>
+        <h2 id="colendar-wireframe-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.wireframeTitle"></h2>
+        <p class="project-context__body" data-i18n="projects.colendar.wireframeBody"></p>
+      </section>
+
+      <section class="project-context project-context--colendar-visual-system" aria-labelledby="colendar-visual-system-heading">
+        <div
+          class="colendar-visual-system__box"
+          role="img"
+          data-i18n-attrs="aria-label:projects.colendar.visualSystemImgAlt"
+          aria-label="Visual system placeholder"
+        ></div>
+        <p class="project-context__label" data-i18n="projects.colendar.visualSystemLabel">Visual System</p>
+        <h2
+          id="colendar-visual-system-heading"
+          class="project-page-lead__title project-context__title"
+          data-i18n="projects.colendar.visualSystemTitle"
+        ></h2>
+        <p class="project-context__body" data-i18n="projects.colendar.visualSystemBody"></p>
       </section>
     </main>
     <script src="i18n.js" defer></script>
@@ -440,6 +498,18 @@
           updateTocVisibility();
           updateActiveByScroll();
         });
+      })();
+
+      (function initColendarTemplateVideo() {
+        var video = document.querySelector(".colendar-next-block__video--template");
+        if (!video) return;
+
+        function applyRate() {
+          video.playbackRate = 1.4;
+        }
+
+        applyRate();
+        video.addEventListener("loadedmetadata", applyRate);
       })();
     </script>
   </body>

@@ -45,6 +45,8 @@
       "tocKeyInsight": "關鍵洞察",
       "tocDesignGoals": "設計目標",
       "tocSolution": "解法",
+      "tocWireframe": "線框稿",
+      "tocVisualSystem": "視覺系統",
       "coverAria": "Colendar 專案封面",
       "coverImgAlt": "Colendar 專案封面",
       "subtitle": "在此加入副標題或一句話說明。",
@@ -105,16 +107,26 @@
       "next1Body": "",
       "next1SupBlockLabel": "補充畫面",
       "next1SupTitle": "藉由視覺化過去的規劃，幫助使用者重新建立持續前進的信心",
-      "next1SupBody": "將過去的規劃與行動以時間節點方式呈現，幫助使用者清晰看見一路以來的累積與進展，在感到停滯或看不見成果時，重新建立信心並持續向前。",
-      "next1SupImgAlt": "補充設計稿預留區",
+      "next1SupBody": "將過去的規劃與執行歷程以時間節點方式呈現，讓使用者能清楚回顧每一步的投入與進展，在迷惘或停滯時重新看見自己的努力與累積。",
+      "next1SupVideoAnimationAlt": "Colendar 時間節點動畫示範",
+      "next1SupVideoScrollAlt": "Colendar 時間節點捲動示範",
       "next2BlockLabel": "目標規劃模板",
       "next2ImgAlt": "Colendar 社群功能",
+      "next2VideoAlt": "Colendar 目標規劃模板示範",
       "next2Title": "讓使用者參考其他同學如何規劃，降低從零開始的門檻。",
       "next2Body": "在此撰寫此段內容。",
       "next3BlockLabel": "對話式規劃",
       "next3ImgAlt": "Colendar 對話功能",
       "next3Title": "用對話式輸入，把傳統繁瑣的規劃流程，變成有參與感、低門檻的體驗。",
-      "next3Body": "在此撰寫此段內容。"
+      "next3Body": "在此撰寫此段內容。",
+      "wireframeLabel": "Wireframe",
+      "wireframeTitle": "",
+      "wireframeBody": "",
+      "wireframeImgAlt": "線框稿預留區",
+      "visualSystemLabel": "Visual System",
+      "visualSystemTitle": "",
+      "visualSystemBody": "",
+      "visualSystemImgAlt": "視覺系統預留區"
     }
   }
 }

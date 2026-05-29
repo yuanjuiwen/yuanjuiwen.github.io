@@ -45,6 +45,8 @@
       "tocKeyInsight": "key insight",
       "tocDesignGoals": "design goals",
       "tocSolution": "solution",
+      "tocWireframe": "wireframe",
+      "tocVisualSystem": "visual system",
       "coverAria": "Colendar project cover",
       "coverImgAlt": "Colendar project cover",
       "subtitle": "Add your subtitle or context line here.",
@@ -106,15 +108,25 @@
       "next1SupBlockLabel": "Additional view",
       "next1SupTitle": "Add a headline for this block.",
       "next1SupBody": "Add supporting copy here. Replace the gray area with a mockup image when ready.",
-      "next1SupImgAlt": "Placeholder for additional design mockup",
+      "next1SupVideoAnimationAlt": "Colendar time spot animation demo",
+      "next1SupVideoScrollAlt": "Colendar time spot scroll demo",
       "next2BlockLabel": "Community",
       "next2ImgAlt": "Colendar community feature",
+      "next2VideoAlt": "Colendar community template demo",
       "next2Title": "Let users reference how other students plan, lowering the barrier to starting from scratch.",
       "next2Body": "Add the content for this block here.",
       "next3BlockLabel": "Conversational planning",
       "next3ImgAlt": "Colendar chat feature",
       "next3Title": "Transform the traditionally tedious planning process into an engaging and low-barrier experience through conversational input.",
-      "next3Body": "Add the content for this block here."
+      "next3Body": "Add the content for this block here.",
+      "wireframeLabel": "Wireframe",
+      "wireframeTitle": "",
+      "wireframeBody": "",
+      "wireframeImgAlt": "Wireframe placeholder",
+      "visualSystemLabel": "Visual System",
+      "visualSystemTitle": "",
+      "visualSystemBody": "",
+      "visualSystemImgAlt": "Visual system placeholder"
     }
   }
 }
