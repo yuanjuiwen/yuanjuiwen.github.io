@@ -331,13 +331,19 @@
       </section>
 
       <section class="project-context" aria-labelledby="colendar-next-block-heading">
-        <div class="colendar-next-block__box colendar-next-block__box--plain">
-          <img
-            class="colendar-next-block__img"
-            src="assets/Colendar_Social.png"
-            data-i18n-attrs="alt:projects.colendar.next1ImgAlt"
-            alt="Colendar social sharing feature"
-          />
+        <div class="colendar-next-block__box colendar-next-block__box--videos colendar-next-block__box--video-single">
+          <video
+            class="colendar-next-block__video"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            data-i18n-attrs="aria-label:projects.colendar.next1VideoAlt"
+            aria-label="Colendar peer sharing demo"
+          >
+            <source src="assets/study%20group.MP4" type="video/mp4" />
+          </video>
         </div>
         <p class="project-context__label" data-i18n="projects.colendar.next1BlockLabel">Peer sharing</p>
         <h2 id="colendar-next-block-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.next1Title">
@@ -409,13 +415,19 @@
       </section>
 
       <section class="project-context" aria-labelledby="colendar-next-block-3-heading">
-        <div class="colendar-next-block__box">
-          <img
-            class="colendar-next-block__img"
-            src="assets/Colendar_chat.png"
-            data-i18n-attrs="alt:projects.colendar.next3ImgAlt"
-            alt="Colendar chat feature"
-          />
+        <div class="colendar-next-block__box colendar-next-block__box--videos colendar-next-block__box--video-single">
+          <video
+            class="colendar-next-block__video colendar-next-block__video--chat"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            data-i18n-attrs="aria-label:projects.colendar.next3VideoAlt"
+            aria-label="Colendar AI chat demo"
+          >
+            <source src="assets/Ai%20chat.MP4" type="video/mp4" />
+          </video>
         </div>
         <p class="project-context__label" data-i18n="projects.colendar.next3BlockLabel">Conversational planning</p>
         <h2 id="colendar-next-block-3-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.next3Title">
@@ -537,16 +549,20 @@
         });
       })();
 
-      (function initColendarTemplateVideo() {
-        var video = document.querySelector(".colendar-next-block__video--template");
-        if (!video) return;
+      (function initColendarVideoPlaybackRates() {
+        var videos = document.querySelectorAll(
+          ".colendar-next-block__video--template, .colendar-next-block__video--chat"
+        );
+        if (!videos.length) return;
 
-        function applyRate() {
-          video.playbackRate = 1.4;
-        }
+        videos.forEach(function (video) {
+          function applyRate() {
+            video.playbackRate = 1.4;
+          }
 
-        applyRate();
-        video.addEventListener("loadedmetadata", applyRate);
+          applyRate();
+          video.addEventListener("loadedmetadata", applyRate);
+        });
       })();
     </script>
   </body>
