@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -10,7 +10,9 @@
     <title>Colendar | Kevin Wen</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="page-eyezen-main page-colendar">
@@ -74,7 +76,12 @@
           >design goals</a
         >
         <a class="colendar-toc__link" href="#colendar-solution-heading" data-i18n="projects.colendar.tocSolution">solution</a>
-        <a class="colendar-toc__link" href="#colendar-wireframe-heading" data-i18n="projects.colendar.tocWireframe">wireframe</a>
+        <a class="colendar-toc__link" href="#colendar-wireframe-lowfi-heading" data-i18n="projects.colendar.tocLowFiWireframe"
+          >low-fi wireframe</a
+        >
+        <a class="colendar-toc__link" href="#colendar-wireframe-midfi-heading" data-i18n="projects.colendar.tocWireframe"
+          >mid-fi wireframe</a
+        >
         <a class="colendar-toc__link" href="#colendar-visual-system-heading" data-i18n="projects.colendar.tocVisualSystem"
           >visual system</a
         >
@@ -245,8 +252,12 @@
 
       <section class="project-context" aria-labelledby="colendar-design-goals-heading">
         <p class="project-context__label" data-i18n="projects.colendar.designGoalsLabel">Design goals</p>
-        <h2 id="colendar-design-goals-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.designGoalsTitle"></h2>
-        <p class="project-context__body" data-i18n="projects.colendar.designGoalsBody"></p>
+        <h2 id="colendar-design-goals-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.designGoalsTitle">
+          Turning insights into clear design directions
+        </h2>
+        <p class="project-context__body" data-i18n="projects.colendar.designGoalsBody">
+          Starting from three key insights distilled from user interviews, we used How Might We questions to turn ambiguous problems into concrete design opportunities.
+        </p>
         <div class="colendar-design-goals-cards">
           <div class="colendar-design-goals-cards__item">
             <p class="colendar-design-goals-cards__label" data-i18n="projects.colendar.designGoalsPainPointsLabel">Pain points</p>
@@ -292,7 +303,9 @@
               <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.feature2a">
                 How might we make planning more enjoyable and accessible?
               </p>
-              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.feature2b"></p>
+              <p class="colendar-key-insight-cards__text" data-i18n="projects.colendar.feature2b">
+                Through community-shared templates and AI conversational guidance, simplify planning and help users quickly build actionable plans.
+              </p>
             </div>
           </div>
           <div class="colendar-design-goals-cards__item">
@@ -326,24 +339,25 @@
           Introducing Colendar
         </h2>
         <p class="project-solution__body" data-i18n="projects.colendar.solutionBody">
-          Colendar integrates conversational planning, social support, and process visualization to maintain goal awareness and sustain progress.
+          Colendar increases day-to-day attention to goals and combines time milestones with planning support to help students keep advancing the long-term goals they set at the start of the semester.
         </p>
       </section>
 
       <section class="project-context" aria-labelledby="colendar-next-block-heading">
-        <div class="colendar-next-block__box colendar-next-block__box--videos colendar-next-block__box--video-single">
-          <video
-            class="colendar-next-block__video"
-            autoplay
-            loop
-            muted
-            playsinline
-            preload="metadata"
-            data-i18n-attrs="aria-label:projects.colendar.next1VideoAlt"
-            aria-label="Colendar peer sharing demo"
-          >
-            <source src="assets/study%20group.MP4" type="video/mp4" />
-          </video>
+        <div class="colendar-next-block__gray-panel">
+          <div class="colendar-next-block__box colendar-next-block__box--videos colendar-next-block__box--video-single">
+            <video
+              class="colendar-next-block__video"
+              loop
+              muted
+              playsinline
+              preload="metadata"
+              data-i18n-attrs="aria-label:projects.colendar.next1VideoAlt"
+              aria-label="Colendar peer sharing demo"
+            >
+              <source src="assets/study%20group.MP4" type="video/mp4" />
+            </video>
+          </div>
         </div>
         <p class="project-context__label" data-i18n="projects.colendar.next1BlockLabel">Peer sharing</p>
         <h2 id="colendar-next-block-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.next1Title">
@@ -353,10 +367,10 @@
       </section>
 
       <section class="project-context" aria-labelledby="colendar-next-block-1sup-heading">
-        <div class="colendar-next-block__box colendar-next-block__box--videos">
-          <video
+        <div class="colendar-next-block__gray-panel">
+          <div class="colendar-next-block__box colendar-next-block__box--videos">
+            <video
             class="colendar-next-block__video"
-            autoplay
             loop
             muted
             playsinline
@@ -368,7 +382,6 @@
           </video>
           <video
             class="colendar-next-block__video"
-            autoplay
             loop
             muted
             playsinline
@@ -378,6 +391,7 @@
           >
             <source src="assets/time_spot_scroll.MP4" type="video/mp4" />
           </video>
+          </div>
         </div>
         <p class="project-context__label" data-i18n="projects.colendar.next1SupBlockLabel">Additional view</p>
         <h2
@@ -393,10 +407,10 @@
       </section>
 
       <section class="project-context" aria-labelledby="colendar-next-block-2-heading">
-        <div class="colendar-next-block__box colendar-next-block__box--videos colendar-next-block__box--video-single">
-          <video
-            class="colendar-next-block__video colendar-next-block__video--template"
-            autoplay
+        <div class="colendar-next-block__gray-panel">
+          <div class="colendar-next-block__box colendar-next-block__box--videos colendar-next-block__box--video-single">
+            <video
+              class="colendar-next-block__video colendar-next-block__video--template"
             loop
             muted
             playsinline
@@ -406,6 +420,7 @@
           >
             <source src="assets/templete.MP4" type="video/mp4" />
           </video>
+          </div>
         </div>
         <p class="project-context__label" data-i18n="projects.colendar.next2BlockLabel">Community</p>
         <h2 id="colendar-next-block-2-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.next2Title">
@@ -415,10 +430,10 @@
       </section>
 
       <section class="project-context" aria-labelledby="colendar-next-block-3-heading">
-        <div class="colendar-next-block__box colendar-next-block__box--videos colendar-next-block__box--video-single">
-          <video
-            class="colendar-next-block__video colendar-next-block__video--chat"
-            autoplay
+        <div class="colendar-next-block__gray-panel">
+          <div class="colendar-next-block__box colendar-next-block__box--videos colendar-next-block__box--video-single">
+            <video
+              class="colendar-next-block__video colendar-next-block__video--chat"
             loop
             muted
             playsinline
@@ -428,6 +443,7 @@
           >
             <source src="assets/Ai%20chat.MP4" type="video/mp4" />
           </video>
+          </div>
         </div>
         <p class="project-context__label" data-i18n="projects.colendar.next3BlockLabel">Conversational planning</p>
         <h2 id="colendar-next-block-3-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.next3Title">
@@ -436,25 +452,49 @@
         <p class="project-context__body" data-i18n="projects.colendar.next3Body">Add the content for this block here.</p>
       </section>
 
-      <section class="project-context project-context--colendar-wireframe" aria-labelledby="colendar-wireframe-heading">
-        <div
-          class="colendar-wireframe__box"
-          role="img"
-          data-i18n-attrs="aria-label:projects.colendar.wireframeImgAlt"
-          aria-label="Wireframe placeholder"
-        ></div>
-        <p class="project-context__label" data-i18n="projects.colendar.wireframeLabel">Wireframe</p>
-        <h2 id="colendar-wireframe-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.wireframeTitle"></h2>
-        <p class="project-context__body" data-i18n="projects.colendar.wireframeBody"></p>
+      <section
+        class="project-context project-context--colendar-wireframe project-context--colendar-wireframe-lowfi"
+        aria-labelledby="colendar-wireframe-lowfi-heading"
+      >
+        <p class="project-context__label" data-i18n="projects.colendar.lowFiWireframeLabel">Low-fi Wireframe</p>
+        <h2
+          id="colendar-wireframe-lowfi-heading"
+          class="project-page-lead__title project-context__title"
+          data-i18n="projects.colendar.lowFiWireframeTitle"
+        >
+          Mapping core flows with low-fidelity wireframes
+        </h2>
+        <p class="project-context__body" data-i18n="projects.colendar.lowFiWireframeBody"></p>
+        <div class="colendar-wireframe__box colendar-wireframe__box--placeholder" aria-hidden="true"></div>
+      </section>
+
+      <section
+        class="project-context project-context--colendar-wireframe project-context--colendar-wireframe-midfi"
+        aria-labelledby="colendar-wireframe-midfi-heading"
+      >
+        <p class="project-context__label" data-i18n="projects.colendar.wireframeLabel">Mid-fi Wireframe</p>
+        <h2
+          id="colendar-wireframe-midfi-heading"
+          class="project-page-lead__title project-context__title"
+          data-i18n="projects.colendar.wireframeTitle"
+        >
+          Transforming concepts into mid-fi wireframes
+        </h2>
+        <p class="project-context__body" data-i18n="projects.colendar.wireframeBody">
+          Based on our research and design strategy, we began designing Colendar’s core interfaces and used vibe coding to quickly turn concepts into interactive front-end prototypes—speeding up testing and continuously refining the experience from user feedback.
+        </p>
+        <div class="colendar-wireframe__box">
+          <img
+            class="colendar-wireframe__img"
+            src="assets/Wrieframe.jpg"
+            decoding="async"
+            data-i18n-attrs="alt:projects.colendar.wireframeImgAlt"
+            alt="Colendar wireframes"
+          />
+        </div>
       </section>
 
       <section class="project-context project-context--colendar-visual-system" aria-labelledby="colendar-visual-system-heading">
-        <div
-          class="colendar-visual-system__box"
-          role="img"
-          data-i18n-attrs="aria-label:projects.colendar.visualSystemImgAlt"
-          aria-label="Visual system placeholder"
-        ></div>
         <p class="project-context__label" data-i18n="projects.colendar.visualSystemLabel">Visual System</p>
         <h2
           id="colendar-visual-system-heading"
@@ -462,6 +502,15 @@
           data-i18n="projects.colendar.visualSystemTitle"
         ></h2>
         <p class="project-context__body" data-i18n="projects.colendar.visualSystemBody"></p>
+        <div class="colendar-visual-system__box">
+          <img
+            class="colendar-visual-system__img"
+            src="assets/Visual%20System.png"
+            decoding="async"
+            data-i18n-attrs="alt:projects.colendar.visualSystemImgAlt"
+            alt="Colendar visual system"
+          />
+        </div>
       </section>
     </main>
     <script src="i18n.js" defer></script>
@@ -549,19 +598,67 @@
         });
       })();
 
-      (function initColendarVideoPlaybackRates() {
-        var videos = document.querySelectorAll(
-          ".colendar-next-block__video--template, .colendar-next-block__video--chat"
-        );
+      (function initColendarScrollVideos() {
+        var videos = document.querySelectorAll(".colendar-next-block__video");
         if (!videos.length) return;
 
-        videos.forEach(function (video) {
-          function applyRate() {
-            video.playbackRate = 1.4;
-          }
+        var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (prefersReducedMotion) return;
 
-          applyRate();
-          video.addEventListener("loadedmetadata", applyRate);
+        function tryPlay(video) {
+          var playPromise = video.play();
+          if (playPromise && playPromise.catch) {
+            playPromise.catch(function () {});
+          }
+        }
+
+        videos.forEach(function (video) {
+          video.muted = true;
+          video.loop = true;
+          video.setAttribute("playsinline", "");
+
+          if (
+            video.classList.contains("colendar-next-block__video--template") ||
+            video.classList.contains("colendar-next-block__video--chat")
+          ) {
+            function applyRate() {
+              video.playbackRate = 1.4;
+            }
+            applyRate();
+            video.addEventListener("loadedmetadata", applyRate);
+          }
+        });
+
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              var video = entry.target;
+              if (entry.isIntersecting) {
+                tryPlay(video);
+              } else {
+                video.pause();
+              }
+            });
+          },
+          { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
+        );
+
+        videos.forEach(function (video) {
+          io.observe(video);
+        });
+
+        document.addEventListener("visibilitychange", function () {
+          if (document.hidden) {
+            videos.forEach(function (video) {
+              video.pause();
+            });
+            return;
+          }
+          videos.forEach(function (video) {
+            var rect = video.getBoundingClientRect();
+            var inView = rect.top < window.innerHeight * 0.92 && rect.bottom > window.innerHeight * 0.08;
+            if (inView) tryPlay(video);
+          });
         });
       })();
     </script>

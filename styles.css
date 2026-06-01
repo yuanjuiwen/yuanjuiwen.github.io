@@ -3079,22 +3079,42 @@ body:has(.navbar) .project-page {
 }
 
 /* Colendar project page — match TJOY lead / summary / facts layout */
+body.page-colendar {
+  --font-body: "Satoshi", "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html:lang(zh-Hant) body.page-colendar {
+  --font-body: "Satoshi", "PingFang TC", "PingFangTC-Regular", "Heiti TC", "Noto Sans TC", sans-serif;
+}
+
 .page-colendar .project-page {
   --colendar-main-width: 52rem;
   --colendar-toc-width: clamp(10.5rem, 16vw, 13.5rem);
   --colendar-toc-gap: 1.25rem;
   --colendar-group-shift: calc((var(--colendar-toc-width) + var(--colendar-toc-gap)) / 2);
+  --colendar-hero-width: min(100vw, 1280px);
+  --colendar-hero-margin: calc(50% - min(50vw, 640px));
+  --colendar-body-inset-start: 1.25rem;
+  --colendar-body-inset-end: 4.25rem;
+  --colendar-body-width: calc(
+    var(--colendar-hero-width) - var(--colendar-body-inset-start) - var(--colendar-body-inset-end)
+  );
+  --colendar-section-label-size: 1.08rem;
+  --colendar-section-title-size: clamp(1.08rem, 2.35vw, 1.38rem);
+  --colendar-section-body-size: 1.08rem;
+  --colendar-section-solution-title-size: clamp(1.55rem, 3.2vw, 2.15rem);
+  --colendar-wireframe-stack-gap: 11.5rem;
 }
 
 .page-colendar .project-context--colendar-summary {
-  max-width: none;
-  width: 100%;
+  max-width: var(--colendar-hero-width);
+  width: var(--colendar-hero-width);
   margin-top: 2rem;
 }
 
 .page-colendar .project-context--colendar-key-achievements {
-  max-width: none;
-  width: 100%;
+  max-width: var(--colendar-hero-width);
+  width: var(--colendar-hero-width);
   margin-top: 2.5rem;
 }
 
@@ -3112,18 +3132,105 @@ body:has(.navbar) .project-page {
 }
 
 .page-colendar .colendar-key-achievements__item {
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 1rem;
+  font-family: var(--font-body);
+  font-size: var(--colendar-section-body-size);
   font-weight: var(--font-body-weight);
   line-height: 1.7;
   color: #737373;
 }
 
-/* Same as TJOY: Eyezen shift applies to context blocks, but not the SUMMARY column */
+/* Same as TJOY: Eyezen shift off for intro blocks; align with hero width */
 .page-eyezen-main.page-colendar .project-context--colendar-summary,
 .page-eyezen-main.page-colendar .project-context--colendar-key-achievements {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  margin-left: var(--colendar-hero-margin) !important;
+  margin-right: var(--colendar-hero-margin) !important;
+  transform: none !important;
+}
+
+/* Colendar hero + intro text — shared width; lead margin-top & type sizes unchanged */
+.page-colendar .project-page > .project-page-media:first-of-type,
+.page-colendar .project-page-lead,
+.page-colendar .project-context--colendar-summary,
+.page-colendar .project-context--colendar-key-achievements,
+.page-colendar .project-page-facts {
+  width: var(--colendar-hero-width);
+  max-width: var(--colendar-hero-width);
+  margin-left: var(--colendar-hero-margin);
+  margin-right: var(--colendar-hero-margin);
+  box-sizing: border-box;
+}
+
+.page-colendar .project-page > .project-page-media:first-of-type {
+  border-radius: 18px !important;
+  overflow: hidden;
+}
+
+.page-colendar .project-page > .project-page-media:first-of-type .project-image-slot--feature {
+  min-height: 44rem;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.page-colendar .project-page > .project-page-media:first-of-type .project-image-slot__img {
+  width: 100%;
+  height: auto;
+  min-height: 44rem;
+  object-fit: contain;
+  object-position: center center;
+  border-radius: 14px;
+}
+
+@media (max-width: 768px) {
+  .page-colendar .project-page > .project-page-media:first-of-type,
+  .page-colendar .project-page-lead,
+  .page-colendar .project-context--colendar-summary,
+  .page-colendar .project-context--colendar-key-achievements,
+  .page-colendar .project-page-facts {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .page-eyezen-main.page-colendar .project-context--colendar-summary,
+  .page-eyezen-main.page-colendar .project-context--colendar-key-achievements {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
+  .page-colendar .project-page > .project-solution {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+  }
+
+  .page-eyezen-main.page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
+  .page-eyezen-main.page-colendar .project-page > .project-solution {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Colendar body (context → end) — inset from cover edges; left padding for TOC /偏右 rhythm */
+.page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
+.page-colendar .project-page > .project-solution {
+  width: var(--colendar-body-width);
+  max-width: var(--colendar-body-width);
+  margin-left: calc(var(--colendar-hero-margin) + var(--colendar-body-inset-start));
+  margin-right: calc(var(--colendar-hero-margin) + var(--colendar-body-inset-end));
+  padding-left: calc(var(--colendar-toc-width) + var(--colendar-toc-gap));
+  box-sizing: border-box;
+}
+
+.page-eyezen-main.page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
+.page-eyezen-main.page-colendar .project-page > .project-solution {
+  margin-left: calc(var(--colendar-hero-margin) + var(--colendar-body-inset-start)) !important;
+  margin-right: calc(var(--colendar-hero-margin) + var(--colendar-body-inset-end)) !important;
   transform: none !important;
 }
 
@@ -3138,6 +3245,26 @@ body:has(.navbar) .project-page {
   color: #000000;
   font-size: clamp(1.24rem, 3.4vw, 1.75rem);
   line-height: 1.1;
+}
+
+/* Section blocks — label, title, body (context → end + intro summary) */
+.page-colendar .project-context__label,
+.page-colendar .project-solution__label {
+  font-size: var(--colendar-section-label-size);
+}
+
+.page-colendar .project-context__title,
+.page-colendar .project-solution__title {
+  font-size: var(--colendar-section-title-size);
+}
+
+.page-colendar .project-context__body,
+.page-colendar .project-solution__body {
+  font-size: var(--colendar-section-body-size);
+}
+
+.page-colendar .project-page-desc {
+  font-size: var(--colendar-section-body-size);
 }
 
 .page-colendar .project-page-facts__inline {
@@ -3183,9 +3310,15 @@ body:has(.navbar) .project-page {
   margin-top: 8rem;
 }
 
-.page-colendar .project-context[aria-labelledby="colendar-next-block-3-heading"] + .project-context--colendar-wireframe,
-.page-colendar .project-context--colendar-wireframe + .project-context--colendar-visual-system {
+.page-colendar .project-context[aria-labelledby="colendar-next-block-3-heading"] + .project-context--colendar-wireframe {
   margin-top: 8rem;
+}
+
+/* Low-fi ↔ mid-fi ↔ visual system — padding avoids margin collapse with section stack */
+.page-colendar .project-page > .project-context.project-context--colendar-wireframe-lowfi + .project-context.project-context--colendar-wireframe-midfi,
+.page-colendar .project-page > .project-context.project-context--colendar-wireframe-midfi + .project-context.project-context--colendar-visual-system {
+  margin-top: 0;
+  padding-top: var(--colendar-wireframe-stack-gap);
 }
 
 .page-colendar .project-context .colendar-next-block__box {
@@ -3222,6 +3355,26 @@ body:has(.navbar) .project-page {
   object-fit: contain;
 }
 
+.page-colendar .colendar-next-block__gray-panel {
+  width: 100%;
+  background: #f2f2f2;
+  border-radius: 12px;
+  padding: clamp(1.35rem, 3vw, 2rem) clamp(1.35rem, 3vw, 2rem) clamp(1.75rem, 3.5vw, 2.75rem);
+  margin-bottom: 1.25rem;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.page-colendar .colendar-next-block__gray-panel .colendar-next-block__box {
+  margin-bottom: 0;
+  overflow: visible;
+}
+
+.page-colendar .colendar-next-block__gray-panel .colendar-next-block__video {
+  filter: brightness(1.025) drop-shadow(0 0 10px rgba(0, 0, 0, 0.08)) drop-shadow(0 0 22px rgba(0, 0, 0, 0.1))
+    drop-shadow(0 0 40px rgba(0, 0, 0, 0.06));
+}
+
 .page-colendar .project-context .colendar-next-block__box.colendar-next-block__box--videos {
   width: 100%;
   max-width: 62%;
@@ -3242,7 +3395,6 @@ body:has(.navbar) .project-page {
   object-fit: contain;
   border-radius: 24px;
   background: transparent;
-  filter: brightness(1.025);
 }
 
 .page-colendar .colendar-next-block__box--video-single {
@@ -3294,7 +3446,7 @@ body:has(.navbar) .project-page {
 }
 
 .page-colendar .project-context[aria-labelledby="colendar-initial-research-heading"] .colendar-initial-research__img {
-  width: min(100%, 1260px);
+  width: 100%;
   max-width: 100%;
   max-height: none;
   height: auto;
@@ -3336,7 +3488,7 @@ body:has(.navbar) .project-page {
 }
 
 .page-colendar .colendar-research-stats__value {
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(2rem, 4.2vw, 2.65rem);
   font-weight: 700;
   font-style: normal;
@@ -3345,7 +3497,7 @@ body:has(.navbar) .project-page {
 }
 
 .page-colendar .colendar-research-stats__label {
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(0.72rem, 1.25vw, 0.82rem);
   font-weight: 500;
   font-style: normal;
@@ -3374,12 +3526,13 @@ body:has(.navbar) .project-page {
   margin-bottom: 1.45rem;
   color: #20b8ff;
   font-weight: 600;
-  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-size: var(--colendar-section-solution-title-size);
   font-style: italic;
 }
 
 .page-colendar .project-context--colendar-wireframe .project-context__title:empty,
 .page-colendar .project-context--colendar-wireframe .project-context__body:empty,
+.page-colendar .project-context--colendar-wireframe-lowfi .project-context__body:empty,
 .page-colendar .project-context--colendar-visual-system .project-context__title:empty,
 .page-colendar .project-context--colendar-visual-system .project-context__body:empty {
   display: none;
@@ -3390,13 +3543,65 @@ body:has(.navbar) .project-page {
   margin-bottom: 1.45rem;
 }
 
-.page-colendar .colendar-wireframe__box,
-.page-colendar .colendar-visual-system__box {
+.page-colendar .project-context--colendar-wireframe {
+  max-width: var(--colendar-body-width);
+  width: var(--colendar-body-width);
+  min-width: 0;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.page-colendar .colendar-wireframe__box {
   width: 100%;
-  min-height: 34rem;
+  max-width: 100%;
+  min-width: 0;
   border-radius: 12px;
   background: #f2f2f2;
-  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+  padding: 1.2rem;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.page-colendar .colendar-wireframe__box--placeholder {
+  min-height: 18rem;
+  padding: 0;
+}
+
+.page-colendar .colendar-visual-system__box {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  border-radius: 12px;
+  background: #f2f2f2;
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+  padding: 1.2rem;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.page-colendar .colendar-visual-system__img {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-width: 0;
+  border-radius: 8px;
+  image-rendering: auto;
+}
+
+.page-colendar .colendar-wireframe__img {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-width: 0;
+  border-radius: 8px;
+  image-rendering: auto;
 }
 
 .page-colendar .colendar-key-insight-cards {
@@ -3481,9 +3686,9 @@ body:has(.navbar) .project-page {
 .page-colendar .colendar-design-goals-cards__item::before {
   content: "✨";
   position: absolute;
-  top: 2.5rem;
-  left: 2.5rem;
-  font-size: 2rem;
+  top: 2.35rem;
+  left: 2.35rem;
+  font-size: 2.65rem;
   line-height: 1;
 }
 
@@ -3507,8 +3712,8 @@ body:has(.navbar) .project-page {
 }
 
 .page-colendar .colendar-design-goals-cards__item:nth-child(even) {
-  background: #e6f7ff;
-  background: color-mix(in srgb, #20b8ff 40%, #ffffff);
+  background: #9dd4f0;
+  background: color-mix(in srgb, #20b8ff 58%, #ffffff);
 }
 
 .page-colendar .colendar-design-goals-cards__label {
@@ -3516,8 +3721,8 @@ body:has(.navbar) .project-page {
   top: -1.95rem;
   left: 0;
   margin: 0;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 1.1rem;
+  font-weight: 400;
   color: #171717;
 }
 
@@ -3525,7 +3730,7 @@ body:has(.navbar) .project-page {
 .page-colendar .colendar-design-goals-cards__item .colendar-key-insight-cards__foot {
   left: 1.1rem;
   right: 1.1rem;
-  top: 8rem;
+  top: 7.15rem;
   bottom: auto;
   display: flex;
   flex-direction: column;
@@ -3535,11 +3740,16 @@ body:has(.navbar) .project-page {
 
 .page-colendar .colendar-design-goals-cards__item .colendar-key-insight-cards__foot .colendar-key-insight-cards__label {
   margin: 0;
+  font-size: 1.08rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .page-colendar .colendar-design-goals-cards__item .colendar-key-insight-cards__text {
   margin: 0;
   min-height: 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
 }
 
 .page-colendar
@@ -3550,22 +3760,30 @@ body:has(.navbar) .project-page {
   margin-top: 0;
 }
 
-/* First body line slightly heavier than second; card title stays bolder (600) */
+/* First body line: slightly larger and heavier than following paragraphs */
 .page-colendar
   .colendar-design-goals-cards__item
   .colendar-key-insight-cards__foot
   > .colendar-key-insight-cards__label
   + .colendar-key-insight-cards__text {
+  font-size: 1.12rem;
+  line-height: 1.45;
   font-weight: 500;
 }
 
-/* Pain point lead lines: same weight as foot labels (e.g. Pain Point #3) */
 .page-colendar
-  .colendar-design-goals-cards__item
+  .colendar-design-goals-cards__item:nth-child(even)
   .colendar-key-insight-cards__foot
-  > .colendar-key-insight-cards__label
-  + .colendar-key-insight-cards__text.colendar-key-insight-cards__text--pain-point-lead {
-  font-weight: 600;
+  .colendar-key-insight-cards__label,
+.page-colendar
+  .colendar-design-goals-cards__item:nth-child(even)
+  .colendar-key-insight-cards__foot
+  .colendar-key-insight-cards__text,
+.page-colendar
+  .colendar-design-goals-cards__item:nth-child(even)
+  .colendar-key-insight-cards__foot
+  .colendar-key-insight-cards__accent {
+  color: #ffffff;
 }
 
 @media (max-width: 900px) {
@@ -4336,6 +4554,15 @@ html.dark-mode body.page-colendar .project-context .colendar-next-block__box.col
 
 html.dark-mode body.page-colendar .project-context .colendar-next-block__box.colendar-next-block__box--plain {
   background: transparent;
+}
+
+html.dark-mode body.page-colendar .colendar-next-block__gray-panel {
+  background: #0f0f0f;
+}
+
+html.dark-mode body.page-colendar .colendar-next-block__gray-panel .colendar-next-block__video {
+  filter: brightness(1.025) drop-shadow(0 0 12px rgba(255, 255, 255, 0.1)) drop-shadow(0 0 28px rgba(255, 255, 255, 0.07))
+    drop-shadow(0 0 44px rgba(255, 255, 255, 0.04));
 }
 
 html.dark-mode body.page-colendar .colendar-wireframe__box,
