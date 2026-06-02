@@ -3569,6 +3569,12 @@ html:lang(zh-Hant) body.page-colendar {
   padding: 0;
 }
 
+.page-colendar .colendar-wireframe__box--plain {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+
 .page-colendar .colendar-visual-system__box {
   width: 100%;
   max-width: 100%;
