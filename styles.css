@@ -3119,7 +3119,7 @@ html:lang(zh-Hant) body.page-colendar {
 }
 
 .page-colendar .project-context--colendar-key-achievements .project-context__title {
-  margin-bottom: 1.45rem;
+  margin-bottom: 1.85rem;
 }
 
 .page-colendar .colendar-key-achievements__list {
@@ -3182,7 +3182,21 @@ html:lang(zh-Hant) body.page-colendar {
   border-radius: 14px;
 }
 
-@media (max-width: 768px) {
+/* Colendar — tablet / mobile (TOC hidden ≤1200px): drop desktop insets & TOC padding */
+@media (max-width: 1200px) {
+  body.page-colendar {
+    overflow-x: clip;
+  }
+
+  .page-colendar .project-page {
+    --colendar-hero-width: 100%;
+    --colendar-hero-margin: 0;
+    --colendar-body-inset-start: 0;
+    --colendar-body-inset-end: 0;
+    --colendar-body-width: 100%;
+    --colendar-wireframe-stack-gap: 5rem;
+  }
+
   .page-colendar .project-page > .project-page-media:first-of-type,
   .page-colendar .project-page-lead,
   .page-colendar .project-context--colendar-summary,
@@ -3207,12 +3221,69 @@ html:lang(zh-Hant) body.page-colendar {
     margin-left: 0;
     margin-right: 0;
     padding-left: 0;
+    box-sizing: border-box;
   }
 
   .page-eyezen-main.page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
   .page-eyezen-main.page-colendar .project-page > .project-solution {
     margin-left: 0 !important;
     margin-right: 0 !important;
+  }
+
+  .page-colendar .project-context--colendar-wireframe,
+  .page-colendar .project-context--colendar-wireframe-lowfi,
+  .page-colendar .project-context--colendar-wireframe-midfi,
+  .page-colendar .project-context--colendar-visual-system,
+  .page-colendar .project-context--colendar-hifi-prototype,
+  .page-colendar .project-context--colendar-reflection {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-colendar .project-page {
+    --colendar-wireframe-stack-gap: 3.5rem;
+    --colendar-section-title-size: clamp(1.02rem, 4.2vw, 1.22rem);
+    --colendar-section-solution-title-size: clamp(1.3rem, 5.2vw, 1.75rem);
+  }
+
+  .page-colendar .project-page > .project-page-media:first-of-type .project-image-slot--feature,
+  .page-colendar .project-page > .project-page-media:first-of-type .project-image-slot__img {
+    min-height: 0;
+  }
+
+  .page-colendar .project-context[aria-labelledby="colendar-context-heading"] + .project-context,
+  .page-colendar .project-context[aria-labelledby="colendar-initial-research-heading"] + .project-context,
+  .page-colendar
+    .project-context[aria-labelledby="colendar-key-insight-heading"]
+    + .project-context[aria-labelledby="colendar-design-goals-heading"],
+  .page-colendar .project-context[aria-labelledby="colendar-design-goals-heading"] + .project-solution {
+    margin-top: 3.25rem;
+  }
+
+  .page-colendar .project-solution + .project-context[aria-labelledby^="colendar-next-block"],
+  .page-colendar .project-context[aria-labelledby^="colendar-next-block"] + .project-context[aria-labelledby^="colendar-next-block"],
+  .page-colendar .project-context[aria-labelledby="colendar-next-block-3-heading"] + .project-context--colendar-wireframe {
+    margin-top: 3.75rem;
+  }
+
+  .page-colendar .project-context .colendar-next-block__box,
+  .page-colendar .project-context .colendar-next-block__img {
+    min-height: 0;
+  }
+
+  .page-colendar .project-context[aria-labelledby="colendar-initial-research-heading"] .colendar-initial-research__box {
+    min-height: 0;
+    padding: 0.85rem;
+  }
+
+  .page-colendar .colendar-wireframe__box--placeholder {
+    min-height: 8rem;
+  }
+
+  .page-colendar .colendar-key-insight-cards__item {
+    min-height: 9.5rem;
   }
 }
 
@@ -3251,16 +3322,30 @@ html:lang(zh-Hant) body.page-colendar {
 .page-colendar .project-context__label,
 .page-colendar .project-solution__label {
   font-size: var(--colendar-section-label-size);
+  margin-bottom: 0.35rem;
 }
 
 .page-colendar .project-context__title,
-.page-colendar .project-solution__title {
+.page-colendar .project-solution__title,
+.page-colendar .project-context--colendar-summary .project-context__title,
+.page-colendar .project-context--colendar-key-achievements .project-context__title {
   font-size: var(--colendar-section-title-size);
+  margin-top: 0;
+  margin-bottom: 1.85rem;
+  font-weight: 600;
+}
+
+html:lang(zh-Hant) .page-colendar .project-context__title,
+html:lang(zh-Hant) .page-colendar .project-solution__title {
+  font-weight: 600;
 }
 
 .page-colendar .project-context__body,
-.page-colendar .project-solution__body {
+.page-colendar .project-solution__body,
+.page-colendar .project-context--colendar-summary .project-context__body {
   font-size: var(--colendar-section-body-size);
+  color: #000000;
+  font-weight: 300;
 }
 
 .page-colendar .project-page-desc {
@@ -3314,9 +3399,11 @@ html:lang(zh-Hant) body.page-colendar {
   margin-top: 8rem;
 }
 
-/* Low-fi ↔ mid-fi ↔ visual system — padding avoids margin collapse with section stack */
+/* Wireframe / visual / hi-fi stack — same spacing between each section */
 .page-colendar .project-page > .project-context.project-context--colendar-wireframe-lowfi + .project-context.project-context--colendar-wireframe-midfi,
-.page-colendar .project-page > .project-context.project-context--colendar-wireframe-midfi + .project-context.project-context--colendar-visual-system {
+.page-colendar .project-page > .project-context.project-context--colendar-wireframe-midfi + .project-context.project-context--colendar-visual-system,
+.page-colendar .project-page > .project-context.project-context--colendar-visual-system + .project-context.project-context--colendar-hifi-prototype,
+.page-colendar .project-page > .project-context.project-context--colendar-hifi-prototype + .project-context.project-context--colendar-reflection {
   margin-top: 0;
   padding-top: var(--colendar-wireframe-stack-gap);
 }
@@ -3411,8 +3498,8 @@ html:lang(zh-Hant) body.page-colendar {
 
 @media (max-width: 700px) {
   .page-colendar .project-context .colendar-next-block__box.colendar-next-block__box--videos {
-    max-width: 72%;
-    gap: 6rem;
+    max-width: 100%;
+    gap: 2.25rem;
     grid-template-columns: 1fr;
   }
 
@@ -3420,6 +3507,10 @@ html:lang(zh-Hant) body.page-colendar {
     grid-column: 1;
     width: 100%;
     max-width: 100%;
+  }
+
+  .page-colendar .colendar-next-block__gray-panel {
+    padding: 1rem;
   }
 }
 
@@ -3515,17 +3606,10 @@ html:lang(zh-Hant) body.page-colendar {
   }
 }
 
-.page-colendar .project-context[aria-labelledby="colendar-context-heading"] .project-context__title,
-.page-colendar .project-context[aria-labelledby="colendar-initial-research-heading"] .project-context__title,
-.page-colendar .project-context[aria-labelledby="colendar-key-insight-heading"] .project-context__title,
-.page-colendar .project-context[aria-labelledby="colendar-design-goals-heading"] .project-context__title {
-  margin-bottom: 1.45rem;
-}
-
 .page-colendar .project-solution .project-solution__title {
-  margin-bottom: 1.45rem;
+  margin-bottom: 1.85rem;
   color: #20b8ff;
-  font-weight: 600;
+  font-weight: 700;
   font-size: var(--colendar-section-solution-title-size);
   font-style: italic;
 }
@@ -3534,13 +3618,15 @@ html:lang(zh-Hant) body.page-colendar {
 .page-colendar .project-context--colendar-wireframe .project-context__body:empty,
 .page-colendar .project-context--colendar-wireframe-lowfi .project-context__body:empty,
 .page-colendar .project-context--colendar-visual-system .project-context__title:empty,
-.page-colendar .project-context--colendar-visual-system .project-context__body:empty {
+.page-colendar .project-context--colendar-visual-system .project-context__body:empty,
+.page-colendar .project-context--colendar-hifi-prototype .project-context__body:empty,
+.page-colendar .project-context--colendar-reflection .project-context__body:empty {
   display: none;
 }
 
 .page-colendar .project-context--colendar-wireframe .project-context__title:not(:empty),
 .page-colendar .project-context--colendar-visual-system .project-context__title:not(:empty) {
-  margin-bottom: 1.45rem;
+  margin-bottom: 1.85rem;
 }
 
 .page-colendar .project-context--colendar-wireframe {
@@ -3575,6 +3661,10 @@ html:lang(zh-Hant) body.page-colendar {
   padding: 0;
 }
 
+.page-colendar .project-context--colendar-wireframe-lowfi .colendar-wireframe__box + .project-context__body {
+  margin-top: 2.25rem;
+}
+
 .page-colendar .colendar-visual-system__box {
   width: 100%;
   max-width: 100%;
@@ -3597,6 +3687,69 @@ html:lang(zh-Hant) body.page-colendar {
   min-width: 0;
   border-radius: 8px;
   image-rendering: auto;
+}
+
+.page-colendar .colendar-hifi-prototype__grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.35rem;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.35rem;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.page-colendar .colendar-hifi-prototype__grid::-webkit-scrollbar {
+  display: none;
+}
+
+.page-colendar .colendar-hifi-prototype__img {
+  display: block;
+  width: 15.5rem;
+  flex: 0 0 auto;
+  height: auto;
+  border-radius: 5px;
+  scroll-snap-align: start;
+}
+
+.page-colendar .colendar-visual-system__box--plain {
+  position: relative;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+.page-colendar .colendar-hifi-prototype__dots {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.page-colendar .colendar-hifi-prototype__dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #cfcfcf;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.page-colendar .colendar-hifi-prototype__dot.is-active {
+  background: #4b4b4b;
+  transform: scale(1.2);
+}
+
+@media (max-width: 700px) {
+  .page-colendar .colendar-hifi-prototype__img {
+    width: 13rem;
+  }
 }
 
 .page-colendar .colendar-wireframe__img {
@@ -3799,6 +3952,33 @@ html:lang(zh-Hant) body.page-colendar {
 
   .page-colendar .colendar-design-goals-cards {
     grid-template-columns: 1fr;
+    margin-top: 2.5rem;
+    gap: 1rem;
+  }
+
+  .page-colendar .colendar-design-goals-cards__label {
+    position: static;
+    margin: 0 0 0.5rem;
+  }
+
+  .page-colendar .colendar-design-goals-cards__item {
+    min-height: 0;
+    padding: 1.15rem 0.95rem 1.25rem;
+    box-sizing: border-box;
+  }
+
+  .page-colendar .colendar-design-goals-cards__item::before {
+    top: 1rem;
+    left: 0.95rem;
+    font-size: 1.85rem;
+  }
+
+  .page-colendar .colendar-design-goals-cards__item .colendar-key-insight-cards__foot {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    padding-top: 2.35rem;
   }
 }
 
@@ -3871,6 +4051,10 @@ html:lang(zh-Hant) body.page-colendar {
 
 .page-colendar .colendar-toc.is-visible .colendar-toc__link:nth-child(7) {
   transition-delay: 0.4s;
+}
+
+.page-colendar .colendar-toc.is-visible .colendar-toc__link:nth-child(8) {
+  transition-delay: 0.52s;
 }
 
 .page-colendar .colendar-toc__link:hover {
@@ -4489,6 +4673,13 @@ html.dark-mode .project-page-desc,
 html.dark-mode .project-context__body,
 html.dark-mode .project-solution__body {
   color: #d4d4d4;
+}
+
+html.dark-mode body.page-colendar .project-context__body,
+html.dark-mode body.page-colendar .project-solution__body,
+html.dark-mode body.page-colendar .project-context--colendar-summary .project-context__body {
+  color: #e8e8e8;
+  font-weight: 300;
 }
 
 html.dark-mode .project-page-facts,
