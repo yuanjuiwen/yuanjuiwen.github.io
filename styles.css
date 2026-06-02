@@ -3201,33 +3201,25 @@ html:lang(zh-Hant) body.page-colendar {
   .page-colendar .project-page-lead,
   .page-colendar .project-context--colendar-summary,
   .page-colendar .project-context--colendar-key-achievements,
-  .page-colendar .project-page-facts {
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .page-eyezen-main.page-colendar .project-context--colendar-summary,
-  .page-eyezen-main.page-colendar .project-context--colendar-key-achievements {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
+  .page-colendar .project-page-facts,
   .page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
   .page-colendar .project-page > .project-solution {
     width: 100%;
     max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     box-sizing: border-box;
   }
 
+  .page-eyezen-main.page-colendar .project-context--colendar-summary,
+  .page-eyezen-main.page-colendar .project-context--colendar-key-achievements,
   .page-eyezen-main.page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
   .page-eyezen-main.page-colendar .project-page > .project-solution {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    transform: none !important;
   }
 
   .page-colendar .project-context--colendar-wireframe,
@@ -3238,6 +3230,8 @@ html:lang(zh-Hant) body.page-colendar {
   .page-colendar .project-context--colendar-reflection {
     width: 100%;
     max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -3287,22 +3281,24 @@ html:lang(zh-Hant) body.page-colendar {
   }
 }
 
-/* Colendar body (context → end) — inset from cover edges; left padding for TOC /偏右 rhythm */
-.page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
-.page-colendar .project-page > .project-solution {
-  width: var(--colendar-body-width);
-  max-width: var(--colendar-body-width);
-  margin-left: calc(var(--colendar-hero-margin) + var(--colendar-body-inset-start));
-  margin-right: calc(var(--colendar-hero-margin) + var(--colendar-body-inset-end));
-  padding-left: calc(var(--colendar-toc-width) + var(--colendar-toc-gap));
-  box-sizing: border-box;
-}
+/* Colendar body (context → end) — desktop only: inset + TOC padding /偏右 rhythm */
+@media (min-width: 1201px) {
+  .page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
+  .page-colendar .project-page > .project-solution {
+    width: var(--colendar-body-width);
+    max-width: var(--colendar-body-width);
+    margin-left: calc(var(--colendar-hero-margin) + var(--colendar-body-inset-start));
+    margin-right: calc(var(--colendar-hero-margin) + var(--colendar-body-inset-end));
+    padding-left: calc(var(--colendar-toc-width) + var(--colendar-toc-gap));
+    box-sizing: border-box;
+  }
 
-.page-eyezen-main.page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
-.page-eyezen-main.page-colendar .project-page > .project-solution {
-  margin-left: calc(var(--colendar-hero-margin) + var(--colendar-body-inset-start)) !important;
-  margin-right: calc(var(--colendar-hero-margin) + var(--colendar-body-inset-end)) !important;
-  transform: none !important;
+  .page-eyezen-main.page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
+  .page-eyezen-main.page-colendar .project-page > .project-solution {
+    margin-left: calc(var(--colendar-hero-margin) + var(--colendar-body-inset-start)) !important;
+    margin-right: calc(var(--colendar-hero-margin) + var(--colendar-body-inset-end)) !important;
+    transform: none !important;
+  }
 }
 
 .page-colendar .project-page-lead {
@@ -3442,12 +3438,17 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
   object-fit: contain;
 }
 
+.page-colendar .project-context[aria-labelledby^="colendar-next-block"] .project-context__body {
+  margin-bottom: 1.85rem;
+}
+
 .page-colendar .colendar-next-block__gray-panel {
   width: 100%;
   background: #f2f2f2;
   border-radius: 12px;
   padding: clamp(1.35rem, 3vw, 2rem) clamp(1.35rem, 3vw, 2rem) clamp(1.75rem, 3.5vw, 2.75rem);
-  margin-bottom: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0;
   box-sizing: border-box;
   overflow: visible;
 }
