@@ -705,6 +705,13 @@ body.page-about .site-footer__social-link:hover {
     gap: 0.75rem;
   }
 
+  .nav-links li:has(> a[href="#work"]),
+  .nav-links li:has(> a[href="#play"]),
+  .nav-links li:has(> a[href$="#work"]),
+  .nav-links li:has(> a[href$="#play"]) {
+    display: none;
+  }
+
   .nav-links a {
     font-size: 0.9rem;
   }
@@ -1037,9 +1044,15 @@ body.page-about .site-footer__social-link:hover {
 
 .project-desc {
   margin: 0;
+  font-family: "Satoshi", "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  font-size: 1.08rem;
+  font-weight: 400;
+  line-height: 1.7;
   color: #525252;
-  line-height: 1.55;
-  font-size: 0.95rem;
+}
+
+html:lang(zh-Hant) .project-desc {
+  font-family: "Satoshi", "PingFang TC", "PingFangTC-Regular", "Heiti TC", "Noto Sans TC", sans-serif;
 }
 
 /* Project detail pages */
@@ -2837,8 +2850,8 @@ body:has(.navbar) .project-page {
   position: absolute;
   right: 1rem;
   bottom: 1rem;
-  width: min(30%, 8.5rem);
-  max-height: 32%;
+  width: min(38%, 11.5rem);
+  max-height: 42%;
   height: auto;
   display: block;
   object-fit: cover;
@@ -2910,6 +2923,89 @@ body:has(.navbar) .project-page {
 .page-lifebuoy .project-page :is(h1, h2, h3, p, li, span, a, button) {
   line-height: 1.4;
   letter-spacing: -0.005em;
+}
+
+/* EYEZEN — body copy typography aligned with Colendar */
+body.page-eyezen-main:not(.page-colendar) {
+  --font-body: "Satoshi", "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html:lang(zh-Hant) body.page-eyezen-main:not(.page-colendar) {
+  --font-body: "Satoshi", "PingFang TC", "PingFangTC-Regular", "Heiti TC", "Noto Sans TC", sans-serif;
+}
+
+.page-eyezen-main:not(.page-colendar) .project-context__body,
+.page-eyezen-main:not(.page-colendar) .project-research__body,
+.page-eyezen-main:not(.page-colendar) .project-design-challenge__body,
+.page-eyezen-main:not(.page-colendar) .project-solution__body,
+.page-eyezen-main:not(.page-colendar) .project-research-compare__text,
+.page-eyezen-main:not(.page-colendar) .project-page-desc {
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #000000;
+}
+
+/* EYEZEN — label / title / body spacing aligned with Colendar */
+.page-eyezen-main:not(.page-colendar) .project-page {
+  --eyezen-section-label-size: 1.08rem;
+  --eyezen-section-title-size: clamp(1.08rem, 2.35vw, 1.38rem);
+}
+
+.page-eyezen-main:not(.page-colendar) .project-page-lead {
+  margin-top: 2.35rem;
+}
+
+.page-eyezen-main:not(.page-colendar) .project-context__label,
+.page-eyezen-main:not(.page-colendar) .project-research__label,
+.page-eyezen-main:not(.page-colendar) .project-design-challenge__label,
+.page-eyezen-main:not(.page-colendar) .project-solution__label {
+  font-size: var(--eyezen-section-label-size);
+  margin-bottom: 0.35rem;
+}
+
+.page-eyezen-main:not(.page-colendar) .project-context__title,
+.page-eyezen-main:not(.page-colendar) .project-research__title,
+.page-eyezen-main:not(.page-colendar) .project-design-challenge__title,
+.page-eyezen-main:not(.page-colendar) .project-solution__title {
+  font-size: var(--eyezen-section-title-size);
+  margin-top: 0;
+  margin-bottom: 1.85rem;
+  font-weight: 600;
+  white-space: normal;
+}
+
+html:lang(zh-Hant) .page-eyezen-main:not(.page-colendar) .project-context__title,
+html:lang(zh-Hant) .page-eyezen-main:not(.page-colendar) .project-research__title,
+html:lang(zh-Hant) .page-eyezen-main:not(.page-colendar) .project-design-challenge__title,
+html:lang(zh-Hant) .page-eyezen-main:not(.page-colendar) .project-solution__title {
+  font-weight: 600;
+}
+
+.page-eyezen-main:not(.page-colendar) .project-page-facts + .project-context {
+  margin-top: 3rem;
+}
+
+.page-eyezen-main:not(.page-colendar) .project-context,
+.page-eyezen-main:not(.page-colendar) .project-research,
+.page-eyezen-main:not(.page-colendar) .project-design-challenge,
+.page-eyezen-main:not(.page-colendar) .project-solution {
+  margin-top: 3rem;
+}
+
+.page-eyezen-main:not(.page-colendar) .project-context + .project-research,
+.page-eyezen-main:not(.page-colendar) .project-research + .project-design-challenge,
+.page-eyezen-main:not(.page-colendar) .project-design-challenge + .project-solution {
+  margin-top: 5.6rem;
+}
+
+.page-eyezen-main #eyezen-design-challenge-heading {
+  color: #16a34a;
+}
+
+html.dark-mode .page-eyezen-main #eyezen-design-challenge-heading {
+  color: #4ade80;
 }
 
 .page-tjoy .project-context--tjoy-summary {
@@ -4613,7 +4709,8 @@ html.dark-mode .project-title {
 }
 
 html.dark-mode .project-desc {
-  color: #a3a3a3;
+  color: #e8e8e8;
+  font-weight: 400;
 }
 
 html.dark-mode .project-card {
@@ -4665,7 +4762,13 @@ html.dark-mode .project-solution__body {
 
 html.dark-mode body.page-colendar .project-context__body,
 html.dark-mode body.page-colendar .project-solution__body,
-html.dark-mode body.page-colendar .project-context--colendar-summary .project-context__body {
+html.dark-mode body.page-colendar .project-context--colendar-summary .project-context__body,
+html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-context__body,
+html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-research__body,
+html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-design-challenge__body,
+html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-solution__body,
+html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-research-compare__text,
+html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-page-desc {
   color: #e8e8e8;
   font-weight: 300;
 }
