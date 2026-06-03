@@ -705,10 +705,9 @@ body.page-about .site-footer__social-link:hover {
     gap: 0.75rem;
   }
 
-  .nav-links li:has(> a[href="#work"]),
-  .nav-links li:has(> a[href="#play"]),
-  .nav-links li:has(> a[href$="#work"]),
-  .nav-links li:has(> a[href$="#play"]) {
+  /* work / play are always the first two nav items */
+  .nav-links li:nth-child(1),
+  .nav-links li:nth-child(2) {
     display: none;
   }
 
