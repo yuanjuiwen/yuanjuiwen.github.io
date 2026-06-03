@@ -3092,13 +3092,6 @@ html:lang(zh-Hant) body.page-colendar {
   --colendar-toc-width: clamp(10.5rem, 16vw, 13.5rem);
   --colendar-toc-gap: 1.25rem;
   --colendar-group-shift: calc((var(--colendar-toc-width) + var(--colendar-toc-gap)) / 2);
-  --colendar-hero-width: min(100vw, 1280px);
-  --colendar-hero-margin: calc(50% - min(50vw, 640px));
-  --colendar-body-inset-start: 1.25rem;
-  --colendar-body-inset-end: 4.25rem;
-  --colendar-body-width: calc(
-    var(--colendar-hero-width) - var(--colendar-body-inset-start) - var(--colendar-body-inset-end)
-  );
   --colendar-section-label-size: 1.08rem;
   --colendar-section-title-size: clamp(1.08rem, 2.35vw, 1.38rem);
   --colendar-section-body-size: 1.08rem;
@@ -3107,14 +3100,10 @@ html:lang(zh-Hant) body.page-colendar {
 }
 
 .page-colendar .project-context--colendar-summary {
-  max-width: var(--colendar-hero-width);
-  width: var(--colendar-hero-width);
   margin-top: 2rem;
 }
 
 .page-colendar .project-context--colendar-key-achievements {
-  max-width: var(--colendar-hero-width);
-  width: var(--colendar-hero-width);
   margin-top: 2.5rem;
 }
 
@@ -3139,27 +3128,6 @@ html:lang(zh-Hant) body.page-colendar {
   color: #737373;
 }
 
-/* Same as TJOY: Eyezen shift off for intro blocks; align with hero width */
-.page-eyezen-main.page-colendar .project-context--colendar-summary,
-.page-eyezen-main.page-colendar .project-context--colendar-key-achievements {
-  margin-left: var(--colendar-hero-margin) !important;
-  margin-right: var(--colendar-hero-margin) !important;
-  transform: none !important;
-}
-
-/* Colendar hero + intro text — shared width; lead margin-top & type sizes unchanged */
-.page-colendar .project-page > .project-page-media:first-of-type,
-.page-colendar .project-page-lead,
-.page-colendar .project-context--colendar-summary,
-.page-colendar .project-context--colendar-key-achievements,
-.page-colendar .project-page-facts {
-  width: var(--colendar-hero-width);
-  max-width: var(--colendar-hero-width);
-  margin-left: var(--colendar-hero-margin);
-  margin-right: var(--colendar-hero-margin);
-  box-sizing: border-box;
-}
-
 .page-colendar .project-page > .project-page-media:first-of-type {
   border-radius: 18px !important;
   overflow: hidden;
@@ -3182,44 +3150,31 @@ html:lang(zh-Hant) body.page-colendar {
   border-radius: 14px;
 }
 
-/* Colendar — tablet / mobile (TOC hidden ≤1200px): drop desktop insets & TOC padding */
+/* Colendar — tablet / mobile (TOC hidden ≤1200px): centered column like EYEZEN */
 @media (max-width: 1200px) {
   body.page-colendar {
     overflow-x: clip;
   }
 
   .page-colendar .project-page {
-    --colendar-hero-width: 100%;
-    --colendar-hero-margin: 0;
-    --colendar-body-inset-start: 0;
-    --colendar-body-inset-end: 0;
-    --colendar-body-width: 100%;
     --colendar-wireframe-stack-gap: 5rem;
   }
 
-  .page-colendar .project-page > .project-page-media:first-of-type,
-  .page-colendar .project-page-lead,
-  .page-colendar .project-context--colendar-summary,
-  .page-colendar .project-context--colendar-key-achievements,
-  .page-colendar .project-page-facts,
-  .page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
-  .page-colendar .project-page > .project-solution {
-    width: 100%;
-    max-width: 100%;
+  .page-eyezen-main.page-colendar .project-page > :is(
+      .project-page-media,
+      .project-page-lead,
+      .project-page-facts,
+      .project-context,
+      .project-solution
+    ) {
+    width: 100% !important;
+    max-width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    box-sizing: border-box;
-  }
-
-  .page-eyezen-main.page-colendar .project-context--colendar-summary,
-  .page-eyezen-main.page-colendar .project-context--colendar-key-achievements,
-  .page-eyezen-main.page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
-  .page-eyezen-main.page-colendar .project-page > .project-solution {
-    margin-left: auto !important;
-    margin-right: auto !important;
     transform: none !important;
+    box-sizing: border-box;
   }
 
   .page-colendar .project-context--colendar-wireframe,
@@ -3228,10 +3183,10 @@ html:lang(zh-Hant) body.page-colendar {
   .page-colendar .project-context--colendar-visual-system,
   .page-colendar .project-context--colendar-hifi-prototype,
   .page-colendar .project-context--colendar-reflection {
-    width: 100%;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
@@ -3281,8 +3236,43 @@ html:lang(zh-Hant) body.page-colendar {
   }
 }
 
-/* Colendar body (context → end) — desktop only: inset + TOC padding /偏右 rhythm */
+/* Colendar — desktop: wide hero breakout + body inset + TOC padding */
 @media (min-width: 1201px) {
+  .page-colendar .project-page {
+    --colendar-hero-width: min(100vw, 1280px);
+    --colendar-hero-margin: calc(50% - min(50vw, 640px));
+    --colendar-body-inset-start: 1.25rem;
+    --colendar-body-inset-end: 4.25rem;
+    --colendar-body-width: calc(
+      var(--colendar-hero-width) - var(--colendar-body-inset-start) - var(--colendar-body-inset-end)
+    );
+  }
+
+  .page-colendar .project-context--colendar-summary,
+  .page-colendar .project-context--colendar-key-achievements {
+    max-width: var(--colendar-hero-width);
+    width: var(--colendar-hero-width);
+  }
+
+  .page-eyezen-main.page-colendar .project-context--colendar-summary,
+  .page-eyezen-main.page-colendar .project-context--colendar-key-achievements {
+    margin-left: var(--colendar-hero-margin) !important;
+    margin-right: var(--colendar-hero-margin) !important;
+    transform: none !important;
+  }
+
+  .page-colendar .project-page > .project-page-media:first-of-type,
+  .page-colendar .project-page-lead,
+  .page-colendar .project-context--colendar-summary,
+  .page-colendar .project-context--colendar-key-achievements,
+  .page-colendar .project-page-facts {
+    width: var(--colendar-hero-width);
+    max-width: var(--colendar-hero-width);
+    margin-left: var(--colendar-hero-margin);
+    margin-right: var(--colendar-hero-margin);
+    box-sizing: border-box;
+  }
+
   .page-colendar .project-page > .project-context:not(.project-context--colendar-summary):not(.project-context--colendar-key-achievements),
   .page-colendar .project-page > .project-solution {
     width: var(--colendar-body-width);
@@ -3515,14 +3505,6 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
   }
 }
 
-.page-colendar .project-context[aria-labelledby="colendar-context-heading"] .colendar-context__box {
-  width: 100%;
-  min-height: 18rem;
-  border-radius: 12px;
-  background: #f2f2f2;
-  margin-top: 1.1rem;
-}
-
 .page-colendar .project-context[aria-labelledby="colendar-initial-research-heading"] .colendar-initial-research__box {
   width: 100%;
   min-height: 36rem;
@@ -3631,11 +3613,16 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 }
 
 .page-colendar .project-context--colendar-wireframe {
-  max-width: var(--colendar-body-width);
-  width: var(--colendar-body-width);
   min-width: 0;
   overflow-x: clip;
   overflow-y: visible;
+}
+
+@media (min-width: 1201px) {
+  .page-colendar .project-context--colendar-wireframe {
+    max-width: var(--colendar-body-width);
+    width: var(--colendar-body-width);
+  }
 }
 
 .page-colendar .colendar-wireframe__box {
