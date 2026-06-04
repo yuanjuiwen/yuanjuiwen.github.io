@@ -136,14 +136,21 @@ html:lang(zh-Hant) .page-colendar #colendar-lead-heading {
 
 html:lang(zh-Hant) .page-colendar .colendar-key-insight-cards__text,
 html:lang(zh-Hant) .page-colendar .colendar-design-goals-cards__item .colendar-key-insight-cards__text {
-  line-height: 1.65;
-  letter-spacing: 0.01em;
+  line-height: 1.68;
+  letter-spacing: 0.03em;
 }
 
 html:lang(zh-Hant) .page-colendar .colendar-key-insight-cards__label,
 html:lang(zh-Hant) .page-colendar .colendar-design-goals-cards__item .colendar-key-insight-cards__label {
-  letter-spacing: 0.06em;
-  line-height: 1.55;
+  letter-spacing: 0.07em;
+  line-height: 1.58;
+}
+
+html:lang(zh-Hant) .page-colendar .project-context__body,
+html:lang(zh-Hant) .page-colendar .project-solution__body,
+html:lang(zh-Hant) .page-colendar .project-context--colendar-summary .project-context__body,
+html:lang(zh-Hant) .page-colendar .project-page-desc {
+  letter-spacing: 0.04em;
 }
 
 * {
@@ -3175,11 +3182,11 @@ html.dark-mode .page-eyezen-main #eyezen-design-challenge-heading {
 
 /* Colendar project page — match TJOY lead / summary / facts layout */
 body.page-colendar {
-  --font-body: "Satoshi", "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "League Spartan", "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 html:lang(zh-Hant) body.page-colendar {
-  --font-body: "Satoshi", "PingFang TC", "PingFangTC-Regular", "Heiti TC", "Noto Sans TC", sans-serif;
+  --font-body: "League Spartan", "PingFang TC", "PingFangTC-Regular", "Heiti TC", "Noto Sans TC", sans-serif;
 }
 
 .page-colendar .project-page {
@@ -3187,11 +3194,18 @@ html:lang(zh-Hant) body.page-colendar {
   --colendar-toc-width: clamp(10.5rem, 16vw, 13.5rem);
   --colendar-toc-gap: 1.25rem;
   --colendar-group-shift: calc((var(--colendar-toc-width) + var(--colendar-toc-gap)) / 2);
-  --colendar-section-label-size: 1.08rem;
-  --colendar-section-title-size: clamp(1.08rem, 2.35vw, 1.38rem);
-  --colendar-section-body-size: 1.08rem;
-  --colendar-section-solution-title-size: clamp(1.55rem, 3.2vw, 2.15rem);
+  --colendar-section-label-size: 1.16rem;
+  --colendar-section-title-size: clamp(1.16rem, 2.5vw, 1.48rem);
+  --colendar-section-body-size: 1.18rem;
+  --colendar-section-solution-title-size: clamp(1.62rem, 3.35vw, 2.22rem);
+  --colendar-body-letter-spacing: 0.03em;
+  --colendar-label-letter-spacing: 0.045em;
+  --colendar-title-letter-spacing: 0.02em;
   --colendar-wireframe-stack-gap: 11.5rem;
+}
+
+.page-eyezen-main.page-colendar .project-page :is(h1, h2, h3, p, li, span, a, button) {
+  letter-spacing: inherit;
 }
 
 .page-colendar .project-context--colendar-summary {
@@ -3219,7 +3233,7 @@ html:lang(zh-Hant) body.page-colendar {
   font-family: var(--font-body);
   font-size: var(--colendar-section-body-size);
   font-weight: var(--font-body-weight);
-  line-height: 1.7;
+  line-height: 1.75;
   color: #737373;
 }
 
@@ -3288,8 +3302,10 @@ html:lang(zh-Hant) body.page-colendar {
 @media (max-width: 768px) {
   .page-colendar .project-page {
     --colendar-wireframe-stack-gap: 3.5rem;
-    --colendar-section-title-size: clamp(1.02rem, 4.2vw, 1.22rem);
-    --colendar-section-solution-title-size: clamp(1.3rem, 5.2vw, 1.75rem);
+    --colendar-section-label-size: 1.12rem;
+    --colendar-section-body-size: 1.14rem;
+    --colendar-section-title-size: clamp(1.1rem, 4.2vw, 1.3rem);
+    --colendar-section-solution-title-size: clamp(1.36rem, 5.2vw, 1.82rem);
   }
 
   .page-colendar .project-page > .project-page-media:first-of-type .project-image-slot--feature,
@@ -3403,6 +3419,7 @@ html:lang(zh-Hant) body.page-colendar {
 .page-colendar .project-context__label,
 .page-colendar .project-solution__label {
   font-size: var(--colendar-section-label-size);
+  letter-spacing: var(--colendar-label-letter-spacing);
   margin-bottom: 0.35rem;
 }
 
@@ -3411,26 +3428,32 @@ html:lang(zh-Hant) body.page-colendar {
 .page-colendar .project-context--colendar-summary .project-context__title,
 .page-colendar .project-context--colendar-key-achievements .project-context__title {
   font-size: var(--colendar-section-title-size);
+  letter-spacing: var(--colendar-title-letter-spacing);
   margin-top: 0;
   margin-bottom: 1.85rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 html:lang(zh-Hant) .page-colendar .project-context__title,
 html:lang(zh-Hant) .page-colendar .project-solution__title {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .page-colendar .project-context__body,
 .page-colendar .project-solution__body,
 .page-colendar .project-context--colendar-summary .project-context__body {
   font-size: var(--colendar-section-body-size);
+  letter-spacing: var(--colendar-body-letter-spacing);
+  line-height: 1.75;
   color: #000000;
   font-weight: 300;
 }
 
-.page-colendar .project-page-desc {
+.page-colendar .project-page-desc,
+.page-colendar .colendar-key-achievements__item {
   font-size: var(--colendar-section-body-size);
+  letter-spacing: var(--colendar-body-letter-spacing);
+  line-height: 1.75;
 }
 
 .page-colendar .project-page-facts__inline {
@@ -3687,7 +3710,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 .page-colendar .project-solution .project-solution__title {
   margin-bottom: 1.85rem;
   color: #20b8ff;
-  font-weight: 700;
+  font-weight: 500;
   font-size: var(--colendar-section-solution-title-size);
   font-style: italic;
 }
