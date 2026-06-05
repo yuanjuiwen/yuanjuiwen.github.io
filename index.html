@@ -22,7 +22,12 @@
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="is-preloading">
+    <div id="preloader" class="preloader" role="status" aria-live="polite" aria-label="Loading portfolio">
+      <p class="preloader__sentence" data-preloader-sentence="Hi, I'm Kevin Wen!
+
+I design with curiosity and empathy, shaping well-crafted experiences that feel human and intentional while bridging technology and everyday life."></p>
+    </div>
     <div class="page-transition-overlay" aria-hidden="true"></div>
     <nav class="navbar">
       <div class="navbar-inner">
@@ -64,6 +69,9 @@
     <main>
       <section id="home">
         <h2 class="home-title">Hi, I'm Kevin Wen!</h2>
+        <p class="home-intro" data-i18n="home.intro">
+          I design with curiosity and empathy, shaping well-crafted experiences that feel human and intentional while bridging technology and everyday life.
+        </p>
         <p class="home-currently" data-i18n="home.currently">
           Currently@National Cheng Kung University studying Industrial design
         </p>
@@ -230,6 +238,7 @@
         </a>
       </div>
     </footer>
+    <script src="preloader.js" defer></script>
     <script src="i18n.js" defer></script>
     <script src="page-transitions.js" defer></script>
   </body>
