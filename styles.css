@@ -1,18 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&display=swap");
+
 :root {
   --nav-bg: rgba(245, 245, 247, 0.72);
   --nav-text: #737373;
   --nav-link: #000000;
   --nav-link-hover: #000000;
   --nav-border: rgba(0, 0, 0, 0.06);
-  --font-body: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
-  --font-body-weight: 400;
-  --font-nav-brand: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  --font-body: "League Spartan", "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Noto Sans TC", sans-serif;
+  --font-body-weight: 300;
+  --font-weight-title: 400;
+  --font-weight-emphasis: 500;
+  --font-nav-brand: "League Spartan", "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Noto Sans TC", sans-serif;
 }
 
 html:lang(zh-Hant) {
-  --font-body: "PingFang TC", "PingFangTC-Regular", "Heiti TC", "STHeiti", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
-  --font-nav-brand: "PingFang TC", "PingFangTC-Regular", "Heiti TC", "STHeiti", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
-  --font-body-weight: 400;
+  --font-body: "League Spartan", "PingFang TC", "PingFangTC-Regular", "Heiti TC", "STHeiti", "Microsoft JhengHei", "Noto Sans TC",
+    sans-serif;
+  --font-nav-brand: "League Spartan", "PingFang TC", "PingFangTC-Regular", "Heiti TC", "STHeiti", "Microsoft JhengHei", "Noto Sans TC",
+    sans-serif;
+  --font-body-weight: 300;
+  --font-weight-title: 400;
+  --font-weight-emphasis: 500;
 }
 
 html:lang(zh-Hant) body {
@@ -27,13 +37,13 @@ html:lang(zh-Hant) .project-context__title,
 html:lang(zh-Hant) .project-solution__title {
   letter-spacing: -0.012em;
   line-height: 1.45;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
 }
 
 html:lang(zh-Hant) .project-page-facts__label {
   letter-spacing: 0.02em;
   line-height: 1.55;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
 }
 
 html:lang(zh-Hant) .project-page-facts__date,
@@ -124,7 +134,7 @@ html:lang(zh-Hant) .home-currently {
 
 html:lang(zh-Hant) .home-title {
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
   letter-spacing: -0.02em;
 }
 
@@ -223,7 +233,7 @@ body:has(.navbar) {
 .brand {
   margin: 0;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
   letter-spacing: 0.01em;
   color: var(--nav-link);
   font-family: var(--font-nav-brand);
@@ -450,8 +460,8 @@ body.page-about .site-footer__social-link:hover {
 }
 
 .home-title {
-  font-family: "Rufina", "Times New Roman", serif;
-  font-weight: 400;
+  font-family: var(--font-body);
+  font-weight: var(--font-body-weight);
   letter-spacing: -0.01em;
   color: #000000;
   margin-left: 1.05rem;
@@ -461,7 +471,7 @@ body.page-about .site-footer__social-link:hover {
 
 .home-intro,
 .home-currently {
-  font-family: "Rufina", "Times New Roman", serif;
+  font-family: var(--font-body);
   margin-left: 1.05rem;
 }
 
@@ -499,7 +509,7 @@ body.page-about .site-footer__social-link:hover {
 .experience-section h2 {
   margin: 0 0 1rem;
   font-size: 1.15rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
 }
 
 .experience-list {
@@ -521,12 +531,12 @@ body.page-about .site-footer__social-link:hover {
 .experience-header h3 {
   margin: 0;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
 }
 
 .sponsored-tag {
   color: #6f6f6f;
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
 }
 
 .experience-period {
@@ -851,7 +861,7 @@ body.page-about .site-footer__social-link:hover {
 .section-heading {
   margin: 0;
   font-size: 1.15rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
   letter-spacing: 0.01em;
 }
 
@@ -875,7 +885,7 @@ body.page-about .site-footer__social-link:hover {
   margin-top: 2.6rem;
   margin-left: 1.05rem;
   text-align: left;
-  font-family: "EB Garamond", "Times New Roman", serif;
+  font-family: var(--font-body);
   font-style: normal;
   font-size: 1.5em;
   color: #000000;
@@ -982,7 +992,7 @@ body.page-about .site-footer__social-link:hover {
   color: #828282;
   font-size: 0.82rem;
   line-height: 1;
-  font-weight: 600;
+  font-weight: var(--font-weight-title);
   pointer-events: none;
   transform: rotate(45deg);
   transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1), color 220ms ease;
@@ -1020,14 +1030,14 @@ body.page-about .site-footer__social-link:hover {
 .project-title {
   margin: 0 0 0.65rem;
   font-size: 1.12rem;
-  font-weight: 600;
-  font-family: "EB Garamond", "Times New Roman", serif;
+  font-weight: var(--font-weight-title);
+  font-family: var(--font-body);
   color: #171717;
 }
 
 .projects-title,
 .projects-grid h3 {
-  font-weight: 600;
+  font-weight: var(--font-weight-title);
 }
 
 .project-tags {
@@ -1045,20 +1055,16 @@ body.page-about .site-footer__social-link:hover {
   background: #f0f0f0;
   color: #525252;
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
 }
 
 .project-desc {
   margin: 0;
-  font-family: "Satoshi", "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  font-family: var(--font-body);
   font-size: 1.08rem;
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
   line-height: 1.7;
   color: #525252;
-}
-
-html:lang(zh-Hant) .project-desc {
-  font-family: "Satoshi", "PingFang TC", "PingFangTC-Regular", "Heiti TC", "Noto Sans TC", sans-serif;
 }
 
 /* Project detail pages */
@@ -1350,7 +1356,7 @@ body:has(.navbar) .project-page {
   margin: 0;
   font-family: var(--font-body);
   font-size: clamp(1rem, 2.1vw, 1.25rem);
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
   line-height: 1.55;
   color: #171717;
   letter-spacing: 0.02em;
@@ -1445,7 +1451,7 @@ body:has(.navbar) .project-page {
   display: inline-block;
   min-width: 3.25rem;
   margin-right: 0.1rem;
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
   color: #171717;
 }
 
@@ -1530,7 +1536,7 @@ body:has(.navbar) .project-page {
 
 .project-market-charts__source-label {
   font-size: 11px;
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
   color: #a3a3a3;
 }
 
@@ -1645,7 +1651,7 @@ body:has(.navbar) .project-page {
 .project-market-chart__title {
   margin: 0;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: var(--font-weight-title);
   line-height: 1.4;
   color: #171717;
 }
@@ -1653,7 +1659,7 @@ body:has(.navbar) .project-page {
 .project-market-chart__subtitle {
   margin: 0.25rem 0 0.75rem;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
   line-height: 1.4;
   color: #737373;
 }
@@ -1822,7 +1828,7 @@ body:has(.navbar) .project-page {
 .project-product-strategy-table thead th {
   padding-top: 0;
   padding-bottom: 0.35rem;
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
   font-size: 0.8125rem;
   line-height: 1.3;
   letter-spacing: -0.01em;
@@ -1843,14 +1849,14 @@ body:has(.navbar) .project-page {
 }
 
 .project-product-strategy-table__strategy-heading {
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
   color: #171717;
   vertical-align: top;
 }
 
 .project-product-strategy-table__mark {
   display: inline-block;
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
   line-height: 1;
 }
 
@@ -2241,7 +2247,7 @@ body:has(.navbar) .project-page {
 
 .project-causal-relationship-map__svg .crm-center {
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
   font-size: 34px;
   fill: #ffffff;
 }
@@ -2260,7 +2266,7 @@ body:has(.navbar) .project-page {
 
 .project-causal-relationship-map__svg .crm-node text {
   font-family: var(--font-body);
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
   font-size: 14px;
   fill: #ffffff;
   dominant-baseline: middle;
@@ -2399,7 +2405,7 @@ body:has(.navbar) .project-page {
 .project-research__body strong,
 .project-design-challenge__body strong,
 .project-solution__body strong {
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
   color: #404040;
 }
 
@@ -2434,7 +2440,7 @@ body:has(.navbar) .project-page {
 .project-review-chart__title {
   margin: 0 0 1rem;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
   color: #1a1a1a;
 }
 
@@ -2532,7 +2538,7 @@ body:has(.navbar) .project-page {
 .project-review-flow__note-title {
   margin: 0;
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
   font-style: italic;
   color: #171717;
 }
@@ -2653,7 +2659,7 @@ body:has(.navbar) .project-page {
   margin: 0;
   font-size: 1.02rem;
   font-style: italic;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
   color: #534ab7;
 }
 
@@ -2728,7 +2734,7 @@ body:has(.navbar) .project-page {
 .project-key-insights__title {
   margin: 0;
   font-size: clamp(1rem, 2.1vw, 1.25rem);
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
   line-height: 1.55;
   color: #171717;
 }
@@ -2933,11 +2939,11 @@ body:has(.navbar) .project-page {
 
 /* EYEZEN — body copy typography aligned with Colendar */
 body.page-eyezen-main:not(.page-colendar) {
-  --font-body: "Satoshi", "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "League Spartan", "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 html:lang(zh-Hant) body.page-eyezen-main:not(.page-colendar) {
-  --font-body: "Satoshi", "PingFang TC", "PingFangTC-Regular", "Heiti TC", "Noto Sans TC", sans-serif;
+  --font-body: "League Spartan", "PingFang TC", "PingFangTC-Regular", "Heiti TC", "Noto Sans TC", sans-serif;
 }
 
 .page-eyezen-main:not(.page-colendar) .project-context__body,
@@ -2978,7 +2984,7 @@ html:lang(zh-Hant) body.page-eyezen-main:not(.page-colendar) {
   font-size: var(--eyezen-section-title-size);
   margin-top: 0;
   margin-bottom: 1.85rem;
-  font-weight: 600;
+  font-weight: var(--font-weight-title);
   white-space: normal;
 }
 
@@ -2986,7 +2992,7 @@ html:lang(zh-Hant) .page-eyezen-main:not(.page-colendar) .project-context__title
 html:lang(zh-Hant) .page-eyezen-main:not(.page-colendar) .project-research__title,
 html:lang(zh-Hant) .page-eyezen-main:not(.page-colendar) .project-design-challenge__title,
 html:lang(zh-Hant) .page-eyezen-main:not(.page-colendar) .project-solution__title {
-  font-weight: 600;
+  font-weight: var(--font-weight-title);
 }
 
 .page-eyezen-main:not(.page-colendar) .project-page-facts + .project-context {
@@ -3128,7 +3134,7 @@ html.dark-mode .page-eyezen-main #eyezen-design-challenge-heading {
 .page-tjoy #tjoy-lead-heading {
   font-size: clamp(1.4rem, 3vw, 1.9rem);
   line-height: 1.3;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
 }
 
 .page-tjoy .tjoy-problem-title-icon {
@@ -3151,7 +3157,7 @@ html.dark-mode .page-eyezen-main #eyezen-design-challenge-heading {
 }
 
 #eyezen-title-heading {
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
 }
 
 .page-tjoy .project-page-facts__inline {
@@ -3407,8 +3413,8 @@ html:lang(zh-Hant) body.page-colendar {
 }
 
 .page-colendar #colendar-lead-heading {
-  font-family: "Rufina", "Times New Roman", serif;
-  font-weight: 400;
+  font-family: var(--font-body);
+  font-weight: var(--font-body-weight);
   letter-spacing: -0.01em;
   color: #000000;
   font-size: clamp(1.24rem, 3.4vw, 1.75rem);
@@ -3431,12 +3437,12 @@ html:lang(zh-Hant) body.page-colendar {
   letter-spacing: var(--colendar-title-letter-spacing);
   margin-top: 0;
   margin-bottom: 1.85rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
 }
 
 html:lang(zh-Hant) .page-colendar .project-context__title,
 html:lang(zh-Hant) .page-colendar .project-solution__title {
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
 }
 
 .page-colendar .project-context__body,
@@ -3682,7 +3688,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 .page-colendar .colendar-research-stats__value {
   font-family: var(--font-body);
   font-size: clamp(2rem, 4.2vw, 2.65rem);
-  font-weight: 700;
+  font-weight: var(--font-weight-emphasis);
   font-style: normal;
   line-height: 1;
   color: #000000;
@@ -3691,7 +3697,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 .page-colendar .colendar-research-stats__label {
   font-family: var(--font-body);
   font-size: clamp(0.72rem, 1.25vw, 0.82rem);
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
   font-style: normal;
   line-height: 1.25;
   color: #000000;
@@ -3710,7 +3716,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 .page-colendar .project-solution .project-solution__title {
   margin-bottom: 1.85rem;
   color: #20b8ff;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
   font-size: var(--colendar-section-solution-title-size);
   font-style: italic;
 }
@@ -3914,7 +3920,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 .page-colendar .colendar-key-insight-cards__foot .colendar-key-insight-cards__label {
   position: static;
   margin: 0 0 0.35rem;
-  font-weight: 600;
+  font-weight: var(--font-weight-title);
 }
 
 .page-colendar .colendar-key-insight-cards__text {
@@ -3987,7 +3993,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
   left: 0;
   margin: 0;
   font-size: 1.1rem;
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
   color: #171717;
 }
 
@@ -4006,7 +4012,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 .page-colendar .colendar-design-goals-cards__item .colendar-key-insight-cards__foot .colendar-key-insight-cards__label {
   margin: 0;
   font-size: 1.08rem;
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
   line-height: 1.4;
 }
 
@@ -4033,7 +4039,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
   + .colendar-key-insight-cards__text {
   font-size: 1.12rem;
   line-height: 1.45;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
 }
 
 .page-colendar
@@ -4169,7 +4175,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 
 .page-colendar .colendar-toc__link.is-active {
   color: #171717;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
 }
 
 @media (max-width: 1200px) {
@@ -4268,7 +4274,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 .page-eyezen-main .eyezen-toc__link.is-active,
 .page-lifebuoy .eyezen-toc__link.is-active {
   color: #171717;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
 }
 
 @media (max-width: 1200px) {
@@ -4394,7 +4400,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 
 .page-oculus-main .oculus-toc__link.is-active {
   color: #171717;
-  font-weight: 500;
+  font-weight: var(--font-weight-title);
 }
 
 @media (max-width: 1200px) {
@@ -4537,7 +4543,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 .project-research-compare__heading {
   margin: 0;
   font-size: clamp(0.82rem, 1.65vw, 0.92rem);
-  font-weight: 600;
+  font-weight: var(--font-weight-title);
   line-height: 1.35;
   color: #171717;
   font-family: var(--font-body);
@@ -4732,7 +4738,7 @@ html.dark-mode .project-title {
 
 html.dark-mode .project-desc {
   color: #e8e8e8;
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
 }
 
 html.dark-mode .project-card {
