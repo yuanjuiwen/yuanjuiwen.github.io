@@ -13,6 +13,13 @@
   --font-weight-emphasis: 500;
   --font-nav-brand: "League Spartan", "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Noto Sans TC", sans-serif;
+  --main-padding-left: max(1rem, env(safe-area-inset-left));
+  --home-hero-inset-left: calc(max(0px, (100vw - min(1100px, 100vw)) / 2) + var(--main-padding-left));
+  --home-hero-font-size: clamp(0.88rem, 1.45vw, 1.05rem);
+  --home-hero-font-weight: 300;
+  --home-hero-line-height: 1.6;
+  --home-hero-letter-spacing: 0.03em;
+  --home-hero-intro-gap: 0.75rem;
 }
 
 html:lang(zh-Hant) {
@@ -125,17 +132,10 @@ html:lang(zh-Hant) .project-page-facts {
   letter-spacing: 0.01em;
 }
 
-html:lang(zh-Hant) .home-intro,
 html:lang(zh-Hant) .home-currently {
   font-family: var(--font-body);
   line-height: 1.68;
   letter-spacing: 0.01em;
-}
-
-html:lang(zh-Hant) .home-title {
-  font-family: var(--font-body);
-  font-weight: var(--font-weight-title);
-  letter-spacing: -0.02em;
 }
 
 html:lang(zh-Hant) .playground-section .section-heading,
@@ -371,7 +371,7 @@ html.theme-ready .theme-toggle {
 main {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem max(1rem, env(safe-area-inset-left)) 2rem max(1rem, env(safe-area-inset-right));
+  padding: 2rem max(1rem, env(safe-area-inset-right)) 2rem max(1rem, env(safe-area-inset-left));
 }
 
 body.page-about main {
@@ -459,35 +459,45 @@ body.page-about .site-footer__social-link:hover {
   color: #737373;
 }
 
-.home-title {
-  font-family: var(--font-body);
-  font-weight: var(--font-body-weight);
-  letter-spacing: -0.01em;
-  color: #000000;
-  margin-left: 1.05rem;
-  font-size: clamp(1.24rem, 3.4vw, 1.75rem);
-  line-height: 1.1;
-}
-
-.home-intro,
-.home-currently {
-  font-family: var(--font-body);
-  margin-left: 1.05rem;
-}
-
-.home-intro {
-  font-size: clamp(1.1rem, 2vw, 1.32rem);
-  line-height: 1.55;
-  margin-top: 0.75rem;
-  margin-bottom: 0.4rem;
-  margin-right: 0;
-  width: calc(100% - 1.05rem);
+.home-hero {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+  width: max-content;
   max-width: none;
-  box-sizing: border-box;
+}
+
+.home-hero-line,
+.preloader__title,
+.preloader__intro,
+#home-hero .home-title,
+#home-hero .home-intro {
+  font-family: var(--font-body);
+  font-size: clamp(0.88rem, 1.45vw, 1.05rem);
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  color: #000000;
   white-space: nowrap;
 }
 
+.preloader__title,
+#home-hero .home-title {
+  margin: 0;
+}
+
+.preloader__intro,
+#home-hero .home-intro,
+.home-intro {
+  margin-top: var(--home-hero-intro-gap);
+  margin-bottom: 0.4rem;
+  width: max-content;
+  max-width: none;
+}
+
 .home-currently {
+  margin-left: 0;
+  font-family: var(--font-body);
   font-size: clamp(0.82rem, 1.28vw, 0.95rem);
   line-height: 1.35;
   margin-top: 1.25rem;
@@ -719,10 +729,6 @@ body.page-about .site-footer__social-link:hover {
 }
 
 @media (max-width: 700px) {
-  .preloader {
-    padding-left: max(2.75rem, env(safe-area-inset-left));
-  }
-
   .navbar-inner {
     padding-left: max(1rem, env(safe-area-inset-left));
     padding-right: max(1rem, env(safe-area-inset-right));
@@ -4656,60 +4662,55 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
   align-items: center;
   justify-content: flex-start;
   padding: max(1.5rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right))
-    max(1.5rem, env(safe-area-inset-bottom)) max(9rem, env(safe-area-inset-left));
+    max(1.5rem, env(safe-area-inset-bottom)) var(--home-hero-inset-left);
   background: #ffffff;
   opacity: 1;
   visibility: visible;
   transition: opacity 0.6s ease, visibility 0s linear;
 }
 
-.preloader.is-exiting {
-  opacity: 0;
-  visibility: hidden;
+.preloader.is-settling {
+  background: transparent;
   pointer-events: none;
-  transition: opacity 0.6s ease, visibility 0s linear 0.6s;
+  transition: background 0.5s ease;
 }
 
-.preloader__sentence {
+.preloader__content {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  max-width: none;
+}
+
+.preloader__title,
+.preloader__intro {
   margin: 0;
   width: max-content;
   max-width: none;
-  font-family: var(--font-body);
-  font-size: clamp(0.88rem, 1.45vw, 1.05rem);
-  font-weight: 300;
-  line-height: 1.6;
-  letter-spacing: 0.03em;
   text-align: left;
-  color: #000000;
-  white-space: nowrap;
 }
 
-.preloader__char-wrap {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: top;
-  line-height: 1.6;
+.preloader__intro {
+  margin-top: var(--home-hero-intro-gap);
 }
 
-.preloader__char {
+.preloader__word {
   display: inline-block;
   opacity: 0;
-  transform: translate3d(-110%, 0, 0);
-  animation: preloader-char-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: calc(var(--char-index) * 32ms);
-  will-change: opacity, transform;
+  filter: blur(8px);
+  transform: translate3d(-8px, -6px, 0);
+  transition:
+    opacity 0.34s ease,
+    filter 0.34s ease,
+    transform 0.34s ease;
+  transition-delay: calc(var(--word-index) * 36ms);
+  will-change: opacity, filter, transform;
 }
 
-@keyframes preloader-char-in {
-  from {
-    opacity: 0;
-    transform: translate3d(-110%, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+.preloader.is-animating .preloader__word {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0);
 }
 
 body.is-preloading {
@@ -4724,45 +4725,122 @@ body.is-preloading .site-footer {
   pointer-events: none;
 }
 
-body.is-preloader-reveal .navbar,
-body.is-preloader-reveal main,
-body.is-preloader-reveal .site-footer {
+body.is-preloader-settling .navbar {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
-  transition:
-    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: none;
+  pointer-events: none;
+}
+
+body.is-preloader-settling main {
+  opacity: 1;
+  transform: none;
+  pointer-events: none;
+}
+
+body.is-preloader-settling .home-hero {
+  visibility: hidden;
+}
+
+body.is-preloader-reveal .navbar {
+  pointer-events: auto;
 }
 
 body.is-preloader-reveal main {
-  transition-delay: 0.05s;
+  pointer-events: auto;
 }
 
-body.is-preloader-reveal .site-footer {
-  transition-delay: 0.12s;
+.intro-await-reveal {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  filter: blur(4px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.intro-reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: none;
+}
+
+.intro-nav-await {
+  opacity: 0;
+  transform: translate3d(0, 6px, 0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.intro-nav-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (max-width: 700px) {
+  .preloader {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .preloader__content,
+  .home-hero {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .home-hero-line,
+  .preloader__title,
+  .preloader__intro,
+  #home-hero .home-title,
+  #home-hero .home-intro,
+  .home-intro {
+    white-space: normal;
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .preloader__word {
+    filter: blur(4px);
+    transform: translate3d(-4px, -3px, 0);
+  }
+
+  .home-currently {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
 }
 
 html.dark-mode .preloader {
   background: #000000;
 }
 
-html.dark-mode .preloader__sentence {
+html.dark-mode .preloader__title,
+html.dark-mode .preloader__intro {
   color: #f0f0f0;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .preloader,
-  .preloader.is-exiting,
-  .preloader__char,
+  .preloader.is-settling,
+  .preloader__word,
   body.is-preloading .navbar,
   body.is-preloading main,
   body.is-preloading .site-footer,
+  body.is-preloader-settling .navbar,
+  body.is-preloader-settling main,
+  body.is-preloader-settling .navbar,
   body.is-preloader-reveal .navbar,
   body.is-preloader-reveal main,
-  body.is-preloader-reveal .site-footer {
+  .intro-await-reveal,
+  .intro-reveal-visible,
+  .intro-nav-await,
+  .intro-nav-visible {
     animation: none !important;
     transition: none !important;
     transform: none !important;
+    filter: none !important;
     opacity: 1 !important;
   }
 
