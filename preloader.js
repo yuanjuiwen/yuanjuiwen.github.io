@@ -87,6 +87,7 @@
   var WORD_DURATION_MS = 340;
   var HOLD_AFTER_LAST_MS = 280;
   var SETTLE_MS = 600;
+  var MOBILE_SETTLE_MS = 480;
   var NAV_TOOLS_REVEAL_MS = 180;
   var NAV_BRAND_REVEAL_MS = 300;
   var CURRENTLY_REVEAL_MS = 200;
@@ -307,6 +308,12 @@
     el.style.transition = "";
     el.style.willChange = "";
     el.style.maxWidth = "";
+    el.style.opacity = "";
+  }
+
+  function beginMobileIntroLayout() {
+    if (!isMobileViewport()) return;
+    document.body.classList.add("home-mobile-landing", "home-mobile-settling");
   }
 
   function removePreloader(preloader, contentEl) {
@@ -353,19 +360,56 @@
 
   function updateMobileLandingState() {
     if (!isMobileViewport()) {
-      document.body.classList.remove("home-mobile-landing", "home-has-scrolled");
+      document.body.classList.remove("home-mobile-landing", "home-has-scrolled", "home-mobile-settling");
     }
   }
 
   function completeSettle(preloader, contentEl) {
+    if (preloader && preloader.style) {
+      preloader.style.transition = "";
+    }
     removePreloader(preloader, contentEl);
-    document.body.classList.remove("is-preloader-settling", "is-preloading");
+    document.body.classList.remove("is-preloader-settling", "is-preloading", "home-mobile-settling");
     document.body.classList.add("is-preloader-reveal");
     revealContentWithFade();
     enableMobileLanding();
   }
 
+  function settleToHomeMobile(preloader, contentEl) {
+    var homeHero = document.getElementById("home-hero");
+
+    if (!homeHero) {
+      finishImmediately(preloader);
+      return;
+    }
+
+    beginMobileIntroLayout();
+
+    document.body.classList.remove("is-preloading");
+    document.body.classList.add("is-preloader-settling");
+    preloader.classList.add("is-settling");
+
+    scheduleProgressiveReveal();
+
+    contentEl.style.transition = "opacity " + MOBILE_SETTLE_MS + "ms ease";
+
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () {
+        contentEl.style.opacity = "0";
+      });
+    });
+
+    window.setTimeout(function () {
+      completeSettle(preloader, contentEl);
+    }, MOBILE_SETTLE_MS + 40);
+  }
+
   function settleToHome(preloader, contentEl) {
+    if (isMobileViewport()) {
+      settleToHomeMobile(preloader, contentEl);
+      return;
+    }
+
     var homeHero = document.getElementById("home-hero");
 
     if (!homeHero) {
@@ -441,6 +485,7 @@
       return;
     }
 
+    beginMobileIntroLayout();
     markAwaitReveal();
     resetScrollPosition(true);
     window.requestAnimationFrame(function () {
