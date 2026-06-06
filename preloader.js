@@ -56,11 +56,9 @@
 
   function syncHeroInsetToCards() {
     var homeHero = document.getElementById("home-hero");
-    var card = document.querySelector(".projects-grid .project-card");
-    var target = card || homeHero;
-    if (!target) return;
+    if (!homeHero) return;
 
-    var left = target.getBoundingClientRect().left;
+    var left = homeHero.getBoundingClientRect().left;
     document.documentElement.style.setProperty("--home-hero-inset-left", Math.max(0, left) + "px");
   }
 
@@ -218,19 +216,6 @@
     window.setTimeout(callback, duration + 40);
   }
 
-  function flattenPreloaderLine(el) {
-    var words = el.querySelectorAll(".preloader__word");
-    if (!words.length) return;
-
-    var text = Array.prototype.map
-      .call(words, function (wordEl) {
-        return wordEl.textContent;
-      })
-      .join(" ");
-
-    el.textContent = text;
-  }
-
   function clearMotionStyles(el) {
     if (!el || !el.style) return;
     el.style.position = "";
@@ -245,45 +230,15 @@
     el.style.maxWidth = "";
   }
 
-  function handoffToHomeHero(preloader, contentEl) {
-    var homeHero = document.getElementById("home-hero");
-    var titleEl = preloader.querySelector(".preloader__title");
-    var introEl = preloader.querySelector(".preloader__intro");
-    if (!homeHero || !titleEl || !introEl) return false;
-
-    var homeIntro = homeHero.querySelector(".home-intro");
-    var introI18n = homeIntro ? homeIntro.getAttribute("data-i18n") : null;
-    var introI18nAttrs = homeIntro ? homeIntro.getAttribute("data-i18n-attrs") : null;
-
-    flattenPreloaderLine(titleEl);
-    flattenPreloaderLine(introEl);
+  function removePreloader(preloader, contentEl) {
     clearMotionStyles(contentEl);
-    clearMotionStyles(titleEl);
-    clearMotionStyles(introEl);
-
-    titleEl.className = "home-title home-hero-line";
-    titleEl.setAttribute("role", "heading");
-    titleEl.setAttribute("aria-level", "2");
-
-    introEl.className = "home-intro home-hero-line";
-    if (introI18n) {
-      introEl.setAttribute("data-i18n", introI18n);
-    }
-    if (introI18nAttrs) {
-      introEl.setAttribute("data-i18n-attrs", introI18nAttrs);
-    }
-
-    homeHero.replaceChildren(titleEl, introEl);
-
-    if (preloader.parentNode) {
+    if (preloader && preloader.parentNode) {
       preloader.parentNode.removeChild(preloader);
     }
-
-    return true;
   }
 
   function completeSettle(preloader, contentEl) {
-    handoffToHomeHero(preloader, contentEl);
+    removePreloader(preloader, contentEl);
     resetScrollPosition();
     document.body.classList.remove("is-preloader-settling");
     document.body.classList.add("is-preloader-reveal");

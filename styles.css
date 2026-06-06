@@ -4778,8 +4778,14 @@ body.is-preloader-reveal main {
 
 @media (max-width: 700px) {
   .preloader {
-    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-left: var(--home-hero-inset-left);
     padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  #home .home-hero,
+  #home .home-currently {
+    margin-left: 0;
+    padding-left: 0;
   }
 
   .preloader__content,
