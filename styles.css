@@ -4859,6 +4859,11 @@ body.is-preloader-reveal main {
     box-sizing: border-box;
   }
 
+  body.home-mobile-landing .home-landing > .home-currently {
+    margin-top: 1.25rem;
+    flex: 0 0 auto;
+  }
+
   body.home-mobile-landing .home-scroll-hint {
     display: flex;
     align-items: center;

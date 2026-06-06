@@ -330,7 +330,6 @@
     mobileScrollHintBound = true;
 
     var hint = document.querySelector(".home-scroll-hint");
-    var currently = document.querySelector(".home-currently");
 
     function onScroll() {
       if (window.scrollY > 24) {
@@ -342,7 +341,7 @@
 
     if (hint) {
       hint.addEventListener("click", function () {
-        var target = currently || document.getElementById("work");
+        var target = document.getElementById("work");
         if (!target) return;
         target.scrollIntoView({
           behavior: prefersReducedMotion() ? "auto" : "smooth",
