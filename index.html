@@ -26,9 +26,17 @@
     />
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=mobile-align" />
+    <link rel="stylesheet" href="styles.css?v=hero-wrap" />
   </head>
   <body class="is-preloading">
+    <script>
+      try {
+        if (sessionStorage.getItem("home_left_for_subpage") === "1") {
+          document.body.classList.remove("is-preloading");
+          document.documentElement.classList.add("skip-home-intro");
+        }
+      } catch (e) {}
+    </script>
     <div id="preloader" class="preloader" role="status" aria-live="polite" aria-label="Loading portfolio">
       <div
         class="preloader__content"
@@ -110,7 +118,7 @@ I design with curiosity and empathy, shaping well-crafted experiences that feel 
                   muted
                   loop
                   playsinline
-                  preload="auto"
+                  preload="metadata"
                 ></video>
               </div>
               <h3 class="project-title">EYEZEN</h3>
@@ -138,7 +146,7 @@ I design with curiosity and empathy, shaping well-crafted experiences that feel 
                   muted
                   loop
                   playsinline
-                  preload="auto"
+                  preload="metadata"
                 ></video>
                 <img class="project-card-badge" src="assets/EUPA Logo.png" alt="" loading="lazy" decoding="async" />
               </div>
@@ -178,7 +186,7 @@ I design with curiosity and empathy, shaping well-crafted experiences that feel 
                   muted
                   loop
                   playsinline
-                  preload="auto"
+                  preload="metadata"
                 ></video>
               </div>
               <h3 class="project-title">Project Title</h3>
@@ -195,7 +203,7 @@ I design with curiosity and empathy, shaping well-crafted experiences that feel 
                   muted
                   loop
                   playsinline
-                  preload="auto"
+                  preload="metadata"
                 ></video>
               </div>
               <h3 class="project-title">1/O</h3>
@@ -252,8 +260,8 @@ I design with curiosity and empathy, shaping well-crafted experiences that feel 
         </a>
       </div>
     </footer>
-    <script src="preloader.js?v=mobile-align" defer></script>
+    <script src="preloader.js?v=hero-wrap" defer></script>
     <script src="i18n.js" defer></script>
-    <script src="page-transitions.js" defer></script>
+    <script src="page-transitions.js?v=no-return-intro" defer></script>
   </body>
 </html>

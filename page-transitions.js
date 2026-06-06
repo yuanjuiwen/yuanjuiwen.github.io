@@ -25,6 +25,8 @@
     });
   }
 
+  var HOME_RETURN_KEY = "home_left_for_subpage";
+
   function samePath(aPath, bPath) {
     var norm = function (p) {
       if (!p || p === "/") return "index.html";
@@ -32,6 +34,18 @@
       return f;
     };
     return norm(aPath) === norm(bPath);
+  }
+
+  function isHomePath(pathname) {
+    return samePath(pathname, "index.html");
+  }
+
+  function markHomeLeftForSubpage() {
+    try {
+      sessionStorage.setItem(HOME_RETURN_KEY, "1");
+    } catch (e) {
+      /* no-op */
+    }
   }
 
   function onDocClick(e) {
@@ -83,6 +97,9 @@
     }
 
     e.preventDefault();
+    if (isHomePath(window.location.pathname) && !isHomePath(url.pathname)) {
+      markHomeLeftForSubpage();
+    }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       window.location.href = a.href;
       return;
@@ -243,6 +260,11 @@
     el.play().catch(function () {});
   }
 
+  function isVideoInView(video) {
+    var rect = video.getBoundingClientRect();
+    return rect.bottom > 0 && rect.top < window.innerHeight;
+  }
+
   function initHomeProjectCardVideos() {
     var home = document.getElementById("home");
     if (!home) return;
@@ -252,10 +274,15 @@
     var io = new IntersectionObserver(
       function (entries) {
         for (var i = 0; i < entries.length; i++) {
-          if (entries[i].isIntersecting) tryPlay(entries[i].target);
+          var video = entries[i].target;
+          if (entries[i].isIntersecting) {
+            tryPlay(video);
+          } else {
+            video.pause();
+          }
         }
       },
-      { threshold: 0.08, rootMargin: "40px 0px" }
+      { threshold: 0.2, rootMargin: "0px 0px" }
     );
 
     for (var j = 0; j < videos.length; j++) {
@@ -263,38 +290,40 @@
       v.muted = true;
       v.loop = true;
       v.setAttribute("playsinline", "");
-      v.addEventListener(
-        "pause",
-        function (ev) {
-          if (document.hidden) return;
-          var t = ev.target;
-          if (!t || t.tagName !== "VIDEO") return;
-          requestAnimationFrame(function () {
-            if (t.paused) tryPlay(t);
-          });
-        },
-        { passive: true }
-      );
+      v.preload = "metadata";
       io.observe(v);
-      tryPlay(v);
     }
 
     document.addEventListener("visibilitychange", function () {
       if (document.hidden) return;
-      for (var k = 0; k < videos.length; k++) tryPlay(videos[k]);
+      for (var k = 0; k < videos.length; k++) {
+        if (isVideoInView(videos[k])) tryPlay(videos[k]);
+      }
     });
 
     window.addEventListener("pageshow", function (e) {
-      if (e.persisted) {
-        for (var p = 0; p < videos.length; p++) tryPlay(videos[p]);
+      if (!e.persisted) return;
+      for (var p = 0; p < videos.length; p++) {
+        if (isVideoInView(videos[p])) tryPlay(videos[p]);
       }
     });
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initHomeProjectCardVideos);
-  } else {
+  function scheduleHomeProjectCardVideos() {
+    if (
+      document.body.classList.contains("is-preloading") ||
+      document.body.classList.contains("is-preloader-settling")
+    ) {
+      document.addEventListener("home-intro-complete", scheduleHomeProjectCardVideos, { once: true });
+      return;
+    }
     initHomeProjectCardVideos();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", scheduleHomeProjectCardVideos);
+  } else {
+    scheduleHomeProjectCardVideos();
   }
 })();
 
