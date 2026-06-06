@@ -21,7 +21,8 @@
   "home": {
     "intro": "我以好奇心與同理心設計，打造細緻且富有人味與意圖的體驗，連結科技與日常生活。",
     "currently": "目前就讀國立成功大學工業設計學系。",
-    "playHeading": "探索"
+    "playHeading": "探索",
+    "scrollHint": "向下滑動查看更多"
   },
   "common": {
     "open": "開啟",
