@@ -4701,6 +4701,13 @@ html.skip-home-intro .intro-nav-await {
   transition: background 0.5s ease;
 }
 
+.preloader.is-handoff .preloader__word {
+  filter: none;
+  transform: none;
+  transition: none;
+  will-change: auto;
+}
+
 .preloader__content {
   display: flex;
   flex-direction: column;
@@ -4834,11 +4841,28 @@ body.is-preloader-reveal main {
     font-size: clamp(1.18rem, 5.2vw, 1.52rem);
   }
 
-  body.home-mobile-landing.is-preloading #home-hero {
+  body.home-mobile-landing.is-preloading .navbar,
+  body.home-mobile-landing.is-preloading main,
+  body.home-mobile-landing.is-preloading .site-footer {
+    transform: none;
+  }
+
+  body.home-mobile-landing.is-preloader-settling main {
+    transition: opacity 0.36s ease;
+  }
+
+  body.home-mobile-landing.is-preloader-settling .navbar {
+    opacity: 0;
+    transform: none;
+    pointer-events: none;
+  }
+
+  body.home-mobile-landing.is-preloading #home-hero,
+  body.home-mobile-landing.is-preloader-settling #home-hero {
     visibility: hidden;
   }
 
-  body.home-mobile-landing.is-preloader-settling #home-hero {
+  body.home-mobile-landing.is-preloader-reveal #home-hero {
     visibility: visible;
   }
 

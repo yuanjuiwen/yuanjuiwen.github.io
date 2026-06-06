@@ -87,7 +87,7 @@
   var WORD_DURATION_MS = 340;
   var HOLD_AFTER_LAST_MS = 280;
   var SETTLE_MS = 600;
-  var MOBILE_SETTLE_MS = 480;
+  var MOBILE_SETTLE_MS = 360;
   var NAV_TOOLS_REVEAL_MS = 180;
   var NAV_BRAND_REVEAL_MS = 300;
   var CURRENTLY_REVEAL_MS = 200;
@@ -367,11 +367,21 @@
   function completeSettle(preloader, contentEl) {
     if (preloader && preloader.style) {
       preloader.style.transition = "";
+      preloader.classList.remove("is-handoff");
     }
     removePreloader(preloader, contentEl);
     document.body.classList.remove("is-preloader-settling", "is-preloading", "home-mobile-settling");
     document.body.classList.add("is-preloader-reveal");
-    revealContentWithFade();
+
+    if (isMobileViewport()) {
+      scheduleProgressiveReveal();
+      window.requestAnimationFrame(function () {
+        revealContentWithFade();
+      });
+    } else {
+      revealContentWithFade();
+    }
+
     enableMobileLanding();
   }
 
@@ -387,21 +397,29 @@
 
     document.body.classList.remove("is-preloading");
     document.body.classList.add("is-preloader-settling");
-    preloader.classList.add("is-settling");
-
-    scheduleProgressiveReveal();
-
-    contentEl.style.transition = "opacity " + MOBILE_SETTLE_MS + "ms ease";
+    preloader.classList.add("is-settling", "is-handoff");
 
     window.requestAnimationFrame(function () {
+      var rect = homeHero.getBoundingClientRect();
+
+      contentEl.style.position = "fixed";
+      contentEl.style.top = rect.top + "px";
+      contentEl.style.left = rect.left + "px";
+      contentEl.style.width = rect.width + "px";
+      contentEl.style.maxWidth = rect.width + "px";
+      contentEl.style.margin = "0";
+      contentEl.style.zIndex = "2147483002";
+      contentEl.style.transform = "none";
+      contentEl.style.transition = "opacity " + MOBILE_SETTLE_MS + "ms ease";
+
       window.requestAnimationFrame(function () {
         contentEl.style.opacity = "0";
       });
-    });
 
-    window.setTimeout(function () {
-      completeSettle(preloader, contentEl);
-    }, MOBILE_SETTLE_MS + 40);
+      window.setTimeout(function () {
+        completeSettle(preloader, contentEl);
+      }, MOBILE_SETTLE_MS + 24);
+    });
   }
 
   function settleToHome(preloader, contentEl) {
