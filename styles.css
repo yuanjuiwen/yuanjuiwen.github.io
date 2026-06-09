@@ -21,6 +21,8 @@
   --home-hero-line-height: 1.6;
   --home-hero-letter-spacing: 0.03em;
   --home-hero-intro-gap: 0.75rem;
+  --home-hero-title-color: #000000;
+  --home-hero-intro-color: #000000;
 }
 
 html:lang(zh-Hant) {
@@ -390,10 +392,19 @@ body.page-about .experience-header h3 {
   font-size: 1.12rem;
 }
 
-body.page-about .about-intro-text,
+body.page-about .about-intro-text {
+  font-size: 1.18rem;
+  line-height: 1.75;
+}
+
 body.page-about .experience-description,
 body.page-about .experience-role,
-body.page-about .experience-period,
+body.page-about .experience-period {
+  font-size: 1rem;
+  font-weight: var(--font-body-weight);
+  line-height: 1.5;
+}
+
 body.page-about .photo-carousel-caption {
   font-size: 1rem;
 }
@@ -409,11 +420,11 @@ body.page-about main .experience-header h3 {
   color: #171717;
 }
 
-body.page-about main .about-intro-text,
-body.page-about main .experience-description {
+body.page-about main .about-intro-text {
   color: #525252;
 }
 
+body.page-about main .experience-description,
 body.page-about main .experience-role,
 body.page-about main .experience-period {
   color: #a3a3a3;
@@ -480,7 +491,6 @@ body.page-about .site-footer__social-link:hover {
   font-weight: 300;
   line-height: 1.6;
   letter-spacing: 0.03em;
-  color: #000000;
   white-space: normal;
   width: 100%;
   max-width: 100%;
@@ -490,6 +500,12 @@ body.page-about .site-footer__social-link:hover {
 .preloader__title,
 #home-hero .home-title {
   margin: 0;
+  color: var(--home-hero-title-color);
+}
+
+.preloader__intro,
+#home-hero .home-intro {
+  color: var(--home-hero-intro-color);
 }
 
 .preloader__intro,
@@ -561,6 +577,11 @@ body.home-hero-landing .home-scroll-hint {
   color: #a3a3a3;
   cursor: pointer;
   animation: home-scroll-hint-bounce 2s ease-in-out infinite;
+}
+
+body.home-hero-landing .home-scroll-hint svg {
+  width: 30px;
+  height: 30px;
 }
 
 body.home-hero-landing.home-has-scrolled .home-scroll-hint {
@@ -5068,11 +5089,6 @@ html.dark-mode .preloader {
   background: #000000;
 }
 
-html.dark-mode .preloader__title,
-html.dark-mode .preloader__intro {
-  color: #f0f0f0;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .preloader,
   .preloader.is-settling,
@@ -5150,6 +5166,8 @@ html.dark-mode .preloader__intro {
 /* ----- Dark theme (opt-in via html.dark-mode + localStorage site_theme) ----- */
 html.dark-mode {
   color-scheme: dark;
+  --home-hero-title-color: #f0f0f0;
+  --home-hero-intro-color: #d4d4d4;
 }
 
 html.dark-mode body {
@@ -5193,13 +5211,11 @@ html.dark-mode .theme-toggle:hover {
   color: #ffffff;
 }
 
-html.dark-mode .home-title,
 html.dark-mode .home-currently,
 html.dark-mode .section-heading {
   color: #f0f0f0;
 }
 
-html.dark-mode .home-intro,
 html.dark-mode .home-currently {
   color: #d4d4d4;
 }
@@ -5300,11 +5316,11 @@ html.dark-mode body.page-about main .sponsored-tag {
   color: #f0f0f0;
 }
 
-html.dark-mode body.page-about main .about-intro-text,
-html.dark-mode body.page-about main .experience-description {
+html.dark-mode body.page-about main .about-intro-text {
   color: #d4d4d4;
 }
 
+html.dark-mode body.page-about main .experience-description,
 html.dark-mode body.page-about main .experience-role,
 html.dark-mode body.page-about main .experience-period {
   color: #a3a3a3;
