@@ -49,12 +49,6 @@
       </div>
     </nav>
 
-    <aside class="eyezen-toc" aria-label="Section navigation">
-      <nav class="eyezen-toc__nav">
-        <a class="eyezen-toc__link" href="#lifebuoy-context-heading">context</a>
-      </nav>
-    </aside>
-
     <main class="project-page project-page--wide">
       <div class="project-page-media project-page-media--gray-panel project-page-media--no-border project-page-media--no-bg">
         <div
@@ -108,99 +102,13 @@
         </div>
       </section>
 
-      <section class="project-context" lang="en" aria-labelledby="lifebuoy-context-heading">
-        <p class="project-context__label">context</p>
-        <h2 id="lifebuoy-context-heading" class="project-page-lead__title project-context__title">
-          When Standard Rescue Gear Meets Panic and Moving Water
-        </h2>
-        <p class="project-context__body">
-          Conventional ring-style lifebuoys often assume calm conditions and deliberate, two-handed placement. In open
-          water, waves and fear can make it hard to align the body with a small opening—delaying support when seconds
-          matter. This project asks how entry could follow a more instinctive, low-effort motion while keeping the
-          swimmer stable once they are in.
-        </p>
+      <section class="project-case-study-soon" lang="en" aria-label="Case study status">
+        <p class="project-case-study-soon__text">Case Study Coming Soon</p>
       </section>
     </main>
 
     <script src="i18n.js" defer></script>
     <script src="page-transitions.js" defer></script>
-    <script>
-      (function () {
-        (function initProjectToc() {
-          var toc = document.querySelector(".eyezen-toc");
-          var links = Array.prototype.slice.call(document.querySelectorAll(".eyezen-toc__link"));
-          if (!toc || links.length === 0) return;
-
-          var sections = links
-            .map(function (link) {
-              var id = (link.getAttribute("href") || "").replace("#", "");
-              if (!id) return null;
-              var heading = document.getElementById(id);
-              var section = heading ? heading.closest("section") : null;
-              if (!section) return null;
-              return { link: link, section: section, id: id };
-            })
-            .filter(Boolean);
-
-          if (sections.length === 0) return;
-
-          var contextSection = document.querySelector(".project-context");
-          function alignTocToContextLeft() {
-            if (!contextSection) return;
-            var rect = contextSection.getBoundingClientRect();
-            var gap = 20;
-            var tocWidth = toc.offsetWidth || 190;
-            var targetLeft = Math.round(rect.left - tocWidth - gap);
-            toc.style.left = Math.max(12, targetLeft) + "px";
-          }
-
-          function updateTocVisibility() {
-            if (!contextSection) return;
-            var thresholdY = contextSection.offsetTop - 120;
-            toc.classList.toggle("is-visible", window.scrollY >= thresholdY);
-          }
-
-          function setActive(id) {
-            sections.forEach(function (item) {
-              item.link.classList.toggle("is-active", item.id === id);
-            });
-          }
-
-          function updateActiveByScroll() {
-            var probeY = window.scrollY + Math.max(120, window.innerHeight * 0.3);
-            var current = sections[0];
-            sections.forEach(function (item) {
-              if (item.section.offsetTop <= probeY) current = item;
-            });
-            if (current) setActive(current.id);
-          }
-
-          alignTocToContextLeft();
-          updateTocVisibility();
-          updateActiveByScroll();
-
-          var rafId = null;
-          window.addEventListener(
-            "scroll",
-            function () {
-              if (rafId != null) cancelAnimationFrame(rafId);
-              rafId = requestAnimationFrame(function () {
-                rafId = null;
-                updateTocVisibility();
-                updateActiveByScroll();
-              });
-            },
-            { passive: true }
-          );
-
-          window.addEventListener("resize", function () {
-            alignTocToContextLeft();
-            updateTocVisibility();
-            updateActiveByScroll();
-          });
-        })();
-      })();
-    </script>
   </body>
 </html>
 

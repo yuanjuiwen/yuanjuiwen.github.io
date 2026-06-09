@@ -378,16 +378,16 @@ main {
 body.page-about main {
   padding-top: 2.8rem;
   max-width: 600px;
-  font-size: 0.95rem;
+  font-size: 1.08rem;
 }
 
 body.page-about .section-heading,
 body.page-about .experience-section h2 {
-  font-size: 1.05rem;
+  font-size: 1.28rem;
 }
 
 body.page-about .experience-header h3 {
-  font-size: 0.95rem;
+  font-size: 1.12rem;
 }
 
 body.page-about .about-intro-text,
@@ -395,7 +395,7 @@ body.page-about .experience-description,
 body.page-about .experience-role,
 body.page-about .experience-period,
 body.page-about .photo-carousel-caption {
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 /* About: neutral grays (no blue/cool cast) for secondary text and carousel chrome */
@@ -420,7 +420,7 @@ body.page-about main .experience-period {
 }
 
 body.page-about main .sponsored-tag {
-  color: #737373;
+  color: #171717;
 }
 
 body.page-about main .photo-carousel-btn {
@@ -449,6 +449,7 @@ body.page-about main .photo-carousel-viewport {
 }
 
 body.page-about .site-footer {
+  font-size: 1rem;
   color: #737373;
 }
 
@@ -667,8 +668,25 @@ body.home-hero-settling .home-scroll-hint {
 .experience-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.experience-header__main {
+  min-width: 0;
+}
+
+.experience-header__aside {
+  min-width: 0;
+  text-align: right;
+}
+
+.experience-header__main .experience-period {
+  margin: 0.25rem 0 0;
+}
+
+.experience-header__aside .experience-role {
+  margin: 0;
 }
 
 .experience-header h3 {
@@ -679,7 +697,7 @@ body.home-hero-settling .home-scroll-hint {
 
 .sponsored-tag {
   color: #6f6f6f;
-  font-weight: var(--font-body-weight);
+  font-weight: var(--font-weight-title);
 }
 
 .experience-period {
@@ -716,6 +734,10 @@ body.home-hero-settling .home-scroll-hint {
   color: #525252;
   line-height: 1.7;
   font-size: 0.98rem;
+}
+
+.about-intro-text + .about-intro-text {
+  margin-top: 1rem;
 }
 
 .photo-carousel-section {
@@ -905,6 +927,10 @@ body.home-hero-settling .home-scroll-hint {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.35rem;
+  }
+
+  .experience-header__aside {
+    text-align: left;
   }
 
   .photo-carousel-prev {
@@ -4447,22 +4473,39 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
   }
 }
 
-/* Eyezen / Lifebuoy: keep blocks centered (toc + content as a group), without moving the hero media row */
+/* Eyezen: keep blocks centered (toc + content as a group), without moving the hero media row */
 .page-eyezen-main .project-context,
 .page-eyezen-main .project-research,
 .page-eyezen-main .project-design-challenge,
-.page-eyezen-main .project-solution,
-.page-lifebuoy .project-context {
+.page-eyezen-main .project-solution {
   margin-left: auto;
   margin-right: auto;
+}
+
+.page-lifebuoy .project-case-study-soon {
+  margin: 4rem auto 6rem;
+  max-width: var(--eyezen-main-width, 52rem);
+  text-align: center;
+}
+
+.page-lifebuoy .project-case-study-soon__text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  font-weight: var(--font-weight-title);
+  letter-spacing: 0.04em;
+  color: rgba(0, 0, 0, 0.42);
+}
+
+html.dark-mode .page-lifebuoy .project-case-study-soon__text {
+  color: rgba(255, 255, 255, 0.45);
 }
 
 @media (min-width: 1201px) {
   .page-eyezen-main .project-context,
   .page-eyezen-main .project-research,
   .page-eyezen-main .project-design-challenge,
-  .page-eyezen-main .project-solution,
-  .page-lifebuoy .project-context {
+  .page-eyezen-main .project-solution {
     transform: translateX(var(--eyezen-group-shift));
   }
 }
@@ -5252,7 +5295,8 @@ html.dark-mode body.page-about main {
 
 html.dark-mode body.page-about main .section-heading,
 html.dark-mode body.page-about main .experience-section h2,
-html.dark-mode body.page-about main .experience-header h3 {
+html.dark-mode body.page-about main .experience-header h3,
+html.dark-mode body.page-about main .sponsored-tag {
   color: #f0f0f0;
 }
 
