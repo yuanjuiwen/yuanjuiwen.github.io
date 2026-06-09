@@ -21,6 +21,8 @@
   "home": {
     "intro": "I design with curiosity and empathy, shaping well-crafted experiences that feel human and intentional while bridging technology and everyday life.",
     "currently": "Currently@National Cheng Kung University studying Industrial design",
+    "uiuxHeading": "UI/UX",
+    "industrialDesignHeading": "Industrial Design",
     "playHeading": "Play",
     "scrollHint": "Scroll down to see more"
   },
@@ -49,7 +51,7 @@
       "tocReflection": "reflection",
       "coverAria": "Colendar project cover",
       "coverImgAlt": "Colendar project cover",
-      "subtitle": "Add your subtitle or context line here.",
+      "subtitle": "Task Planning App for College Students",
       "summaryHeading": "SUMMARY",
       "summaryBody": "Colendar is a task-planning tool designed for college students, aimed at increasing their chances of achieving academic goals. Through an engaging, low-friction planning experience and peer accountability features, it helps users stay on track with the goals they set at the beginning of the semester while gradually building stronger time management habits",
       "keyAchievementsHeading": "KEY ACHIEVEMENTS",
@@ -146,7 +148,10 @@
       "hiFiPrototypeBody": "We launched Colendar on TestFlight and invited students to use it in their daily routines. Through continuous feedback and testing, we refined key features, improved usability, and iterated the product before launch.",
       "reflectionLabel": "Reflection",
       "reflectionTitle": "Reflection",
-      "reflectionBody": ""
+      "reflection1Title": "Defining the Right Problem",
+      "reflection1Body": "The journey from 0 to 1 is fundamentally a process of deconstructing problems and rebuilding understanding. Through Colendar, I learned that a significant part of product design lies in defining the problem itself. When the problem space is clearly scoped, many design decisions naturally become clearer. Conversely, vague problem statements often lead to ineffective solutions. Throughout the project, I also realized that even a slight change in wording can reshape how a team interprets user needs, ultimately steering the product in a completely different direction.",
+      "reflection2Title": "AI Expanded the Designer’s Capability",
+      "reflection2Body": "AI significantly reduced the time required for research synthesis, prototyping, and front-end development, while also changing how designers participate in product development. With AI-assisted development, I was able to transform ideas into testable prototypes much more quickly and collaborate with engineers around tangible product experiences rather than abstract concepts. As the boundary between design and development continues to blur, the ability to learn and adapt to new tools is becoming an increasingly important part of a designer’s skill set."
     }
   }
 }

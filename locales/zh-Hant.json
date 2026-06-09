@@ -21,6 +21,8 @@
   "home": {
     "intro": "我以好奇心與同理心設計，打造細緻且富有人味與意圖的體驗，連結科技與日常生活。",
     "currently": "目前就讀國立成功大學工業設計學系。",
+    "uiuxHeading": "UI/UX",
+    "industrialDesignHeading": "工業設計",
     "playHeading": "探索",
     "scrollHint": "向下滑動查看更多"
   },
@@ -49,7 +51,7 @@
       "tocReflection": "Reflection",
       "coverAria": "Colendar 專案封面",
       "coverImgAlt": "Colendar 專案封面",
-      "subtitle": "在此加入副標題或一句話說明。",
+      "subtitle": "Task Planning App for College Students",
       "summaryHeading": "摘要",
       "summaryBody": "Colendar 是為大學生設計的任務規劃工具，目標是提升達成學業目標的機率。透過有趣、低負擔的規劃體驗與同儕督促功能，協助使用者在開學初設下的目標上維持進度，並逐步建立更好的時間管理習慣。",
       "keyAchievementsHeading": "關鍵成果",
@@ -146,7 +148,10 @@
       "hiFiPrototypeBody": "我們在 TestFlight 上線 Colendar，並邀請學生在日常作息中實際使用。透過持續的回饋與測試，我們優化核心功能、改善可用性，並在正式上線前反覆迭代產品。",
       "reflectionLabel": "Reflection",
       "reflectionTitle": "Reflection",
-      "reflectionBody": ""
+      "reflection1Title": "定義對的問題",
+      "reflection1Body": "從 0 到 1 的過程，本質上是不斷拆解問題、重建理解的過程。透過 Colendar，我學到產品設計中很大一塊工作其實在於定義問題本身。當問題範圍被清楚界定時，許多設計決策會自然變得清晰；反之，模糊的問題陳述往往導致無效的解法。在專案過程中，我也意識到，即使只是措辭上的微小改變，也可能重塑團隊對使用者需求的理解，最終將產品帶向完全不同的方向。",
+      "reflection2Title": "AI 拓展了設計師的能力邊界",
+      "reflection2Body": "AI 大幅縮短了研究整理、原型製作與前端開發所需的時間，也改變了設計師參與產品開發的方式。在 AI 輔助開發下，我能更快將想法轉化為可測試的原型，並與工程師圍繞具體的產品體驗協作，而非停留在抽象概念。隨著設計與開發的界線持續模糊，學習與適應新工具的能力，正成為設計師越來越重要的技能。"
     }
   }
 }

@@ -98,7 +98,7 @@
   }
 
   var AWAIT_REVEAL_SELECTOR =
-    ".home-currently, .project-card, .playground-section .section-heading, .section-divider, .site-footer";
+    ".home-currently, .project-card, .projects-section .section-heading, .playground-section .section-heading, .section-divider, .site-footer";
   var NAV_AWAIT_REVEAL_SELECTOR = ".navbar-tools, .brand";
 
   function revealAllContent() {
@@ -131,30 +131,65 @@
     finalizeIntroReveal(el);
   }
 
-  function revealContentWithFade() {
+  function revealHeroCurrently() {
     var currently = document.querySelector(".home-currently");
-    var cards = document.querySelectorAll(".project-card");
-    var rest = document.querySelectorAll(
-      ".playground-section .section-heading, .section-divider, .site-footer"
-    );
-    var baseDelay = CURRENTLY_REVEAL_MS;
-
     window.setTimeout(function () {
       revealElementWithFade(currently);
       dispatchHomeIntroComplete();
-    }, baseDelay);
+    }, CURRENTLY_REVEAL_MS);
+  }
 
-    cards.forEach(function (card, index) {
-      window.setTimeout(function () {
-        revealElementWithFade(card);
-      }, baseDelay + 100 + index * CONTENT_STAGGER_MS);
-    });
+  function initScrollReveal() {
+    var targets = document.querySelectorAll(
+      ".projects-section .section-heading, .project-card, .playground-section .section-heading, .site-footer"
+    );
 
-    var restBase = baseDelay + 100 + cards.length * CONTENT_STAGGER_MS;
-    rest.forEach(function (el, index) {
-      window.setTimeout(function () {
-        revealElementWithFade(el);
-      }, restBase + index * CONTENT_STAGGER_MS);
+    if (!targets.length) return;
+
+    if (!window.IntersectionObserver || prefersReducedMotion()) {
+      targets.forEach(function (el) {
+        el.classList.remove("intro-await-reveal");
+        el.classList.add("intro-reveal-visible");
+      });
+      return;
+    }
+
+    var pendingReveals = [];
+    var revealScheduled = false;
+    var staggerIndex = 0;
+
+    function flushReveals() {
+      revealScheduled = false;
+      var batch = pendingReveals.splice(0);
+      batch.forEach(function (el) {
+        var delay = staggerIndex * (isMobileViewport() ? 55 : 65);
+        staggerIndex += 1;
+        window.setTimeout(function () {
+          revealElementWithFade(el);
+        }, delay);
+      });
+    }
+
+    function scheduleReveal(el) {
+      pendingReveals.push(el);
+      if (revealScheduled) return;
+      revealScheduled = true;
+      window.requestAnimationFrame(flushReveals);
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          scheduleReveal(entry.target);
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }
+    );
+
+    targets.forEach(function (el) {
+      observer.observe(el);
     });
   }
 
@@ -176,6 +211,7 @@
     }
 
     window.requestAnimationFrame(syncHeroLayoutToCards);
+    enableHeroLanding();
     dispatchHomeIntroComplete();
   }
 
@@ -311,9 +347,8 @@
     el.style.opacity = "";
   }
 
-  function beginMobileIntroLayout() {
-    if (!isMobileViewport()) return;
-    document.body.classList.add("home-mobile-landing", "home-mobile-settling");
+  function beginHeroIntroLayout() {
+    document.body.classList.add("home-hero-landing", "home-hero-settling");
   }
 
   function removePreloader(preloader, contentEl) {
@@ -324,17 +359,16 @@
     }
   }
 
-  var mobileScrollHintBound = false;
+  var scrollHintBound = false;
 
-  function enableMobileLanding() {
-    if (!isMobileViewport()) return;
-    document.body.classList.add("home-mobile-landing");
-    initMobileScrollHint();
+  function enableHeroLanding() {
+    document.body.classList.add("home-hero-landing");
+    initScrollHint();
   }
 
-  function initMobileScrollHint() {
-    if (mobileScrollHintBound) return;
-    mobileScrollHintBound = true;
+  function initScrollHint() {
+    if (scrollHintBound) return;
+    scrollHintBound = true;
 
     var hint = document.querySelector(".home-scroll-hint");
 
@@ -358,10 +392,9 @@
     }
   }
 
-  function updateMobileLandingState() {
-    if (!isMobileViewport()) {
-      document.body.classList.remove("home-mobile-landing", "home-has-scrolled", "home-mobile-settling");
-    }
+  function updateHeroLandingState() {
+    if (!isMobileViewport()) return;
+    document.body.classList.remove("home-has-scrolled");
   }
 
   function completeSettle(preloader, contentEl) {
@@ -370,22 +403,17 @@
       preloader.classList.remove("is-handoff");
     }
     removePreloader(preloader, contentEl);
-    document.body.classList.remove("is-preloader-settling", "is-preloading", "home-mobile-settling");
+    document.body.classList.remove("is-preloader-settling", "is-preloading", "home-hero-settling");
     document.body.classList.add("is-preloader-reveal");
 
-    if (isMobileViewport()) {
-      scheduleProgressiveReveal();
-      window.requestAnimationFrame(function () {
-        revealContentWithFade();
-      });
-    } else {
-      revealContentWithFade();
-    }
+    scheduleProgressiveReveal();
+    revealHeroCurrently();
+    initScrollReveal();
 
-    enableMobileLanding();
+    enableHeroLanding();
   }
 
-  function settleToHomeMobile(preloader, contentEl) {
+  function settleToHomeFade(preloader, contentEl) {
     var homeHero = document.getElementById("home-hero");
 
     if (!homeHero) {
@@ -393,11 +421,13 @@
       return;
     }
 
-    beginMobileIntroLayout();
+    beginHeroIntroLayout();
 
     document.body.classList.remove("is-preloading");
     document.body.classList.add("is-preloader-settling");
     preloader.classList.add("is-settling", "is-handoff");
+
+    scheduleProgressiveReveal();
 
     window.requestAnimationFrame(function () {
       var rect = homeHero.getBoundingClientRect();
@@ -423,34 +453,7 @@
   }
 
   function settleToHome(preloader, contentEl) {
-    if (isMobileViewport()) {
-      settleToHomeMobile(preloader, contentEl);
-      return;
-    }
-
-    var homeHero = document.getElementById("home-hero");
-
-    if (!homeHero) {
-      finishImmediately(preloader);
-      return;
-    }
-
-    document.body.classList.remove("is-preloading");
-    document.body.classList.add("is-preloader-settling");
-    preloader.classList.add("is-settling");
-
-    scheduleProgressiveReveal();
-
-    window.requestAnimationFrame(function () {
-      syncHeroLayoutToCards();
-      constrainPreloaderContent(contentEl);
-
-      window.requestAnimationFrame(function () {
-        animateContentToHero(contentEl, homeHero, SETTLE_MS, function () {
-          completeSettle(preloader, contentEl);
-        });
-      });
-    });
+    settleToHomeFade(preloader, contentEl);
   }
 
   var onPreloaderResize = null;
@@ -468,7 +471,7 @@
       if (layoutTimer) window.clearTimeout(layoutTimer);
       layoutTimer = window.setTimeout(function () {
         syncHeroLayoutToCards();
-        updateMobileLandingState();
+        updateHeroLandingState();
       }, 120);
     };
     window.addEventListener("resize", onHeroLayoutResize);
@@ -503,7 +506,7 @@
       return;
     }
 
-    beginMobileIntroLayout();
+    beginHeroIntroLayout();
     markAwaitReveal();
     resetScrollPosition(true);
     window.requestAnimationFrame(function () {

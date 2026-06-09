@@ -506,6 +506,122 @@ body.page-about .site-footer__social-link:hover {
   display: none;
 }
 
+/* Homepage hero — full viewport landing (all breakpoints) */
+body.home-hero-landing main {
+  padding-top: 0;
+}
+
+body.home-hero-landing .home-landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  min-height: calc(100svh - 72px - env(safe-area-inset-top, 0px));
+  width: 100%;
+  max-width: none;
+  padding: 0 max(1rem, env(safe-area-inset-right)) 3.75rem max(1rem, env(safe-area-inset-left));
+  box-sizing: border-box;
+}
+
+body.home-hero-landing .home-hero {
+  max-width: min(40rem, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.home-hero-landing .home-hero-line,
+body.home-hero-landing #home-hero .home-title,
+body.home-hero-landing #home-hero .home-intro {
+  font-size: clamp(1.2rem, 2.6vw, 1.72rem);
+  text-align: center;
+}
+
+body.home-hero-landing .home-landing > .home-currently {
+  margin-top: 1.5rem;
+  font-size: clamp(0.98rem, 1.6vw, 1.12rem);
+  text-align: center;
+  max-width: min(40rem, 100%);
+}
+
+body.home-hero-landing .home-scroll-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  margin-top: 0;
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  color: #a3a3a3;
+  cursor: pointer;
+  animation: home-scroll-hint-bounce 2s ease-in-out infinite;
+}
+
+body.home-hero-landing.home-has-scrolled .home-scroll-hint {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  animation: none;
+  transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+}
+
+body.home-hero-landing.is-preloading .preloader,
+body.home-hero-landing.is-preloader-settling .preloader {
+  align-items: center;
+  justify-content: center;
+  padding: 0 max(1rem, env(safe-area-inset-right)) 3.75rem max(1rem, env(safe-area-inset-left));
+}
+
+body.home-hero-landing.is-preloading .preloader__content,
+body.home-hero-landing.is-preloader-settling .preloader__content {
+  width: 100%;
+  max-width: min(40rem, 100%);
+  text-align: center;
+}
+
+body.home-hero-landing.is-preloading .preloader__title,
+body.home-hero-landing.is-preloading .preloader__intro,
+body.home-hero-landing.is-preloader-settling .preloader__title,
+body.home-hero-landing.is-preloader-settling .preloader__intro {
+  text-align: center;
+  font-size: clamp(1.2rem, 2.6vw, 1.72rem);
+}
+
+body.home-hero-landing.is-preloading .navbar,
+body.home-hero-landing.is-preloading main,
+body.home-hero-landing.is-preloading .site-footer {
+  transform: none;
+}
+
+body.home-hero-landing.is-preloader-settling main {
+  transition: opacity 0.36s ease;
+}
+
+body.home-hero-landing.is-preloader-settling .navbar {
+  opacity: 0;
+  transform: none;
+  pointer-events: none;
+}
+
+body.home-hero-landing.is-preloading #home-hero,
+body.home-hero-landing.is-preloader-settling #home-hero {
+  visibility: hidden;
+}
+
+body.home-hero-landing.is-preloader-reveal #home-hero {
+  visibility: visible;
+}
+
+body.home-hero-settling .home-landing > .home-currently,
+body.home-hero-settling .home-scroll-hint {
+  display: none;
+}
+
 .home-currently {
   margin-left: 0;
   font-family: var(--font-body);
@@ -878,7 +994,27 @@ body.page-about .site-footer__social-link:hover {
 
 /* Projects cards (home page) */
 .projects-section {
-  margin-top: 2rem;
+  margin-top: 4rem;
+}
+
+.projects-category + .projects-category {
+  margin-top: 5.5rem;
+}
+
+.projects-section .projects-category__heading,
+.playground-section .section-heading {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: clamp(1.7rem, 3.5vw, 2.1rem);
+  font-weight: var(--font-weight-title);
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+
+.projects-section .projects-category .projects-grid {
+  margin-top: 2.5rem;
 }
 
 .section-divider {
@@ -895,27 +1031,12 @@ body.page-about .site-footer__social-link:hover {
 .playground-section {
   scroll-margin-top: calc(92px + env(safe-area-inset-top, 0px));
   position: relative;
-  padding-top: 1.6rem;
+  padding-top: 3.25rem;
+  margin-top: 2rem;
 }
 
-.playground-section::before {
-  content: "";
-  position: absolute;
-  top: 2.5rem;
-  left: 1.05rem;
-  right: 0;
-  border-top: 1px solid #d0d0d0;
-  pointer-events: none;
-}
-
-.playground-section .section-heading {
-  margin-top: 2.6rem;
-  margin-left: 1.05rem;
-  text-align: left;
-  font-family: var(--font-body);
-  font-style: normal;
-  font-size: 1.5em;
-  color: #000000;
+.playground-section .projects-grid {
+  margin-top: 2.5rem;
 }
 
 .projects-grid {
@@ -3440,12 +3561,12 @@ html:lang(zh-Hant) body.page-colendar {
 }
 
 .page-colendar #colendar-lead-heading {
-  font-family: var(--font-body);
-  font-weight: var(--font-body-weight);
-  letter-spacing: -0.01em;
+  font-size: var(--colendar-section-title-size);
+  font-weight: var(--font-weight-title);
+  letter-spacing: var(--colendar-title-letter-spacing);
   color: #000000;
-  font-size: clamp(1.24rem, 3.4vw, 1.75rem);
-  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  white-space: normal;
 }
 
 /* Section blocks — label, title, body (context → end + intro summary) */
@@ -3459,7 +3580,8 @@ html:lang(zh-Hant) body.page-colendar {
 .page-colendar .project-context__title,
 .page-colendar .project-solution__title,
 .page-colendar .project-context--colendar-summary .project-context__title,
-.page-colendar .project-context--colendar-key-achievements .project-context__title {
+.page-colendar .project-context--colendar-key-achievements .project-context__title,
+.page-colendar .colendar-reflection__item-title {
   font-size: var(--colendar-section-title-size);
   letter-spacing: var(--colendar-title-letter-spacing);
   margin-top: 0;
@@ -3487,6 +3609,10 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
   font-size: var(--colendar-section-body-size);
   letter-spacing: var(--colendar-body-letter-spacing);
   line-height: 1.75;
+}
+
+.page-colendar .project-page-desc {
+  color: #20b8ff;
 }
 
 .page-colendar .project-page-facts__inline {
@@ -3756,6 +3882,16 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 .page-colendar .project-context--colendar-hifi-prototype .project-context__body:empty,
 .page-colendar .project-context--colendar-reflection .project-context__body:empty {
   display: none;
+}
+
+.page-colendar .colendar-reflection__items {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.page-colendar .colendar-reflection__item .project-context__body {
+  margin: 0;
 }
 
 .page-colendar .project-context--colendar-wireframe .project-context__title:not(:empty),
@@ -4787,10 +4923,15 @@ body.is-preloader-reveal main {
   transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
-.project-card.intro-await-reveal,
-.project-card.intro-reveal-visible {
-  transform: none;
-  transition: opacity 0.38s ease;
+.project-card.intro-await-reveal {
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.projects-section .section-heading.intro-await-reveal,
+.playground-section .section-heading.intro-await-reveal {
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
 .intro-reveal-visible {
@@ -4819,56 +4960,14 @@ body.is-preloader-reveal main {
     padding-right: max(1rem, env(safe-area-inset-right));
   }
 
-  body.home-mobile-landing.is-preloading .preloader,
-  body.home-mobile-landing.is-preloader-settling .preloader {
-    align-items: center;
-    justify-content: center;
-    padding: 0 max(1rem, env(safe-area-inset-right)) 3.75rem max(1rem, env(safe-area-inset-left));
-  }
-
-  body.home-mobile-landing.is-preloading .preloader__content,
-  body.home-mobile-landing.is-preloader-settling .preloader__content {
-    width: 100%;
-    max-width: 100%;
-    text-align: center;
-  }
-
-  body.home-mobile-landing.is-preloading .preloader__title,
-  body.home-mobile-landing.is-preloading .preloader__intro,
-  body.home-mobile-landing.is-preloader-settling .preloader__title,
-  body.home-mobile-landing.is-preloader-settling .preloader__intro {
-    text-align: center;
+  body.home-hero-landing.is-preloading .preloader__title,
+  body.home-hero-landing.is-preloading .preloader__intro,
+  body.home-hero-landing.is-preloader-settling .preloader__title,
+  body.home-hero-landing.is-preloader-settling .preloader__intro,
+  body.home-hero-landing .home-hero-line,
+  body.home-hero-landing #home-hero .home-title,
+  body.home-hero-landing #home-hero .home-intro {
     font-size: clamp(1.18rem, 5.2vw, 1.52rem);
-  }
-
-  body.home-mobile-landing.is-preloading .navbar,
-  body.home-mobile-landing.is-preloading main,
-  body.home-mobile-landing.is-preloading .site-footer {
-    transform: none;
-  }
-
-  body.home-mobile-landing.is-preloader-settling main {
-    transition: opacity 0.36s ease;
-  }
-
-  body.home-mobile-landing.is-preloader-settling .navbar {
-    opacity: 0;
-    transform: none;
-    pointer-events: none;
-  }
-
-  body.home-mobile-landing.is-preloading #home-hero,
-  body.home-mobile-landing.is-preloader-settling #home-hero {
-    visibility: hidden;
-  }
-
-  body.home-mobile-landing.is-preloader-reveal #home-hero {
-    visibility: visible;
-  }
-
-  body.home-mobile-settling .home-landing > .home-currently,
-  body.home-mobile-settling .home-scroll-hint {
-    display: none;
   }
 
   #home .home-hero,
@@ -4904,62 +5003,6 @@ body.is-preloader-reveal main {
   .home-currently {
     max-width: 100%;
     overflow-wrap: anywhere;
-  }
-
-  body.home-mobile-landing main {
-    padding-top: 0;
-  }
-
-  body.home-mobile-landing .home-landing {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    min-height: calc(100svh - 72px - env(safe-area-inset-top, 0px));
-    padding: 0 max(1rem, env(safe-area-inset-right)) 3.75rem max(1rem, env(safe-area-inset-left));
-    box-sizing: border-box;
-  }
-
-  body.home-mobile-landing .home-hero,
-  body.home-mobile-landing .home-hero-line,
-  body.home-mobile-landing #home-hero .home-title,
-  body.home-mobile-landing #home-hero .home-intro {
-    font-size: clamp(1.18rem, 5.2vw, 1.52rem);
-    text-align: center;
-  }
-
-  body.home-mobile-landing .home-landing > .home-currently {
-    margin-top: 1.5rem;
-    font-size: clamp(0.98rem, 3.8vw, 1.12rem);
-    text-align: center;
-    flex: 0 0 auto;
-  }
-
-  body.home-mobile-landing .home-scroll-hint {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 50%;
-    bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
-    transform: translateX(-50%);
-    margin-top: 0;
-    padding: 0.5rem;
-    border: none;
-    background: transparent;
-    color: #a3a3a3;
-    cursor: pointer;
-    animation: home-scroll-hint-bounce 2s ease-in-out infinite;
-  }
-
-  body.home-mobile-landing.home-has-scrolled .home-scroll-hint {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    animation: none;
-    transition: opacity 0.35s ease, visibility 0s linear 0.35s;
   }
 
   .project-image {
@@ -5014,7 +5057,7 @@ html.dark-mode .preloader__intro {
     overflow: auto;
   }
 
-  body.home-mobile-landing .home-scroll-hint {
+  body.home-hero-landing .home-scroll-hint {
     animation: none;
   }
 }
@@ -5118,7 +5161,7 @@ html.dark-mode .home-currently {
   color: #d4d4d4;
 }
 
-html.dark-mode body.home-mobile-landing .home-scroll-hint {
+html.dark-mode body.home-hero-landing .home-scroll-hint {
   color: #737373;
 }
 
@@ -5189,6 +5232,10 @@ html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-research-compa
 html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-page-desc {
   color: #e8e8e8;
   font-weight: 300;
+}
+
+html.dark-mode .page-colendar .project-page-desc {
+  color: #5ccfff;
 }
 
 html.dark-mode .project-page-facts,
