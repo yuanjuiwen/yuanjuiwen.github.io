@@ -298,11 +298,20 @@
   }
 })();
 
-/** Home (#work / #play): keep project-card preview videos looping (recover from tab sleep / scroll pause). */
+/** Deferred videos: load/play only when scrolled into view (home cards + project demos). */
 (function () {
-  function tryPlay(el) {
-    if (!el || el.tagName !== "VIDEO") return;
-    el.play().catch(function () {});
+  function ensureVideoSrc(video) {
+    var deferred = video.getAttribute("data-src");
+    if (!deferred || video.getAttribute("src")) return;
+    video.src = deferred;
+    video.removeAttribute("data-src");
+    video.load();
+  }
+
+  function tryPlay(video) {
+    if (!video || video.tagName !== "VIDEO") return;
+    ensureVideoSrc(video);
+    video.play().catch(function () {});
   }
 
   function isVideoInView(video) {
@@ -310,10 +319,8 @@
     return rect.bottom > 0 && rect.top < window.innerHeight;
   }
 
-  function initHomeProjectCardVideos() {
-    var home = document.getElementById("home");
-    if (!home) return;
-    var videos = home.querySelectorAll(".project-card video");
+  function initLazyVideos() {
+    var videos = document.querySelectorAll("video[data-src]:not(.colendar-next-block__video)");
     if (!videos.length) return;
 
     var io = new IntersectionObserver(
@@ -332,10 +339,12 @@
 
     for (var j = 0; j < videos.length; j++) {
       var v = videos[j];
-      v.muted = true;
-      v.loop = true;
-      v.setAttribute("playsinline", "");
-      v.preload = "metadata";
+      if (v.autoplay) {
+        v.muted = true;
+        v.loop = true;
+        v.setAttribute("playsinline", "");
+      }
+      v.preload = "none";
       io.observe(v);
     }
 
@@ -354,21 +363,21 @@
     });
   }
 
-  function scheduleHomeProjectCardVideos() {
+  function scheduleLazyVideos() {
     if (
       document.body.classList.contains("is-preloading") ||
       document.body.classList.contains("is-preloader-settling")
     ) {
-      document.addEventListener("home-intro-complete", scheduleHomeProjectCardVideos, { once: true });
+      document.addEventListener("home-intro-complete", scheduleLazyVideos, { once: true });
       return;
     }
-    initHomeProjectCardVideos();
+    initLazyVideos();
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", scheduleHomeProjectCardVideos);
+    document.addEventListener("DOMContentLoaded", scheduleLazyVideos);
   } else {
-    scheduleHomeProjectCardVideos();
+    scheduleLazyVideos();
   }
 })();
 

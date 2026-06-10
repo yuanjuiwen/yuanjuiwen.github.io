@@ -66,17 +66,18 @@
               />
             </picture>
             <div class="laptop-mockup__screen">
-              <video src="assets/eyezen_app.mov" autoplay muted loop playsinline></video>
+              <video src="assets/eyezen-app.mp4" autoplay muted loop playsinline preload="metadata"></video>
             </div>
           </div>
         </div>
         <div class="project-page-media project-page-media--gray-panel project-page-media--demo-gif">
           <video
-            src="assets/eyezen_demo.mov"
+            src="assets/eyezen-demo.mp4"
             autoplay
             muted
             loop
             playsinline
+            preload="metadata"
             aria-label="EYEZEN demo"
           ></video>
         </div>
@@ -244,7 +245,8 @@
           </div>
           <video
             class="project-blur-panel__demo"
-            src="assets/app_demo_real.mov"
+            data-src="assets/app-demo-real.mp4"
+            preload="none"
             autoplay
             muted
             loop
