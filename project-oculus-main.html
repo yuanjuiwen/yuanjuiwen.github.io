@@ -32,19 +32,6 @@
             >
           </li>
         </ul>
-        <div
-          class="lang-switcher navbar-lang"
-          role="group"
-          data-i18n-attrs="aria-label:nav.switcherAria"
-          aria-label="Language switcher"
-        >
-          <button type="button" class="lang-toggle" data-lang-switch="en" aria-pressed="false">EN</button>
-          <button type="button" class="lang-toggle" data-lang-switch="zh-Hant" aria-pressed="false">中</button>
-        </div>
-        <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" data-i18n-attrs="aria-label:nav.themeToggleAria" aria-label="Toggle light or dark theme">
-          <svg class="theme-toggle__icon theme-toggle__moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-          <svg class="theme-toggle__icon theme-toggle__sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        </button>
         </div>
       </div>
     </nav>
@@ -60,9 +47,6 @@
         <a class="oculus-toc__link" href="#oculus-pds-heading">product development strategy</a>
         <a class="oculus-toc__link" href="#oculus-goal-heading">our goal</a>
         <a class="oculus-toc__link" href="#oculus-design-experiment-heading">design &amp; experiment</a>
-        <a class="oculus-toc__link" href="#oculus-crm-heading">causal relationship map</a>
-        <a class="oculus-toc__link" href="#oculus-baffle-exp1-heading">Baffle | Experiment 1</a>
-        <a class="oculus-toc__link" href="#oculus-design-heading">design</a>
         <a class="oculus-toc__link" href="#oculus-gallery-design-heading">Gallery</a>
       </nav>
     </aside>
@@ -92,7 +76,9 @@
           Oculus | Personal Blender
         </h2>
         <p class="project-page-desc">
-          This is an industry-sponsored project with EUPA, focused on improving the efficiency of personal blenders in quickly processing ingredients into a smooth texture for the best drinking experience.
+          <span class="oculus-lead-intro"
+            >This is an industry-sponsored project with EUPA, focused on improving the efficiency of personal blenders in quickly processing ingredients into a smooth texture for the best drinking experience.</span
+          >
           <br /><br />
           <em class="oculus-quote">&quot;We adopted the Lean Product Development process to deliver high-quality outcomes with minimal cost.&quot;</em>
         </p>
@@ -1365,6 +1351,23 @@ outperforming comparable products on the market.
 
           function updateActiveByScroll() {
             var probeY = window.scrollY + Math.max(120, window.innerHeight * 0.3);
+            var designExperimentHeading = document.getElementById("oculus-design-experiment-heading");
+            var galleryHeading = document.getElementById("oculus-gallery-design-heading");
+            var designExperimentSection = designExperimentHeading
+              ? designExperimentHeading.closest("section")
+              : null;
+            var gallerySection = galleryHeading ? galleryHeading.closest("section") : null;
+
+            if (
+              designExperimentSection &&
+              gallerySection &&
+              probeY >= designExperimentSection.offsetTop &&
+              probeY < gallerySection.offsetTop
+            ) {
+              setActive("oculus-design-experiment-heading");
+              return;
+            }
+
             var current = sections[0];
             sections.forEach(function (item) {
               if (item.section.offsetTop <= probeY) current = item;

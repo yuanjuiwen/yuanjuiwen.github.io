@@ -3148,7 +3148,7 @@ html:lang(zh-Hant) body.page-eyezen-main:not(.page-colendar) {
 .page-eyezen-main:not(.page-colendar) .project-research-compare__text,
 .page-eyezen-main:not(.page-colendar) .project-page-desc {
   font-family: var(--font-body);
-  font-size: 1.08rem;
+  font-size: 1.18rem;
   font-weight: 300;
   line-height: 1.7;
   color: #000000;
@@ -3156,8 +3156,8 @@ html:lang(zh-Hant) body.page-eyezen-main:not(.page-colendar) {
 
 /* EYEZEN — label / title / body spacing aligned with Colendar */
 .page-eyezen-main:not(.page-colendar) .project-page {
-  --eyezen-section-label-size: 1.08rem;
-  --eyezen-section-title-size: clamp(1.08rem, 2.35vw, 1.38rem);
+  --eyezen-section-label-size: 1.18rem;
+  --eyezen-section-title-size: clamp(1.18rem, 2.5vw, 1.52rem);
 }
 
 .page-eyezen-main:not(.page-colendar) .project-page-lead {
@@ -3213,6 +3213,78 @@ html:lang(zh-Hant) .page-eyezen-main:not(.page-colendar) .project-solution__titl
 
 html.dark-mode .page-eyezen-main #eyezen-design-challenge-heading {
   color: #4ade80;
+}
+
+/* Oculus, EYEZEN, Lifebuoy — enlarged project page typography */
+.page-oculus-main .project-page-lead__title,
+.page-eyezen-main:not(.page-colendar) .project-page-lead__title,
+.page-lifebuoy .project-page-lead__title {
+  font-size: clamp(1.12rem, 2.35vw, 1.42rem);
+}
+
+.page-oculus-main .project-page-facts,
+.page-oculus-main .project-page-facts__date,
+.page-eyezen-main:not(.page-colendar) .project-page-facts,
+.page-eyezen-main:not(.page-colendar) .project-page-facts__date {
+  font-size: 1.1rem;
+}
+
+.page-oculus-main .project-page :is(
+  .project-context__label,
+  .project-research__label,
+  .project-design-challenge__label,
+  .project-jtbd-survey__label,
+  .project-ipa-analysis__label,
+  .project-product-strategy__label,
+  .project-our-goal__label,
+  .project-design-experiment__label,
+  .project-causal-relationship-map__label,
+  .project-baffle-exp1__label,
+  .project-process__label,
+  .project-result__label,
+  .project-result-2__label,
+  .project-result-3__label,
+  .project-blade-base-exp2__label,
+  .project-process-2__label,
+  .project-cup-shape-exp3-1__label,
+  .project-process-3__label,
+  .project-cup-shape-exp3-2__label,
+  .project-design-conclusion__label,
+  .project-design__label,
+  .project-solution__label
+) {
+  font-size: 1.12rem;
+}
+
+.page-oculus-main .project-page :is(
+  .project-context__body,
+  .project-research__body,
+  .project-design-challenge__body,
+  .project-jtbd-survey__body,
+  .project-ipa-analysis__body,
+  .project-product-strategy__body,
+  .project-our-goal__body,
+  .project-design-experiment__body,
+  .project-causal-relationship-map__body,
+  .project-baffle-exp1__body,
+  .project-process__body,
+  .project-result__body,
+  .project-result-2__body,
+  .project-result-3__body,
+  .project-blade-base-exp2__body,
+  .project-process-2__body,
+  .project-cup-shape-exp3-1__body,
+  .project-process-3__body,
+  .project-cup-shape-exp3-2__body,
+  .project-design-conclusion__body,
+  .project-design__body,
+  .project-solution__body
+) {
+  font-size: 1.15rem;
+}
+
+.page-lifebuoy .project-page-desc {
+  font-size: 1.18rem;
 }
 
 .page-tjoy .project-context--tjoy-summary {
@@ -3435,7 +3507,7 @@ html:lang(zh-Hant) body.page-colendar {
   font-size: var(--colendar-section-body-size);
   font-weight: var(--font-body-weight);
   line-height: 1.75;
-  color: #737373;
+  color: #000000;
 }
 
 .page-colendar .project-page > .project-page-media:first-of-type {
@@ -4443,7 +4515,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
   pointer-events: auto;
   display: block;
   padding: 0.28rem 0.55rem;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   line-height: 1.3;
   color: #a3a3a3;
   text-decoration: none;
@@ -4503,22 +4575,22 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
   margin-right: auto;
 }
 
-.page-lifebuoy .project-case-study-soon {
+.project-case-study-soon {
   margin: 4rem auto 6rem;
   max-width: var(--eyezen-main-width, 52rem);
   text-align: center;
 }
 
-.page-lifebuoy .project-case-study-soon__text {
+.project-case-study-soon__text {
   margin: 0;
   font-family: var(--font-body);
-  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  font-size: clamp(1.18rem, 2.2vw, 1.35rem);
   font-weight: var(--font-weight-title);
   letter-spacing: 0.04em;
   color: rgba(0, 0, 0, 0.42);
 }
 
-html.dark-mode .page-lifebuoy .project-case-study-soon__text {
+html.dark-mode .project-case-study-soon__text {
   color: rgba(255, 255, 255, 0.45);
 }
 
@@ -4565,7 +4637,7 @@ html.dark-mode .page-lifebuoy .project-case-study-soon__text {
   pointer-events: auto;
   display: block;
   padding: 0.28rem 0.55rem;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   line-height: 1.3;
   color: #a3a3a3;
   text-decoration: none;
@@ -4609,16 +4681,6 @@ html.dark-mode .page-lifebuoy .project-case-study-soon__text {
 }
 .page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(10) {
   transition-delay: 0.58s;
-}
-.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(11) {
-  transition-delay: 0.64s;
-}
-.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(12) {
-  transition-delay: 0.7s;
-}
-
-.page-oculus-main .oculus-toc.is-visible .oculus-toc__link:nth-child(13) {
-  transition-delay: 0.77s;
 }
 
 .page-oculus-main .oculus-toc__link:hover {
@@ -4809,7 +4871,18 @@ html.dark-mode .page-lifebuoy .project-case-study-soon__text {
   margin-top: 2rem;
 }
 
-/* Oculus: make the quoted lead sentence stand out */
+/* Oculus: sponsored project intro + quoted lead */
+.page-oculus-main .oculus-lead-intro {
+  display: block;
+  font-size: 1.22rem;
+  line-height: 1.75;
+  color: #f97316;
+}
+
+html.dark-mode .page-oculus-main .oculus-lead-intro {
+  color: #fb923c;
+}
+
 .oculus-quote {
   color: #171717;
 }
