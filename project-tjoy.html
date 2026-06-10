@@ -39,7 +39,17 @@
     <main class="project-page project-page--wide">
       <div class="project-page-media project-page-media--gray-panel project-page-media--no-border project-page-media--no-bg">
         <div class="project-image-slot project-image-slot--feature project-image-slot--filled" role="img" aria-label="TJOY project cover">
-          <img class="project-image-slot__img" src="assets/Tcard__1.png" alt="TJOY project cover" />
+          <picture>
+            <source srcset="assets/Tcard__1.webp" type="image/webp" />
+            <img
+              class="project-image-slot__img"
+              src="assets/Tcard__1.png"
+              alt="TJOY project cover"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
         </div>
       </div>
       <section class="project-page-lead" aria-labelledby="tjoy-lead-heading">

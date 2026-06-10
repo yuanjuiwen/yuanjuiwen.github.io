@@ -43,14 +43,18 @@
           role="img"
           aria-label="Lifebuoy project cover"
         >
-          <img
-            class="project-image-slot__img"
-            src="assets/lifebuoy.png"
-            alt="Lifebuoy project cover"
-            loading="lazy"
-            decoding="async"
-            draggable="false"
-          />
+          <picture>
+            <source srcset="assets/lifebuoy.webp" type="image/webp" />
+            <img
+              class="project-image-slot__img"
+              src="assets/lifebuoy.png"
+              alt="Lifebuoy project cover"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              draggable="false"
+            />
+          </picture>
         </div>
       </div>
 

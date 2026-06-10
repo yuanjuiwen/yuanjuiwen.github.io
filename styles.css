@@ -1428,6 +1428,14 @@ body:has(.navbar) .project-page {
   background: transparent;
 }
 
+.project-image-slot picture,
+.project-image picture,
+.photo-carousel-slide picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .project-image-slot__img {
   width: 100%;
   height: 100%;

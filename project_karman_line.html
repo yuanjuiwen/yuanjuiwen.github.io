@@ -45,13 +45,17 @@
           role="img"
           aria-label="EYEZEN Play preview"
         >
-          <img
-            class="project-image-slot__img"
-            src="assets/karman_1.JPG"
-            alt="EYEZEN Play preview"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            <source srcset="assets/karman_1.webp" type="image/webp" />
+            <img
+              class="project-image-slot__img"
+              src="assets/karman_1.JPG"
+              alt="EYEZEN Play preview"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
         </div>
       </div>
 
@@ -90,7 +94,7 @@
       <figure class="project-karman-line__figure">
         <img
           class="project-karman-line__img"
-          src="assets/karmin_2.png"
+          src="assets/karmin_2.jpg"
           alt="Karman Line — spacecraft render"
           loading="lazy"
           decoding="async"
@@ -109,7 +113,7 @@
       <figure class="project-karman-line__figure">
         <img
           class="project-karman-line__img"
-          src="assets/karman_3.png"
+          src="assets/karman_3.jpg"
           alt="Karman Line concept — interior, exterior, and environment views"
           loading="lazy"
           decoding="async"

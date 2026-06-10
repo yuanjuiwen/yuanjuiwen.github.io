@@ -61,13 +61,17 @@
           role="img"
           aria-label="OCULUS portfolio preview"
         >
-          <img
-            class="project-image-slot__img"
-            src="assets/oculus_portfolio_main.png"
-            alt="OCULUS portfolio preview"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            <source srcset="assets/oculus_portfolio_main.webp" type="image/webp" />
+            <img
+              class="project-image-slot__img"
+              src="assets/oculus_portfolio_main.jpg"
+              alt="OCULUS portfolio preview"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
         </div>
       </div>
 
@@ -823,11 +827,11 @@ speed to decrease.
           <div class="photo-carousel-viewport" tabindex="0">
             <ul class="photo-carousel-track">
               <li class="photo-carousel-slide">
-                <img src="assets/baffle_1.png" alt="Gallery photo 1" loading="lazy" draggable="false" />
+                <img src="assets/baffle_1.jpg" alt="Gallery photo 1" loading="lazy" draggable="false" />
                 <p class="photo-carousel-caption">That is me!!!</p>
               </li>
               <li class="photo-carousel-slide">
-                <img src="assets/A3_1.png" alt="Gallery photo 2" loading="lazy" draggable="false" />
+                <img src="assets/A3_1.jpg" alt="Gallery photo 2" loading="lazy" draggable="false" />
                 <p class="photo-carousel-caption">在這裡填寫第三張照片說明。</p>
               </li>
               <li class="photo-carousel-slide">
@@ -902,7 +906,7 @@ ingredients pass through.
                 <p class="photo-carousel-caption">Before and our design.</p>
               </li>
               <li class="photo-carousel-slide">
-                <img src="assets/gallery_2_1.png" alt="Blade base gallery photo 2" loading="lazy" draggable="false" />
+                <img src="assets/gallery_2_1.jpg" alt="Blade base gallery photo 2" loading="lazy" draggable="false" />
                 <p class="photo-carousel-caption">在這裡填寫第二張照片說明。</p>
               </li>
             </ul>
@@ -1106,15 +1110,15 @@ enhancing fluid circulation and improving blending efficiency.
           <div class="photo-carousel-viewport" tabindex="0">
             <ul class="photo-carousel-track">
               <li class="photo-carousel-slide">
-                <img src="assets/Ex3_24.png" alt="Cup exp3-2 gallery photo 1" loading="lazy" draggable="false" />
+                <img src="assets/Ex3_24.jpg" alt="Cup exp3-2 gallery photo 1" loading="lazy" draggable="false" />
                 <p class="photo-carousel-caption">Before and our design.</p>
               </li>
               <li class="photo-carousel-slide">
-                <img src="assets/ex3_1.png" alt="Cup exp3-2 gallery photo 2" loading="lazy" draggable="false" />
+                <img src="assets/ex3_1.jpg" alt="Cup exp3-2 gallery photo 2" loading="lazy" draggable="false" />
                 <p class="photo-carousel-caption">Design refinement comparison.</p>
               </li>
               <li class="photo-carousel-slide">
-                <img src="assets/ex3_2.png" alt="Cup exp3-2 gallery photo 3" loading="lazy" draggable="false" />
+                <img src="assets/ex3_2.jpg" alt="Cup exp3-2 gallery photo 3" loading="lazy" draggable="false" />
                 <p class="photo-carousel-caption">Setup procedure and validation.</p>
               </li>
             </ul>
@@ -1178,7 +1182,7 @@ outperforming comparable products on the market.
         <figure class="project-design__figure">
           <img
             class="project-design__img"
-            src="assets/design_2.png"
+            src="assets/design_2.jpg"
             alt="Design showcase render"
             loading="lazy"
             draggable="false"
@@ -1187,7 +1191,7 @@ outperforming comparable products on the market.
         <figure class="project-design__figure">
           <img
             class="project-design__img"
-            src="assets/design_3.png"
+            src="assets/design_3.jpg"
             alt="Design detail close-up"
             loading="lazy"
             draggable="false"
@@ -1200,16 +1204,16 @@ outperforming comparable products on the market.
           <div class="photo-carousel-viewport" tabindex="0">
             <ul class="photo-carousel-track">
               <li class="photo-carousel-slide">
-                <img src="assets/last_1.png" alt="Gallery image 4" loading="lazy" draggable="false" />
+                <img src="assets/last_1.jpg" alt="Gallery image 4" loading="lazy" draggable="false" />
               </li>
               <li class="photo-carousel-slide">
-                <img src="assets/last_2.png" alt="Gallery image 5" loading="lazy" draggable="false" />
+                <img src="assets/last_2.jpg" alt="Gallery image 5" loading="lazy" draggable="false" />
               </li>
               <li class="photo-carousel-slide">
                 <img src="assets/last_3.png" alt="Gallery image 6" loading="lazy" draggable="false" />
               </li>
               <li class="photo-carousel-slide">
-                <img src="assets/last_4.png" alt="Gallery image 7" loading="lazy" draggable="false" />
+                <img src="assets/last_4.jpg" alt="Gallery image 7" loading="lazy" draggable="false" />
               </li>
             </ul>
           </div>

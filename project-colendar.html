@@ -86,12 +86,18 @@
           data-i18n-attrs="aria-label:projects.colendar.coverAria"
           aria-label="Colendar project cover"
         >
-          <img
-            class="project-image-slot__img"
-            src="assets/smartphone-mockup.png"
-            data-i18n-attrs="alt:projects.colendar.coverImgAlt"
-            alt="Colendar project cover"
-          />
+          <picture>
+            <source srcset="assets/smartphone-mockup.webp" type="image/webp" />
+            <img
+              class="project-image-slot__img"
+              src="assets/smartphone-mockup.jpg"
+              data-i18n-attrs="alt:projects.colendar.coverImgAlt"
+              alt="Colendar project cover"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
         </div>
       </div>
 
@@ -194,7 +200,7 @@
           />
           <img
             class="colendar-initial-research__img"
-            src="assets/Colendar_guotes.png"
+            src="assets/Colendar_guotes.jpg"
             data-i18n-attrs="alt:projects.colendar.researchImgAlt2"
             alt="Additional grouped notes from Colendar user research"
           />

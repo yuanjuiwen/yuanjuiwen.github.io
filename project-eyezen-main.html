@@ -52,14 +52,19 @@
         <div class="project-page-media project-page-media--gray-panel project-page-media--laptop-mockup">
           <span class="project-page-media__live-dot" aria-hidden="true"></span>
           <div class="laptop-mockup">
-            <img
-              class="laptop-mockup__img"
-              src="assets/Mockup_1.png"
-              alt=""
-              width="1024"
-              height="768"
-              decoding="async"
-            />
+            <picture>
+              <source srcset="assets/Mockup_1.webp" type="image/webp" />
+              <img
+                class="laptop-mockup__img"
+                src="assets/Mockup_1.png"
+                alt=""
+                width="1024"
+                height="768"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
             <div class="laptop-mockup__screen">
               <video src="assets/eyezen_app.mov" autoplay muted loop playsinline></video>
             </div>

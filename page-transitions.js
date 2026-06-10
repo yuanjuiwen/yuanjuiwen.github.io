@@ -137,9 +137,54 @@
     if (e.persisted) enter();
   }
 
+  var prefetchedAssets = new Set();
+  var HERO_PREFETCH = {
+    "project-colendar.html": ["assets/smartphone-mockup.webp"],
+    "project-oculus-main.html": ["assets/oculus_portfolio_main.webp"],
+    "project-lifebuoy.html": ["assets/lifebuoy.webp"],
+    "project-tjoy.html": ["assets/Tcard__1.webp"],
+    "project_karman_line.html": ["assets/karman_1.webp"],
+    "project-eyezen-main.html": ["assets/Mockup_1.webp"],
+    "about.html": ["assets/About_P1.webp"],
+  };
+
+  function prefetchImage(url) {
+    if (!url || prefetchedAssets.has(url)) return;
+    prefetchedAssets.add(url);
+    var link = document.createElement("link");
+    link.rel = "prefetch";
+    link.as = "image";
+    link.href = url;
+    document.head.appendChild(link);
+  }
+
+  function prefetchProjectHero(pathname) {
+    var file = pathname.split("/").pop() || "";
+    var assets = HERO_PREFETCH[file];
+    if (!assets) return;
+    for (var i = 0; i < assets.length; i++) {
+      prefetchImage(assets[i]);
+    }
+  }
+
+  function onLinkIntent(e) {
+    var a = e.target.closest("a[href]");
+    if (!a || a.target === "_blank" || a.hasAttribute("download")) return;
+    var url;
+    try {
+      url = new URL(a.href);
+    } catch (err) {
+      return;
+    }
+    if (url.origin !== window.location.origin) return;
+    prefetchProjectHero(url.pathname);
+  }
+
   function init() {
     enter();
     document.addEventListener("click", onDocClick);
+    document.addEventListener("mouseover", onLinkIntent);
+    document.addEventListener("focusin", onLinkIntent);
     window.addEventListener("popstate", onPopState);
     window.addEventListener("pagehide", resetOverlayBeforeBfcache);
     window.addEventListener("pageshow", onPageShow);
