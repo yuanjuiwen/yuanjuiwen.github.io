@@ -35,6 +35,15 @@
             >
           </li>
         </ul>
+        <div
+          class="lang-switcher navbar-lang"
+          role="group"
+          data-i18n-attrs="aria-label:nav.switcherAria"
+          aria-label="Language switcher"
+        >
+          <button type="button" class="lang-toggle" data-lang-switch="en" aria-pressed="false">EN</button>
+          <button type="button" class="lang-toggle" data-lang-switch="zh-Hant" aria-pressed="false">中</button>
+        </div>
         </div>
       </div>
     </nav>
@@ -109,7 +118,7 @@
       <section class="project-context project-context--colendar-summary" aria-labelledby="colendar-summary-heading">
         <h2 id="colendar-summary-heading" class="project-page-lead__title project-context__title" data-i18n="projects.colendar.summaryHeading">SUMMARY</h2>
         <p class="project-context__body" data-i18n="projects.colendar.summaryBody">
-          Colendar is a task-planning tool designed for college students, aimed at increasing their chances of achieving academic goals. Through an engaging, low-friction planning experience and peer accountability features, it helps users stay on track with the goals they set at the beginning of the semester while gradually building stronger time management habits
+          Colendar is a task-planning tool designed for college students. By keeping goals visible in daily life and combining timeline milestones with planning-assistance features, it helps students make steady progress toward their long-term goals.
         </p>
       </section>
 
@@ -503,7 +512,7 @@
           Transforming concepts into mid-fi wireframes
         </h2>
         <p class="project-context__body" data-i18n="projects.colendar.wireframeBody">
-          Based on our research and design strategy, we began designing Colendar’s core interfaces and used vibe coding to quickly turn concepts into interactive front-end prototypes. This enabled faster testing cycles and continuous refinement based on user feedback.
+          Based on our research and design strategy, we began designing Colendar’s core interfaces and used vibe coding to quickly turn concepts into interactive prototypes. This enabled faster testing cycles and continuous refinement based on user feedback.
         </p>
         <div class="colendar-wireframe__box">
           <img
@@ -714,6 +723,11 @@
           alignTocToTitleLeft();
           updateTocVisibility();
           updateActiveByScroll();
+        });
+
+        document.addEventListener("site-language-changed", function () {
+          alignTocToTitleLeft();
+          updateTocVisibility();
         });
       })();
 
