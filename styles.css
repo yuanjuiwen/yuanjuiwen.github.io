@@ -592,6 +592,25 @@ body.home-hero-landing.home-has-scrolled .home-scroll-hint {
   transition: opacity 0.35s ease, visibility 0s linear 0.35s;
 }
 
+@media (max-width: 700px) {
+  body.home-hero-landing.home-has-scrolled .home-landing {
+    min-height: auto;
+    justify-content: flex-start;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .navbar {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.97);
+  }
+
+  html.dark-mode .navbar {
+    background: rgba(0, 0, 0, 0.94);
+  }
+}
+
 body.home-hero-landing.is-preloading .preloader,
 body.home-hero-landing.is-preloader-settling .preloader {
   align-items: center;

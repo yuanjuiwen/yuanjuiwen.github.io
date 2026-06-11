@@ -133,10 +133,15 @@
 
   function revealHeroCurrently() {
     var currently = document.querySelector(".home-currently");
+    var delay = isMobileViewport() ? 0 : CURRENTLY_REVEAL_MS;
     window.setTimeout(function () {
-      revealElementWithFade(currently);
+      if (isMobileViewport()) {
+        if (currently) currently.classList.remove("intro-await-reveal", "intro-reveal-visible");
+      } else {
+        revealElementWithFade(currently);
+      }
       dispatchHomeIntroComplete();
-    }, CURRENTLY_REVEAL_MS);
+    }, delay);
   }
 
   function initScrollReveal() {
@@ -146,10 +151,9 @@
 
     if (!targets.length) return;
 
-    if (!window.IntersectionObserver || prefersReducedMotion()) {
+    if (!window.IntersectionObserver || prefersReducedMotion() || isMobileViewport()) {
       targets.forEach(function (el) {
-        el.classList.remove("intro-await-reveal");
-        el.classList.add("intro-reveal-visible");
+        el.classList.remove("intro-await-reveal", "intro-reveal-visible");
       });
       return;
     }
@@ -373,8 +377,10 @@
     var hint = document.querySelector(".home-scroll-hint");
 
     function onScroll() {
-      if (window.scrollY > 24) {
-        document.body.classList.add("home-has-scrolled");
+      if (window.scrollY <= 24) return;
+      document.body.classList.add("home-has-scrolled");
+      if (isMobileViewport()) {
+        window.removeEventListener("scroll", onScroll);
       }
     }
 

@@ -300,6 +300,14 @@
 
 /** Deferred videos: load/play only when scrolled into view (home cards + project demos). */
 (function () {
+  var MOBILE_MQ = "(max-width: 700px)";
+  var mobileLoadQueue = [];
+  var mobileLoadActive = false;
+
+  function isMobileViewport() {
+    return window.matchMedia(MOBILE_MQ).matches;
+  }
+
   function ensureVideoSrc(video) {
     var deferred = video.getAttribute("data-src");
     if (!deferred || video.getAttribute("src")) return;
@@ -314,6 +322,23 @@
     video.play().catch(function () {});
   }
 
+  function drainMobileVideoQueue() {
+    if (!mobileLoadQueue.length) {
+      mobileLoadActive = false;
+      return;
+    }
+    mobileLoadActive = true;
+    var video = mobileLoadQueue.shift();
+    tryPlay(video);
+    window.setTimeout(drainMobileVideoQueue, 180);
+  }
+
+  function queueMobileVideo(video) {
+    if (mobileLoadQueue.indexOf(video) !== -1) return;
+    mobileLoadQueue.push(video);
+    if (!mobileLoadActive) drainMobileVideoQueue();
+  }
+
   function isVideoInView(video) {
     var rect = video.getBoundingClientRect();
     return rect.bottom > 0 && rect.top < window.innerHeight;
@@ -322,19 +347,41 @@
   function initLazyVideos() {
     var videos = document.querySelectorAll("video[data-src]:not(.colendar-next-block__video)");
     if (!videos.length) return;
+    var mobile = isMobileViewport();
+    var pendingLoads = new WeakMap();
 
     var io = new IntersectionObserver(
       function (entries) {
         for (var i = 0; i < entries.length; i++) {
           var video = entries[i].target;
           if (entries[i].isIntersecting) {
-            tryPlay(video);
+            if (mobile) {
+              var timer = pendingLoads.get(video);
+              if (timer) window.clearTimeout(timer);
+              pendingLoads.set(
+                video,
+                window.setTimeout(function () {
+                  pendingLoads.delete(video);
+                  queueMobileVideo(video);
+                }, 220)
+              );
+            } else {
+              tryPlay(video);
+            }
           } else {
+            var cancelTimer = pendingLoads.get(video);
+            if (cancelTimer) {
+              window.clearTimeout(cancelTimer);
+              pendingLoads.delete(video);
+            }
             video.pause();
           }
         }
       },
-      { threshold: 0.2, rootMargin: "0px 0px" }
+      {
+        threshold: mobile ? 0.35 : 0.2,
+        rootMargin: mobile ? "0px 0px -4% 0px" : "0px 0px",
+      }
     );
 
     for (var j = 0; j < videos.length; j++) {
