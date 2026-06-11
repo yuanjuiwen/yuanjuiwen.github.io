@@ -3116,6 +3116,50 @@ body:has(.navbar) .project-page {
   }
 }
 
+.project-eyezen-photo {
+  max-width: 52rem;
+  width: 100%;
+  margin-top: 4.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.project-eyezen-photo__caption {
+  margin: 0 0 1.5rem;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 1.18rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #000000;
+}
+
+.project-eyezen-photo__panel {
+  width: 100%;
+  background: #f8f8f8;
+  border: 1px solid #e4e4e4;
+  border-radius: 18px;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  display: grid;
+  place-items: center;
+}
+
+.project-eyezen-photo__figure {
+  margin: 0;
+  width: min(100%, 28rem);
+}
+
+.project-eyezen-photo__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -3232,6 +3276,10 @@ html:lang(zh-Hant) .page-eyezen-main:not(.page-colendar) .project-solution__titl
 .page-eyezen-main:not(.page-colendar) .project-research + .project-design-challenge,
 .page-eyezen-main:not(.page-colendar) .project-design-challenge + .project-solution {
   margin-top: 5.6rem;
+}
+
+.page-eyezen-main:not(.page-colendar) .project-solution + .project-eyezen-photo {
+  margin-top: 4.5rem;
 }
 
 .page-eyezen-main #eyezen-design-challenge-heading {
@@ -4597,7 +4645,8 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 .page-eyezen-main .project-context,
 .page-eyezen-main .project-research,
 .page-eyezen-main .project-design-challenge,
-.page-eyezen-main .project-solution {
+.page-eyezen-main .project-solution,
+.page-eyezen-main .project-eyezen-photo {
   margin-left: auto;
   margin-right: auto;
 }
@@ -4625,7 +4674,8 @@ html.dark-mode .project-case-study-soon__text {
   .page-eyezen-main .project-context,
   .page-eyezen-main .project-research,
   .page-eyezen-main .project-design-challenge,
-  .page-eyezen-main .project-solution {
+  .page-eyezen-main .project-solution,
+  .page-eyezen-main .project-eyezen-photo {
     transform: translateX(var(--eyezen-group-shift));
   }
 }
@@ -5387,6 +5437,7 @@ html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-context__body,
 html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-research__body,
 html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-design-challenge__body,
 html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-solution__body,
+html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-eyezen-photo__caption,
 html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-research-compare__text,
 html.dark-mode body.page-eyezen-main:not(.page-colendar) .project-page-desc {
   color: #e8e8e8;
