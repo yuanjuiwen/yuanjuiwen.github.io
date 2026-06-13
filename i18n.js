@@ -1,10 +1,15 @@
 /* global window, document, fetch, localStorage */
 (function () {
-  var STORAGE_KEY = "site_lang";
+  var STORAGE_KEY = "colendar_lang";
+  var LEGACY_STORAGE_KEY = "site_lang";
   var DEFAULT_LANG = "en";
   var SUPPORTED = ["en", "zh-Hant"];
   var cache = {};
   var currentLang = DEFAULT_LANG;
+
+  function isColendarPage() {
+    return /project-colendar\.html/i.test(window.location.pathname || "");
+  }
 
   function isSupported(lang) {
     return SUPPORTED.indexOf(lang) !== -1;
@@ -18,14 +23,32 @@
   }
 
   function detectInitialLang() {
+    if (!isColendarPage()) return DEFAULT_LANG;
+
     var saved = null;
     try {
       saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) {
+        saved = localStorage.getItem(LEGACY_STORAGE_KEY);
+        if (saved && isSupported(saved)) {
+          localStorage.setItem(STORAGE_KEY, saved);
+          localStorage.removeItem(LEGACY_STORAGE_KEY);
+        }
+      }
     } catch (e) {
       saved = null;
     }
     if (saved && isSupported(saved)) return saved;
     return DEFAULT_LANG;
+  }
+
+  function persistLanguage(lang) {
+    if (!isColendarPage()) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, lang);
+    } catch (e) {
+      /* no-op */
+    }
   }
 
   function getByPath(obj, path) {
@@ -181,11 +204,7 @@
     var next = normalizeLang(lang);
     return Promise.all([fetchLocale(DEFAULT_LANG), fetchLocale(next)]).then(function () {
       currentLang = next;
-      try {
-        localStorage.setItem(STORAGE_KEY, currentLang);
-      } catch (e) {
-        /* no-op */
-      }
+      persistLanguage(currentLang);
       applyTranslations(document);
       return currentLang;
     });
