@@ -132,7 +132,7 @@
       "next3Body": "在降低規劃門檻的同時，系統也會根據使用者過往的學習習慣與進度安排，建立更合理且可持續的學習計畫。",
       "lowFiWireframeLabel": "Lo-fi Wireframing & Concept sketching",
       "lowFiWireframeTitle": "以低保真線框稿梳理核心流程",
-      "lowFiWireframeBody": "為了將研究洞察轉化為具體的產品體驗，我們首先釐清三個核心功能——Templates、Growth Journey 與 Study Groups——之間的關係。",
+      "lowFiWireframeBody": "為了將研究洞察轉化為具體的產品體驗，我們首先釐清三個核心功能 Templates、Growth Journey 與 Study Groups 之間的關係。",
       "lowFiWireframeSketchesBody": "我們根據功能流程圖繪製 Lo-Fi Wireframe，探索使用者如何從建立目標、看見累積，到透過社群支持維持目標關注度",
       "lowFiWireframeImgAlt": "Colendar 低保真線框稿",
       "wireframeLabel": "中保真線框稿",
