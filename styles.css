@@ -4370,7 +4370,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
 .page-colendar .colendar-design-goals-cards__item .colendar-key-insight-cards__foot .colendar-key-insight-cards__label {
   margin: 0;
   font-size: 1.08rem;
-  font-weight: var(--font-body-weight);
+  font-weight: var(--font-weight-emphasis);
   line-height: 1.4;
 }
 
@@ -4379,6 +4379,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
   min-height: 0;
   font-size: 0.98rem;
   line-height: 1.5;
+  font-weight: var(--font-weight-title);
 }
 
 .page-colendar
@@ -4397,7 +4398,7 @@ html:lang(zh-Hant) .page-colendar .project-solution__title {
   + .colendar-key-insight-cards__text {
   font-size: 1.12rem;
   line-height: 1.45;
-  font-weight: var(--font-weight-title);
+  font-weight: var(--font-weight-emphasis);
 }
 
 .page-colendar
