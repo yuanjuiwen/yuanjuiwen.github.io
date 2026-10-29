@@ -1,0 +1,39 @@
+/*
+ * Adjustments so the original carousel styles work on the shadcn Carousel (Embla).
+ * The original galleries scrolled natively; Embla moves an inner track instead,
+ * so the viewport must clip rather than scroll. Everything visual stays as before.
+ */
+.photo-carousel-viewport[data-slot="carousel-content"],
+.project-market-carousel__viewport[data-slot="carousel-content"] {
+  display: block;
+  overflow: hidden;
+  scroll-snap-type: none;
+}
+
+.photo-carousel-viewport[data-slot="carousel-content"] > div {
+  height: 100%;
+}
+
+/* The original used `gap: 1rem` on the scroller; Embla measures margins instead. */
+.photo-carousel-slide[data-slot="carousel-item"] {
+  margin-right: 1rem;
+}
+
+.colendar-hifi-prototype__viewport {
+  overflow: hidden;
+  padding-bottom: 0.35rem;
+}
+
+.colendar-hifi-prototype__slide[data-slot="carousel-item"] {
+  margin-right: 1.35rem;
+}
+
+.colendar-hifi-prototype__slide[data-slot="carousel-item"]:last-child {
+  margin-right: 0;
+}
+
+/* Keyboard focus for the new carousel arrows. */
+.photo-carousel-arrow:focus-visible {
+  outline: 2px solid #171717;
+  outline-offset: 2px;
+}
